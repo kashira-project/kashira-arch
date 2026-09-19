@@ -1,0 +1,29 @@
+version = 1
+
+[[annotations]]
+path = [
+    "PKGBUILD",
+    "README.md",
+    "keys/**",
+    ".SRCINFO",
+    ".nvchecker.toml",
+    "*.install",
+    "*.sysusers",
+    "*.tmpfiles",
+    "*.logrotate",
+    "*.pam",
+    "*.service",
+    "*.socket",
+    "*.timer",
+    "*.desktop",
+    "*.hook",
+]
+SPDX-FileCopyrightText = "Arch Linux contributors"
+SPDX-License-Identifier = "0BSD"
+
+[[annotations]]
+path = [
+    "765567_non-recursive_string_subst.patch",
+]
+SPDX-FileCopyrightText = "Copyright (C) 2004 Mark Johnson <mrj@debian.org>, Copyright (C) 2006-2011 Daniel Leidert <daniel.leidert@wgdd.de>"
+SPDX-License-Identifier = "GPL-2.0-or-later"

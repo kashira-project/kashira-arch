@@ -15,7 +15,7 @@ cryptsetup	fork-vanilla
 curl	fork-vanilla
 db5.3	fork-vanilla
 dbus-broker	fork-vanilla
-dbus	fork-vanilla
+dbus	fork-delta
 debugedit	fork-vanilla
 dejagnu	fork-vanilla
 diffutils	fork-vanilla
@@ -176,3 +176,6 @@ python-build	fork-vanilla
 python-installer	fork-vanilla
 man2html	fork-vanilla
 bluez	fork-vanilla
+libxslt	fork-vanilla
+docbook-xsl	fork-vanilla
+xmlto	fork-vanilla

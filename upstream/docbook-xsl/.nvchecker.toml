@@ -1,0 +1,5 @@
+[docbook-xsl]
+source = "git"
+git = "https://github.com/docbook/xslt10-stylesheets.git"
+include_regex = 'release.*'
+prefix = 'release/'

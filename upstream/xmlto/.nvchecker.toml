@@ -1,0 +1,3 @@
+[xmlto]
+source = "git"
+git = "https://pagure.io/xmlto.git"

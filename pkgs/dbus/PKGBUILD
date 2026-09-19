@@ -24,17 +24,13 @@ depends=(
 )
 makedepends=(
   docbook-xsl
-  doxygen
   git
   glib2
-  mallard-ducktype
   meson
   python
-  qt5-tools
   systemd
   xmlto
-  yelp-tools
-)
+)  # kashira: no doxygen/qt5-tools/mallard-ducktype/yelp-tools (API docs, qt viewer)
 source=(
   "git+https://gitlab.freedesktop.org/dbus/dbus.git?signed#tag=dbus-$pkgver"
   0001-Arch-Linux-tweaks.patch
