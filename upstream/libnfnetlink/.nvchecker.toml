@@ -1,0 +1,5 @@
+[libnfnetlink]
+source = 'git'
+git = 'git://git.netfilter.org/libnfnetlink'
+prefix = 'libnfnetlink-'
+include_regex = 'libnfnetlink-.*'

@@ -1,0 +1,24 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -15,13 +15,19 @@
+ checkdepends=('sharutils')
+ # Build from my mirror with original commit and historical tags
+ # unter upstream manages to do a proper release...
+-source=("fakeroot-archive::git+https://github.com/eworm-de/fakeroot.git#tag=upstream/${pkgver}-2026-01-17-8d7bc2eb")
+-sha256sums=('46f44681cc939dd3f127761717830c0bfa72e1568191d4df071ae297013591e3')
++source=("fakeroot-archive::git+https://github.com/eworm-de/fakeroot.git#tag=upstream/${pkgver}-2026-01-17-8d7bc2eb"
++        "fakeroot-no-latch-failure.patch")
++sha256sums=('46f44681cc939dd3f127761717830c0bfa72e1568191d4df071ae297013591e3'
++            '33c641ec51d02910bcb822d5923cf5adffd3e8ab53075309badcce9e0add0104')
+ 
+ prepare() {
+   ln -s fakeroot-archive fakeroot
+   cd "${pkgname}"
+ 
++  # kashira: do not latch IPC init failure (glibc malloc-selector reads
++  # config before __environ exists; see patch header). LOAD-BEARING.
++  patch -p1 < ../fakeroot-no-latch-failure.patch
++
+   autoreconf -fi
+ }
+ 

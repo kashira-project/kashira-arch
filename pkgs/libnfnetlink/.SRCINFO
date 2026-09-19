@@ -1,0 +1,15 @@
+pkgbase = libnfnetlink
+	pkgdesc = Low-level library for netfilter related kernel/userspace communication
+	pkgver = 1.0.2
+	pkgrel = 2
+	url = https://www.netfilter.org/projects/libnfnetlink/
+	arch = x86_64
+	license = GPL
+	depends = glibc
+	source = https://www.netfilter.org/projects/libnfnetlink/files/libnfnetlink-1.0.2.tar.bz2
+	source = https://www.netfilter.org/projects/libnfnetlink/files/libnfnetlink-1.0.2.tar.bz2.sig
+	validpgpkeys = 37D964ACC04981C75500FB9BD55D978A8A1420E4
+	sha256sums = b064c7c3d426efb4786e60a8e6859b82ee2f2c5e49ffeea640cfe4fe33cbc376
+	sha256sums = SKIP
+
+pkgname = libnfnetlink

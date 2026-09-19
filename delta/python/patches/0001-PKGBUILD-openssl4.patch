@@ -1,0 +1,27 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -20,10 +20,12 @@
+ makedepends=('tk' 'sqlite' 'bluez-libs' 'llvm' 'gdb' 'xorg-server-xvfb' 'ttf-font')
+ source=("https://www.python.org/ftp/python/${pkgver%rc*}/Python-${pkgver}.tar.xz"
+         EXTERNALLY-MANAGED
+-        python-posix-2024.patch::https://github.com/python/cpython/commit/927eb448aad6436d794ec9f55780013e25609600.patch)
++        python-posix-2024.patch::https://github.com/python/cpython/commit/927eb448aad6436d794ec9f55780013e25609600.patch
++        python-openssl4.patch)
+ sha512sums=('3d4e2e2f983b320dec47005c408d7178d3656a6de0c4430ce21514797174b972f461200898b25d3dfac2a455019ef87e45d0fb2bb6ec2ca887124d10037a2a07'
+             '62a6fbfbaeaa3ba7c54e109d9c3b7f67e73bb21986da4c1fcc5d28cca83d71e0fcae28e1fc70ee8ddce7dea8cd0b64e18d1031dae3a2eae5eaa379c53efd53a0'
+-            '4068d770c906757e7db1f16672f19d31bc75c73eec542c9eb9a7181ff486b898a97874f798bc655b0390cf4880096da1659b0012fad7bea587a1713c9ab8efc7')
++            '4068d770c906757e7db1f16672f19d31bc75c73eec542c9eb9a7181ff486b898a97874f798bc655b0390cf4880096da1659b0012fad7bea587a1713c9ab8efc7'
++            '587d991ed136c51723638dbbf1e1b8dae2312959b4a2d1126c66d8a3b8dd8c7ff74aaf6a7a8d59af99793f1583ba9db75c335e6ee7d589533f58198d8f52764a')
+ validpgpkeys=('0D96DF4D4110E5C43FBFB17F2D347EA6AA65421D'  # Ned Deily (Python release signing key) <nad@python.org>
+               'E3FF2839C048B25C084DEBE9B26995E310250568'  # Łukasz Langa (GPG langa.pl) <lukasz@langa.pl>
+               'A035C8C19219BA821ECEA86B64E628F8D684696D'  # Pablo Galindo Salgado <pablogsal@gmail.com>
+@@ -39,6 +41,9 @@
+ 
+   # Build Python with POSIX 2024 https://github.com/python/cpython/commit/927eb448aad6436d794ec9f55780013e25609600
+   patch -p1 < ../python-posix-2024.patch
++
++  # kashira: openssl 4.x compat
++  patch -p1 < ../python-openssl4.patch
+ }
+ 
+ build() {

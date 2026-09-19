@@ -1,0 +1,45 @@
+From: kashira
+Subject: fakeroot: do not latch IPC-channel init failure
+
+kashira's glibc (OpenMandriva pluggable-malloc patchset) reads its malloc
+config (/usr/share/glibc/malloc.d/*) very early during startup — early
+enough that __environ is not yet populated. With libfakeroot preloaded,
+those interposed stat/open calls reach init_get_msg()/get_ipc_key()
+before FAKEROOTKEY is readable; both functions then LATCHED the failure
+(static done=1 / key=0), permanently disabling the client<->faked
+channel for the process lifetime. Symptom: all daemon-dependent
+operations (the *xattr wrappers) return -1 with garbage errno, breaking
+e.g. meson's shutil.copystat-based install under makepkg (OSError with
+nonsense errno).
+
+--- a/communicate.c
++++ b/communicate.c
+@@ -984,7 +984,7 @@
+     else if((s=env_var_set(FAKEROOTKEY_ENV)))
+       key=atoi(s);
+     else
+-      key=0;
++      return 0;  /* env not readable yet (early startup) — retry later */
+   };
+   return key;
+ }
+@@ -996,10 +996,9 @@
+      the semaphores are setup, we should make sure we already have
+      the msg_get and msg_set id.
+      This is why semaphore_up() calls this function.*/
+-  static int done=0;
+   key_t key;
+ 
+-  if((!done)&&(msg_get==-1)){
++  if(msg_get==-1){
+     key=get_ipc_key(0);
+     if(key){
+       msg_snd=msgget(get_ipc_key(0),IPC_CREAT|00600);
+@@ -1009,7 +1008,6 @@
+       msg_get=-1;
+       msg_snd=-1;
+     }
+-    done=1;
+   }
+   return msg_snd;
+ }

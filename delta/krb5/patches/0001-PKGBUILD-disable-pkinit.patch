@@ -1,0 +1,10 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -84,6 +84,7 @@
+                --enable-dns-for-realm \
+                --with-ldap \
+                --with-lmdb \
++               --disable-pkinit \
+                --with-system-verto
+    make
+ }

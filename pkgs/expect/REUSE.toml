@@ -1,0 +1,32 @@
+version = 1
+
+[[annotations]]
+path = [
+    "PKGBUILD",
+    "README.md",
+    "keys/**",
+    ".SRCINFO",
+    ".nvchecker.toml",
+    "*.install",
+    "*.sysusers",
+    "*.tmpfiles",
+    "*.logrotate",
+    "*.pam",
+    "*.service",
+    "*.socket",
+    "*.timer",
+    "*.desktop",
+    "*.hook",
+]
+SPDX-FileCopyrightText = "Arch Linux contributors"
+SPDX-License-Identifier = "0BSD"
+
+[[annotations]]
+path = [
+    "expect-5.45.4-covscan-fixes.patch",
+    "expect-5.45-format-security.patch",
+    "expect-c99.patch",
+    "expect-configure-c99.patch",
+]
+SPDX-FileCopyrightText = "expect contributors"
+SPDX-License-Identifier = "TODO-Choose-a-license"

@@ -124,7 +124,7 @@ patch	fork-vanilla
 pciutils	fork-vanilla
 pcre2	fork-vanilla
 perl-error	fork-vanilla
-perl	fork-delta
+perl	fork-vanilla
 perl-mailtools	fork-vanilla
 perl-timedate	fork-vanilla
 pinentry	fork-vanilla

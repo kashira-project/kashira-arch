@@ -1,0 +1,17 @@
+pkgbase = expat
+	pkgdesc = An XML parser library
+	pkgver = 2.8.4
+	pkgrel = 1
+	url = https://libexpat.github.io/
+	arch = x86_64
+	license = MIT
+	makedepends = cmake
+	makedepends = git
+	depends = glibc
+	provides = libexpat.so
+	source = expat::git+https://github.com/libexpat/libexpat?signed#tag=R_2_8_4
+	validpgpkeys = 3176EF7DB2367F1FCA4F306B1F9B0E909AF37285
+	sha512sums = 222c414b58301294f3577b574251df0275ddf233590cc94e474323198eb720b02e419ed17ba4509c34e69ee3b2a915fc23add8b967dd48e2845c71ee737544e0
+	b2sums = ca96e51864d4088b9e3387f0aaeaa0c020f809daa52fd445c129ae1a66731648d5d6dff52298d7c0b0985af8998fb8e445e13e1e5b736423af8bb1834f8d77ee
+
+pkgname = expat

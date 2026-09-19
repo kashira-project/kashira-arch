@@ -1,0 +1,4 @@
+[expect]
+source = 'regex'
+url = 'https://sourceforge.net/projects/expect/best_release.json'
+regex = 'expect-?([\w.]+).tar.gz'

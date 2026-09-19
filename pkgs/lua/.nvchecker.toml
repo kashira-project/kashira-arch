@@ -1,0 +1,4 @@
+[lua]
+source = "regex"
+url = "https://www.lua.org/versions.html"
+regex = 'ftp/lua-(5\.5\.\d+)\.tar\.gz'
