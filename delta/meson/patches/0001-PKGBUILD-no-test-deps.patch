@@ -1,0 +1,14 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -17,11 +17,9 @@
+ )
+ makedepends=(
+   git
+-  python-aiohttp
+   python-build
+   python-installer
+   python-setuptools
+-  python-strictyaml
+   python-wheel
+ )
+ checkdepends=(

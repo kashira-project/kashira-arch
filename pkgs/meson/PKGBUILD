@@ -17,11 +17,9 @@ depends=(
 )
 makedepends=(
   git
-  python-aiohttp
   python-build
   python-installer
   python-setuptools
-  python-strictyaml
   python-wheel
 )
 checkdepends=(
