@@ -97,7 +97,7 @@ libunistring	fork-vanilla
 libusb	fork-vanilla
 libverto	fork-vanilla
 libxcrypt	fork-delta
-libxml2	fork-delta
+libxml2	fork-vanilla
 lmdb	fork-vanilla
 lua	fork-vanilla
 lvm2	fork-vanilla
@@ -229,3 +229,6 @@ python-six	fork-vanilla
 libiconv	fork-vanilla
 numactl	fork-vanilla
 liburing	fork-vanilla
+doxygen	fork-delta
+fmt	fork-vanilla
+spdlog	fork-vanilla
