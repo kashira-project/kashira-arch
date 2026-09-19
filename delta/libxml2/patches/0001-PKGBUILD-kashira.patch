@@ -8,3 +8,11 @@
    git
    meson
    python
+@@ -45,6 +44,7 @@
+ 
+ build() {
+   local meson_options=(
++    -D docs=disabled  # kashira: no doxygen
+     -D icu=enabled
+     -D legacy=enabled
+   )
