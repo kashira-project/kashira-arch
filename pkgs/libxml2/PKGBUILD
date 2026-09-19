@@ -44,7 +44,7 @@ prepare() {
 
 prepare() {
   # kashira: no doxygen in the tree; doc subdir hard-requires it
-  sed -i "/subdir('doc')/d" libxml2-*/meson.build
+  sed -i "/subdir('doc')/d" libxml2/meson.build
 }
 
 build() {
