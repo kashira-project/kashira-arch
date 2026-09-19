@@ -1,0 +1,34 @@
+# Arch pkgbases that must NEVER be vendored into kashira-arch.
+# These roles are owned by kashira-pkgs (the heart repo). If Arch
+# renames or introduces one of these, sync must refuse and a human
+# must resolve the collision.
+base
+base-devel
+filesystem
+archlinux-keyring
+pacman
+systemd
+gcc
+gcc-libs
+glibc
+binutils
+linux-api-headers
+llvm
+llvm-libs
+clang
+lld
+compiler-rt
+libunwind
+rust
+openssl
+zlib
+zlib-ng
+coreutils
+uutils-coreutils
+sudo
+sudo-rs
+wget
+wget2
+bc
+licenses
+libmakepkg-dropins

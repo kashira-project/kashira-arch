@@ -1,0 +1,17 @@
+# kashira historical name -> Arch pkgbase (for correlating with the old
+# monorepo / binary repo only; fork dirs use Arch pkgbase names verbatim)
+# kashira-name	arch-pkgbase
+mpc	libmpc
+isl	libisl
+flit-core	python-flit-core
+jinja2	python-jinja
+markupsafe	python-markupsafe
+packaging	python-packaging
+setuptools	python-setuptools
+wheel	python-wheel
+device-mapper	lvm2
+ca-certificates-mozilla	nss
+ca-certificates-utils	ca-certificates
+kashira-filesystem	filesystem	# heart, never vendored
+kashira-keyring	archlinux-keyring	# heart, never vendored
+gcc-runtime	gcc-libs	# heart-provided role
