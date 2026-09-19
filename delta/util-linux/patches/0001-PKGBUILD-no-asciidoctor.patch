@@ -1,0 +1,11 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -17,7 +17,7 @@
+ pkgdesc='Miscellaneous system utilities for Linux'
+ url='https://github.com/util-linux/util-linux'
+ arch=('x86_64')
+-makedepends=('asciidoctor'
++makedepends=( # kashira: no asciidoctor (ruby stack); meson auto-skips doc regen
+              'bash-completion'
+              'git'
+              'libcap-ng'

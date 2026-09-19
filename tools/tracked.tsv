@@ -9,7 +9,7 @@ boost	fork-vanilla
 brotli	fork-vanilla
 bzip2	fork-vanilla
 ca-certificates	fork-vanilla
-cmake	fork-vanilla
+cmake	fork-delta
 cpio	fork-vanilla
 cryptsetup	fork-vanilla
 curl	fork-vanilla
@@ -49,7 +49,7 @@ hwloc	fork-vanilla
 iana-etc	fork-delta
 icu	fork-vanilla
 inetutils	fork-vanilla
-iproute2	fork-vanilla
+iproute2	fork-delta
 iptables	fork-vanilla
 iputils	fork-vanilla
 jansson	fork-vanilla
@@ -153,8 +153,8 @@ tcl	fork-vanilla
 texinfo	fork-vanilla
 tpm2-tss	fork-vanilla
 tzdata	fork-vanilla
-util-linux	fork-vanilla
-vim	fork-vanilla
+util-linux	fork-delta
+vim	fork-delta
 which	fork-vanilla
 xxhash	fork-vanilla
 xz	fork-vanilla

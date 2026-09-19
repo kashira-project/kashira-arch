@@ -1,0 +1,121 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -10,7 +10,7 @@
+ # Contributor: Eli Schwartz <eschwartz@archlinux.org>
+ 
+ pkgbase=vim
+-pkgname=('vim' 'gvim' 'vim-runtime')
++pkgname=('vim' 'vim-runtime') # kashira: CLI-only, no gvim (no X stack)
+ pkgver=9.2.1046
+ _versiondir=92
+ pkgrel=1
+@@ -23,14 +23,10 @@
+   git
+   glibc
+   gpm
+-  gtk3
+-  libcanberra
+   libgcrypt
+-  libxt
+   lua
+   perl
+   python
+-  ruby
+   tcl
+   zlib
+ )
+@@ -51,7 +47,6 @@
+     sed -E 's|^.*(#define VIMRC_FILE.*").*$|\1|g' -i feature.h
+     autoconf
+   )
+-  cp -a vim gvim
+ }
+ 
+ build() {
+@@ -72,35 +67,13 @@
+       --enable-netbeans \
+       --enable-perlinterp=dynamic \
+       --enable-python3interp=dynamic \
+-      --enable-rubyinterp=dynamic \
++      --disable-rubyinterp \
+       --enable-luainterp=dynamic \
+       --enable-tclinterp=dynamic \
+       --disable-canberra
+     make
+   )
+ 
+-  msg2 "Building gvim..."
+-  (cd gvim
+-    ./configure \
+-      --prefix=/usr \
+-      --localstatedir=/var/lib/vim \
+-      --with-features=huge \
+-      --with-compiledby='Arch Linux' \
+-      --enable-gpm \
+-      --enable-acl \
+-      --with-x=yes \
+-      --enable-gui=gtk3 \
+-      --enable-multibyte \
+-      --enable-cscope \
+-      --enable-netbeans \
+-      --enable-perlinterp=dynamic \
+-      --enable-python3interp=dynamic \
+-      --enable-rubyinterp=dynamic \
+-      --enable-luainterp=dynamic \
+-      --enable-tclinterp=dynamic \
+-      --enable-canberra
+-    make
+-  )
+ }
+ 
+ check() {
+@@ -168,7 +141,7 @@
+   rm -r "${pkgdir}"/usr/share/vim
+ 
+   # remove gvim.desktop as not included
+-  rm "${pkgdir}"/usr/share/applications/gvim.desktop
++  rm -f "${pkgdir}"/usr/share/applications/gvim.desktop
+ 
+   # license
+   install -Dm 644 runtime/doc/uganda.txt \
+@@ -178,40 +151,5 @@
+   install -Dm 644 "${srcdir}"/vimdoc.hook "${pkgdir}"/usr/share/libalpm/hooks/vimdoc.hook
+ }
+ 
+-package_gvim() {
+-  pkgdesc+=' (with advanced features, such as a GUI)'
+-  depends=("vim-runtime=${pkgver}-${pkgrel}" 'gpm' 'libxt' 'gtk3' 'glibc' 'libgcrypt'
+-           'zlib' 'libcanberra')
+-  optdepends=('python: Python language support'
+-              'ruby: Ruby language support'
+-              'lua: Lua language support'
+-              'perl: Perl language support'
+-              'tcl: Tcl language support')
+-  provides=("vim=${pkgver}-${pkgrel}" "xxd" 'vim-plugin-runtime')
+-  conflicts=('vim-minimal' 'vim')
+-
+-  cd gvim
+-  make -j1 VIMRCLOC=/etc DESTDIR="${pkgdir}" install
+-
+-  # provided by (n)vi in core
+-  rm "${pkgdir}"/usr/bin/{ex,view}
+-
+-  # delete some manpages
+-  find "${pkgdir}"/usr/share/man -type d -name 'man1' 2>/dev/null | \
+-    while read _mandir; do
+-    cd "${_mandir}"
+-    rm -f ex.1 view.1 # provided by (n)vi
+-  done
+-
+-  # need to remove since this is provided by vim-runtime
+-  rm -r "${pkgdir}"/usr/share/vim
+-
+-  # license
+-   install -Dm 644 runtime/doc/uganda.txt \
+-    "${pkgdir}"/usr/share/licenses/${pkgname}/license.txt
+-
+-  # pacman hook for documentation helptags
+-  install -Dm 644 "${srcdir}"/vimdoc.hook "${pkgdir}"/usr/share/libalpm/hooks/vimdoc.hook
+-}
+ 
+ # vim: ts=2 sw=2 et:
