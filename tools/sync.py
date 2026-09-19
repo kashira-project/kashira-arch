@@ -43,6 +43,7 @@ def tracked():
 
 
 def run(cmd, **kw):
+    kw.setdefault("timeout", 120)  # GitLab rate-limits; never hang forever
     return subprocess.run(cmd, check=True, capture_output=True, text=True, **kw)
 
 

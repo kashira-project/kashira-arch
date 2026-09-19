@@ -226,3 +226,6 @@ python-strictyaml	fork-vanilla
 python-dateutil	fork-vanilla
 python-ruamel.yaml.clib	fork-vanilla
 python-six	fork-vanilla
+libiconv	fork-vanilla
+numactl	fork-vanilla
+liburing	fork-vanilla
