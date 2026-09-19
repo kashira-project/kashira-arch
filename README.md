@@ -32,5 +32,11 @@ tools/sync.py  status          # which upstreams moved
 - A delta that stops applying = sync conflict = human review. Deltas must
   never silently drop: fakeroot's no-latch patch is load-bearing for every
   makepkg run under our glibc malloc-selector patchset.
-- Upstream is truth for versions and features. kashira policy lives in
-  makepkg.conf and kashira-pkgs, not here.
+- Pinned-ahead: when kashira deliberately tracks a NEWER upstream than
+  Arch (openssl-style policy; today: perl, shadow, iana-etc), the delta is
+  a full-recipe overlay (`files/PKGBUILD` + companions) marked with a
+  `PINNED-AHEAD` note. `sync.py status` still tracks Arch; when Arch
+  reaches our version, drop the overlay.
+- Upstream is truth for versions and features, except pinned-ahead
+  packages. kashira policy lives in makepkg.conf and kashira-pkgs, not
+  here.

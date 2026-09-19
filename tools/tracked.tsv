@@ -46,7 +46,7 @@ guile	fork-vanilla
 gzip	fork-vanilla
 hwdata	fork-vanilla
 hwloc	fork-vanilla
-iana-etc	fork-vanilla
+iana-etc	fork-delta
 icu	fork-vanilla
 inetutils	fork-vanilla
 iproute2	fork-vanilla
@@ -124,7 +124,7 @@ patch	fork-vanilla
 pciutils	fork-vanilla
 pcre2	fork-vanilla
 perl-error	fork-vanilla
-perl	fork-vanilla
+perl	fork-delta
 perl-mailtools	fork-vanilla
 perl-timedate	fork-vanilla
 pinentry	fork-vanilla
@@ -143,7 +143,7 @@ python-setuptools	fork-vanilla
 python-wheel	fork-vanilla
 readline	fork-vanilla
 sed	fork-vanilla
-shadow	fork-vanilla
+shadow	fork-delta
 source-highlight	fork-vanilla
 sqlite	fork-vanilla
 swig	fork-vanilla

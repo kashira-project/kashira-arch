@@ -1,0 +1,1 @@
+kashira is AHEAD of Arch on this package by policy (like openssl). This overlay pins our recipe until Arch catches up; 'sync.py status' shows when. Then drop this delta.

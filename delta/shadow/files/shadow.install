@@ -1,0 +1,17 @@
+# kashira: shadow — first-boot account database setup
+# Runs once at install; deliberately not on upgrade so locally customized
+# /etc/default/useradd and account databases are never clobbered.
+
+post_install() {
+  # enable shadowed user and group passwords
+  pwconv
+  grpconv
+
+  # default new users to the shared users group (gid 999, provided by the
+  # filesystem package's /etc/group)
+  install -dm755 /etc/default
+  useradd -D --gid 999
+
+  # empty subordinate uid/gid databases, maintained by shadow's tools
+  touch /etc/subuid /etc/subgid
+}
