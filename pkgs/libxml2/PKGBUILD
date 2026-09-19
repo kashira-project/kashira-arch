@@ -42,9 +42,13 @@ prepare() {
   ln -s ../xmlconf
 }
 
+prepare() {
+  # kashira: no doxygen in the tree; doc subdir hard-requires it
+  sed -i "/subdir('doc')/d" libxml2-*/meson.build
+}
+
 build() {
   local meson_options=(
-    -D docs=disabled  # kashira: no doxygen
     -D icu=enabled
     -D legacy=enabled
   )
