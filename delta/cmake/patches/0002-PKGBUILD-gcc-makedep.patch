@@ -1,0 +1,12 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -22,7 +22,8 @@
+          ncurses
+          rhash
+          zlib)
+-makedepends=(git
++makedepends=('gcc'  # kashira: libstdc++ headers (no gcc in base-devel)
++             git
+              nlohmann-json) # kashira: no qt6-gui/emacs/sphinx (lean base)
+ optdepends=(
+   'make: for unix Makefile generator'

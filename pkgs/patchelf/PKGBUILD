@@ -10,7 +10,8 @@ pkgdesc='Small utility to modify the dynamic linker and RPATH of ELF executables
 url='https://nixos.org/patchelf.html'
 arch=('x86_64')
 license=('GPL-3.0-or-later')
-makedepends=('git')
+makedepends=('gcc'  # kashira: libstdc++ headers (no gcc in base-devel)
+            'git')
 depends=(
   'libgcc'
   'libstdc++'

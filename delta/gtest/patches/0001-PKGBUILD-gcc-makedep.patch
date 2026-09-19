@@ -1,0 +1,12 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -19,7 +19,8 @@
+   'libgcc'
+   'libstdc++'
+ )
+-makedepends=(
++makedepends=('gcc'  # kashira: libstdc++ headers (no gcc in base-devel)
++            
+   'cmake'
+   'python'
+ )

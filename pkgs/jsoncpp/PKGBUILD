@@ -11,7 +11,8 @@ pkgdesc='C++ library for interacting with JSON'
 url='https://github.com/open-source-parsers/jsoncpp'
 arch=('x86_64')
 license=('MIT' 'custom:Public_Domain')
-makedepends=(
+makedepends=('gcc'  # kashira: libstdc++ headers (no gcc in base-devel)
+            
   'libgcc'
   'libstdc++'
   'python'

@@ -1,0 +1,12 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -10,7 +10,8 @@
+ depends=(glibc
+          libgcc
+          libstdc++)
+-makedepends=(cmake
++makedepends=('gcc'  # kashira: libstdc++ headers (no gcc in base-devel)
++            cmake
+              git
+              nlohmann-json)
+ source=(git+https://github.com/google/cppdap#tag=dap-$pkgver-a)

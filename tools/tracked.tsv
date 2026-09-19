@@ -169,7 +169,7 @@ gpm	fork-vanilla
 jsoncpp	fork-delta
 libuv	fork-delta
 rhash	fork-vanilla
-cppdap	fork-vanilla
+cppdap	fork-delta
 nlohmann-json	fork-vanilla
 hicolor-icon-theme	fork-vanilla
 python-build	fork-vanilla
@@ -193,12 +193,12 @@ python-jaraco.functools	fork-vanilla
 python-jaraco.text	fork-vanilla
 python-more-itertools	fork-vanilla
 python-platformdirs	fork-vanilla
-patchelf	fork-vanilla
+patchelf	fork-delta
 fuse3	fork-vanilla
-gtest	fork-vanilla
+gtest	fork-delta
 alsa-lib	fork-vanilla
 ell	fork-vanilla
-libical	fork-vanilla
+libical	fork-delta
 python-docutils	fork-vanilla
 python-pygments	fork-vanilla
 autoconf-archive	fork-delta
