@@ -208,3 +208,5 @@ python-setuptools-scm	fork-vanilla
 python-toml	fork-vanilla
 python-vcs-versioning	fork-vanilla
 python-yaml	fork-vanilla
+libyaml	fork-vanilla
+cython	fork-vanilla

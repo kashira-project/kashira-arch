@@ -1,0 +1,5 @@
+[libyaml]
+source = "git"
+git = "https://github.com/yaml/libyaml.git"
+prefix = "v"
+exclude_regex = ".*(dist|pre|rc).*"
