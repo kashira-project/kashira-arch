@@ -178,7 +178,7 @@ man2html	fork-vanilla
 bluez	fork-delta
 libxslt	fork-vanilla
 docbook-xsl	fork-vanilla
-xmlto	fork-vanilla
+xmlto	fork-delta
 perl-locale-gettext	fork-vanilla
 perl-module-build	fork-vanilla
 perl-pod-parser	fork-vanilla

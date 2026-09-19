@@ -1,0 +1,11 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -12,7 +12,7 @@
+ license=('GPL')
+ depends=('libxslt')
+ makedepends=('docbook-xsl')
+-source=("https://pagure.io/xmlto/archive/${pkgver}/xmlto-${pkgver}.tar.gz")
++source=("https://releases.pagure.org/xmlto/xmlto-${pkgver}.tar.gz  # kashira: pagure archive path 404s")
+ md5sums=('556f2642cdcd005749bd4c08bc621c37')
+ sha256sums=('40504db68718385a4eaa9154a28f59e51e59d006d1aa14f5bc9d6fded1d6017a')
+ 
