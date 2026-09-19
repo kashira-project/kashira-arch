@@ -17,3 +17,11 @@
  }
  
  check() {
+@@ -48,7 +45,6 @@
+   install -vDm644 LICENSE -t "$pkgdir/usr/share/licenses/$pkgname"
+ 
+   mkdir -vp "$pkgdir/usr/share/doc"
+-  cp -vrT doc/_build/html "$pkgdir/usr/share/doc/$pkgname"
+   install -vDm644 doc/pygmentize.1 -t "$pkgdir/usr/share/man/man1"
+   install -vDm644 external/pygments.bashcomp \
+     "$pkgdir/usr/share/bash-completion/completions/pygmentize"
