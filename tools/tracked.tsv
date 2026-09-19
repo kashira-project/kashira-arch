@@ -7,7 +7,7 @@ bash	fork-vanilla
 bison	fork-vanilla
 boost	fork-vanilla
 brotli	fork-vanilla
-bzip2	fork-vanilla
+bzip2	fork-delta
 ca-certificates	fork-vanilla
 cmake	fork-delta
 cpio	fork-vanilla
