@@ -216,3 +216,5 @@ python-pluggy	fork-vanilla
 python-trove-classifiers	fork-vanilla
 python-hatch-vcs	fork-vanilla
 python-calver	fork-vanilla
+python-editables	fork-vanilla
+python-tomlkit	fork-vanilla
