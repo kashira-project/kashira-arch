@@ -159,3 +159,7 @@ which	fork-vanilla
 xxhash	fork-vanilla
 xz	fork-vanilla
 zstd	fork-vanilla
+libxkbcommon	fork-vanilla
+libmicrohttpd	fork-vanilla
+qrencode	fork-vanilla
+libpwquality	fork-vanilla

@@ -1,0 +1,4 @@
+[qrencode]
+source = "git"
+git = "https://github.com/fukuchi/libqrencode.git"
+prefix = "v"
