@@ -15,7 +15,8 @@ depends=(
   glibc
   pam
 )
-makedepends=(
+makedepends=('gcc'  # kashira: libcap Makefiles invoke gcc directly
+            
   git
   linux-api-headers
 )
