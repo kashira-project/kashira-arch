@@ -222,3 +222,7 @@ python-poetry-core	fork-vanilla
 python-fastjsonschema	fork-vanilla
 python-lark-parser	fork-vanilla
 python-typing_extensions	fork-vanilla
+python-strictyaml	fork-vanilla
+python-dateutil	fork-vanilla
+python-ruamel.yaml.clib	fork-vanilla
+python-six	fork-vanilla

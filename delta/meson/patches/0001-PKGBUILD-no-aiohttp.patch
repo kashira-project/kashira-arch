@@ -1,6 +1,6 @@
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -17,11 +17,9 @@
+@@ -17,7 +17,6 @@
  )
  makedepends=(
    git
@@ -8,7 +8,3 @@
    python-build
    python-installer
    python-setuptools
--  python-strictyaml
-   python-wheel
- )
- checkdepends=(
