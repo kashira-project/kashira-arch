@@ -1,0 +1,4 @@
+[hicolor-icon-theme]
+source = "git"
+git = "https://gitlab.freedesktop.org/xdg/default-icon-theme.git"
+prefix = "v"

@@ -163,3 +163,16 @@ libxkbcommon	fork-vanilla
 libmicrohttpd	fork-vanilla
 qrencode	fork-vanilla
 libpwquality	fork-vanilla
+po4a	fork-vanilla
+bash-completion	fork-vanilla
+gpm	fork-vanilla
+jsoncpp	fork-vanilla
+libuv	fork-vanilla
+rhash	fork-vanilla
+cppdap	fork-vanilla
+nlohmann-json	fork-vanilla
+hicolor-icon-theme	fork-vanilla
+python-build	fork-vanilla
+python-installer	fork-vanilla
+man2html	fork-vanilla
+bluez	fork-vanilla
