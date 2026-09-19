@@ -1,0 +1,19 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -12,7 +12,7 @@
+   glibc
+   sh
+ )
+-makedepends=('git' 'po4a' 'doxygen')
++makedepends=('git' 'po4a') # kashira: no API docs
+ provides=('liblzma.so')
+ validpgpkeys=('3690C240CE51B4670D30AD1C38EE757D69184620') # Lasse Collin <lasse.collin@tukaani.org>
+ source=("git+https://github.com/tukaani-project/xz?signed#tag=v${pkgver}")
+@@ -31,7 +31,6 @@
+   ./configure \
+     --prefix=/usr \
+     --disable-rpath \
+-    --enable-doxygen \
+     --enable-werror
+   make
+ }

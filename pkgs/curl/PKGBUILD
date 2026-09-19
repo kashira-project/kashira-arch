@@ -5,7 +5,7 @@
 # Contributor: Daniel J Griffiths <ghost1227@archlinux.us>
 
 pkgbase=curl
-pkgname=(curl libcurl-compat libcurl-gnutls)
+pkgname=(curl libcurl-compat) # kashira: no libcurl-gnutls (Steam-era shim; our ngtcp2 is openssl)
 pkgver=8.22.0
 pkgrel=1
 pkgdesc='command line tool and library for transferring data with URLs'
@@ -19,7 +19,6 @@ makedepends=(
   # actual package dependencies
   'ca-certificates'
   'brotli'
-  'gnutls'
   'krb5'
   'libidn2'
   'libnghttp2'
@@ -86,7 +85,7 @@ build() {
     --with-ca-bundle='/etc/ssl/certs/ca-certificates.crt'
   )
 
-  mkdir build-curl{,-compat,-gnutls}
+  mkdir build-curl{,-compat}
 
   # build curl
   cd "${srcdir}"/build-curl
@@ -113,17 +112,6 @@ build() {
   make -C lib
   patchelf --set-soname 'libcurl-compat.so.4' ./lib/.libs/libcurl.so
 
-  # build libcurl-gnutls
-  cd "${srcdir}"/build-curl-gnutls
-
-  "${srcdir}/${pkgbase}"/configure \
-    "${_configure_options[@]}" \
-    --disable-versioned-symbols \
-    --with-gnutls \
-    --without-openssl
-  sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool
-  make -C lib
-  patchelf --set-soname 'libcurl-gnutls.so.4' ./lib/.libs/libcurl.so
 }
 
 check() {
@@ -198,35 +186,3 @@ package_libcurl-compat() {
   ln -s curl "${pkgdir}"/usr/share/licenses/libcurl-compat
 }
 
-package_libcurl-gnutls() {
-  pkgdesc='command line tool and library for transferring data with URLs (no versioned symbols, linked against gnutls)'
-  depends=(
-    'ca-certificates'
-    'brotli' 'libbrotlidec.so'
-    'gnutls' # 'libgnutls.so'
-    'krb5' 'libgssapi_krb5.so'
-    'libidn2' 'libidn2.so'
-    'libnghttp2' 'libnghttp2.so'
-    'libnghttp3' 'libnghttp3.so'
-    'libngtcp2' 'libngtcp2.so' 'libngtcp2_crypto_gnutls.so'
-    'libpsl' 'libpsl.so'
-    'libssh2' 'libssh2.so'
-    'nettle' 'libnettle.so'
-    'zlib' 'libz.so'
-    'zstd' 'libzstd.so')
-  provides=('libcurl-gnutls.so')
-
-  cd "${srcdir}"/build-curl-gnutls
-
-  make -C lib DESTDIR="${pkgdir}" install
-
-  mv "${pkgdir}"/usr/lib/libcurl{,-gnutls}.so.4.8.0
-  rm "${pkgdir}"/usr/lib/libcurl.{a,so}*
-  ln -s libcurl-gnutls.so.4 "${pkgdir}"/usr/lib/libcurl-gnutls.so
-  for version in 3 4 4.0.0 4.1.0 4.2.0 4.3.0 4.4.0 4.5.0 4.6.0 4.7.0; do
-    ln -s libcurl-gnutls.so.4.8.0 "${pkgdir}"/usr/lib/libcurl-gnutls.so.${version}
-  done
-
-  install -dm 0755 "${pkgdir}"/usr/share/licenses
-  ln -s curl "${pkgdir}"/usr/share/licenses/libcurl-gnutls
-}

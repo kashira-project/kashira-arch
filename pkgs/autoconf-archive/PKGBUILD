@@ -1,0 +1,44 @@
+# Maintainer: Carl Smedstad <carsme@archlinux.org>
+# Contributor: Jonas Witschel <diabonas@archlinux.org>
+# Contributor: Eli Schwartz <eschwartz@archlinux.org>
+# Contributor: Daniel Müllner <muellner@math.stanford.edu>
+
+pkgname=autoconf-archive
+pkgver=2024.10.16
+pkgrel=4
+epoch=1
+pkgdesc="A collection of freely re-usable Autoconf macros"
+arch=('any')
+url="https://www.gnu.org/software/autoconf-archive/"
+license=('GPL-3.0-or-later WITH Autoconf-exception-3.0')
+depends=('autoconf')
+optdepends=('automake: macros for use with it')
+source=("https://ftpmirror.gnu.org/${pkgname}/${pkgname}-${pkgver}.tar.xz"{,.sig}
+        "0001_fix_AX_CXX_COMPILE_STDCXX.patch"  # kashira: vendored (cgit output sha drifts))
+sha256sums=('7bcd5d001916f3a50ed7436f4f700e3d2b1bade3ed803219c592d62502a57363'
+            'SKIP'
+            '63d86e19e074c57ebaecaf9d8ad97ec792fdf19224f96835e7dc80153b74b528')
+validpgpkeys=('1A4F63A13A4649B632F65EE141BC28FE99089D72') # Peter Simons <simons@cryp.to>
+
+prepare() {
+  cd ${pkgname}-${pkgver}
+  # Generated detection logic is broken for AX_CXX_COMPILE_STDCXX for serial 21-23
+  patch -Np1 -i ../0001_fix_AX_CXX_COMPILE_STDCXX.patch
+}
+
+build() {
+  cd ${pkgname}-${pkgver}
+  ./configure --prefix=/usr
+  make
+}
+
+check() {
+  cd ${pkgname}-${pkgver}
+  make check
+}
+
+package() {
+  cd ${pkgname}-${pkgver}
+  make DESTDIR="${pkgdir}" install
+  install -vDm644 -t "${pkgdir}/usr/share/licenses/${pkgname}" COPYING.EXCEPTION
+}

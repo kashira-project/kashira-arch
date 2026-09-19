@@ -5,13 +5,13 @@
 # Contributor: Geoffroy Carrier <geoffroy@archlinux.org>
 
 pkgbase=bluez
-pkgname=('bluez' 'bluez-utils' 'bluez-libs' 'bluez-cups' 'bluez-deprecated-tools' 'bluez-hid2hci' 'bluez-mesh' 'bluez-obex')
+pkgname=('bluez' 'bluez-utils' 'bluez-libs' 'bluez-deprecated-tools' 'bluez-hid2hci' 'bluez-mesh' 'bluez-obex')
 pkgver=5.87
 pkgrel=2
 url="http://www.bluez.org/"
 arch=('x86_64')
 license=('GPL-2.0-only')
-makedepends=('dbus' 'libical' 'systemd' 'alsa-lib' 'json-c' 'ell' 'python-docutils' 'python-pygments' 'cups' 'git')
+makedepends=('dbus' 'libical' 'systemd' 'alsa-lib' 'json-c' 'ell' 'python-docutils' 'python-pygments' 'git')
 source=(#https://www.kernel.org/pub/linux/bluetooth/${pkgname}-${pkgver}.tar.{xz,sign}
         # "git+https://github.com/bluez/bluez.git?signed#tag=$pkgver"
         "git+https://github.com/bluez/bluez.git#tag=$pkgver"
@@ -156,12 +156,6 @@ package_bluez-libs() {
   _install fakeinstall/usr/lib/pkgconfig/*
 }
 
-package_bluez-cups() {
-  pkgdesc="CUPS printer backend for Bluetooth printers"
-  depends=('cups' 'glib2' 'glibc' 'dbus')
-
-  _install fakeinstall/usr/lib/cups/backend/bluetooth
-}
 
 package_bluez-hid2hci() {
   pkgdesc="Put HID proxying bluetooth HCI's into HCI mode"

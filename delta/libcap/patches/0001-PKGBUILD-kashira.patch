@@ -1,0 +1,10 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -17,7 +17,6 @@
+ )
+ makedepends=(
+   git
+-  go
+   linux-api-headers
+ )
+ provides=(

@@ -9,7 +9,7 @@ arch=('x86_64')
 url="https://github.com/libuv/libuv"
 license=('custom')
 depends=('glibc' 'libnsl')
-makedepends=('git' 'python-sphinx')
+makedepends=('git') # kashira: no sphinx docs
 source=("git+https://github.com/libuv/libuv.git?signed#tag=v${pkgver}")
 sha512sums=('8c7d80b0e6af45350ad6675cf68eef51142918f1fc8646ad87701e9081f63766d1eeb76a19c925abfa8e7813144842343df30b9fb3e7c234048ba334a48b03e2')
 # PGP key IDs are available from https://github.com/libuv/libuv/blob/v1.x/MAINTAINERS.md
@@ -32,7 +32,6 @@ build() {
     ./autogen.sh
     ./configure --prefix=/usr
     make
-    make man -C docs
 }
 
 check() {

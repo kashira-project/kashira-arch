@@ -26,7 +26,6 @@ license=(
   LGPL-2.0-or-later
 )
 makedepends=(
-  apparmor
   glibc
   krb5
   libcap-ng
@@ -84,7 +83,7 @@ build() {
     --sbindir=/usr/bin
     --sysconfdir=/etc
     --with-aarch64
-    --with-apparmor=yes
+    --with-apparmor=no  # kashira: no apparmor stack
     --with-arm
     --with-io_uring=yes
     --with-libcap-ng=yes

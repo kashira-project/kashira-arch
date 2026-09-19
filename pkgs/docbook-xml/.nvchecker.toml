@@ -1,0 +1,4 @@
+[docbook-xml]
+source = 'regex'
+url = 'https://archive.docbook.org/xml/'
+regex = '(4[\d.]+)/'

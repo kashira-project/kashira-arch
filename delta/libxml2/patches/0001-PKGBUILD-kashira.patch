@@ -1,0 +1,10 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -24,7 +24,6 @@
+ )
+ makedepends=(
+   docbook-xsl
+-  doxygen
+   git
+   meson
+   python

@@ -24,7 +24,6 @@ depends=(
 )
 makedepends=(
   docbook-xsl
-  doxygen
   git
   meson
   python
