@@ -51,8 +51,9 @@ prepare() {
 build() {
   local meson_options=(
     -D apparmor=disabled
-    -D doxygen_docs=disabled  # kashira
-    -D ducktype_docs=disabled  # kashira
+    -D doxygen_docs=disabled
+    -D ducktype_docs=disabled
+    -D qt_help=disabled
     -D dbus_user=dbus
     -D kqueue=disabled
     -D launchd=disabled
