@@ -15,7 +15,8 @@ depends=(
   libgcc
   libstdc++
 )
-makedepends=(
+makedepends=('gcc'  # kashira: libstdc++ headers for the c++ binding (no gcc in base-devel)
+           
   autoconf-archive
   git
 )

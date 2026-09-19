@@ -1,0 +1,12 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -15,7 +15,8 @@
+   libgcc
+   libstdc++
+ )
+-makedepends=(
++makedepends=('gcc'  # kashira: libstdc++ headers for the c++ binding (no gcc in base-devel)
++           
+   autoconf-archive
+   git
+ )

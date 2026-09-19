@@ -109,7 +109,7 @@ man-pages	fork-vanilla
 meson	fork-vanilla
 mpdecimal	fork-vanilla
 mpfr	fork-vanilla
-ncurses	fork-vanilla
+ncurses	fork-delta
 nettle	fork-vanilla
 nftables	fork-vanilla
 ninja	fork-vanilla
