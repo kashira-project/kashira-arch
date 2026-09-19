@@ -219,3 +219,6 @@ python-calver	fork-vanilla
 python-editables	fork-vanilla
 python-tomlkit	fork-vanilla
 python-poetry-core	fork-vanilla
+python-fastjsonschema	fork-vanilla
+python-lark-parser	fork-vanilla
+python-typing_extensions	fork-vanilla
