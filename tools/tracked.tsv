@@ -215,3 +215,4 @@ python-pathspec	fork-vanilla
 python-pluggy	fork-vanilla
 python-trove-classifiers	fork-vanilla
 python-hatch-vcs	fork-vanilla
+python-calver	fork-vanilla
