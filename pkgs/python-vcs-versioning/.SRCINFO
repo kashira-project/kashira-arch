@@ -1,0 +1,24 @@
+pkgbase = python-vcs-versioning
+	pkgdesc = the blessed package to manage your versions by vcs metadata
+	pkgver = 2.4.1
+	pkgrel = 1
+	url = https://github.com/pypa/setuptools-scm
+	arch = any
+	license = MIT
+	checkdepends = python-pytest
+	checkdepends = python-pytest-timeout
+	checkdepends = python-setuptools-scm
+	checkdepends = jujutsu
+	checkdepends = mercurial
+	makedepends = git
+	makedepends = python-build
+	makedepends = python-installer
+	depends = python
+	depends = python-packaging
+	depends = python-setuptools
+	optdepends = python-rich: formatting of log messages
+	source = python-setuptools-scm::git+https://github.com/pypa/setuptools-scm#tag=vcs-versioning-v2.4.1
+	sha512sums = 37fac968a911aae33ec44fa125e1e98637d8dc1216ec78d724bde0e3f37cae95a2cd2d9ee718eb59a3f029fc5f6f6247e2772ea21bbf3dbd4ad054b69461d358
+	b2sums = 3c397fb7030e49a5318cfe32f040caeb4b8ec192e5cffecd714815ce6c62d5e92a5ffc902460c4ce89d7ec97f0690464935eb92c48c92cd0db8e6c3f9b80f7f4
+
+pkgname = python-vcs-versioning
