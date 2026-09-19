@@ -15,8 +15,6 @@ makedepends=(
   'python-hatchling'
   'python-installer'
   'python-setuptools'
-  'python-sphinx'
-  'python-wcag-contrast-ratio'
   'python-wheel'
 )
 checkdepends=(
@@ -32,7 +30,6 @@ b2sums=('6b7ae05d558954a3f6e440f9310bcf6c3f10ff347908dbeecb1447414f7c299ae68a244
 build() {
   cd ${pkgname#python-}-$pkgver
   python -m build --wheel --no-isolation
-  make -C doc html
 }
 
 check() {

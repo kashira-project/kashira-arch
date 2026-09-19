@@ -1,0 +1,19 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -15,8 +15,6 @@
+   'python-hatchling'
+   'python-installer'
+   'python-setuptools'
+-  'python-sphinx'
+-  'python-wcag-contrast-ratio'
+   'python-wheel'
+ )
+ checkdepends=(
+@@ -32,7 +30,6 @@
+ build() {
+   cd ${pkgname#python-}-$pkgver
+   python -m build --wheel --no-isolation
+-  make -C doc html
+ }
+ 
+ check() {

@@ -200,7 +200,7 @@ alsa-lib	fork-vanilla
 ell	fork-vanilla
 libical	fork-delta
 python-docutils	fork-vanilla
-python-pygments	fork-vanilla
+python-pygments	fork-delta
 autoconf-archive	fork-delta
 docbook-xml	fork-vanilla
 python-tqdm	fork-vanilla
@@ -210,3 +210,8 @@ python-vcs-versioning	fork-vanilla
 python-yaml	fork-vanilla
 libyaml	fork-vanilla
 cython	fork-delta
+python-hatchling	fork-vanilla
+python-pathspec	fork-vanilla
+python-pluggy	fork-vanilla
+python-trove-classifiers	fork-vanilla
+python-hatch-vcs	fork-vanilla
