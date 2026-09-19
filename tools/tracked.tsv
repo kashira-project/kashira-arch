@@ -203,3 +203,4 @@ python-docutils	fork-vanilla
 python-pygments	fork-vanilla
 autoconf-archive	fork-delta
 docbook-xml	fork-vanilla
+python-tqdm	fork-vanilla

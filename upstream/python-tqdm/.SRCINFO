@@ -1,0 +1,29 @@
+pkgbase = python-tqdm
+	pkgdesc = Fast, Extensible Progress Meter
+	pkgver = 4.70.1
+	pkgrel = 1
+	url = https://github.com/tqdm/tqdm
+	arch = any
+	license = MIT
+	license = MPL-2.0
+	checkdepends = python-pytest
+	checkdepends = python-pytest-asyncio
+	checkdepends = python-pytest-timeout
+	checkdepends = python-numpy
+	checkdepends = python-pandas
+	checkdepends = python-rich
+	checkdepends = python-dask
+	checkdepends = tk
+	checkdepends = python-keras
+	makedepends = git
+	makedepends = python-setuptools-scm
+	makedepends = python-toml
+	makedepends = python-build
+	makedepends = python-installer
+	makedepends = python-wheel
+	depends = python
+	optdepends = python-requests: telegram
+	source = git+https://github.com/tqdm/tqdm.git#commit=v4.70.1
+	sha512sums = 1eb2fbe475c6d619ce4231e53ef3eb52762a5aab1a3c820f7fb22b119ff9ba1283e73f9402770cdb90e1ec29a441d90a52f42655494d43ac83c0d42e700fba15
+
+pkgname = python-tqdm
