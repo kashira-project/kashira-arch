@@ -194,7 +194,7 @@ python-jaraco.text	fork-vanilla
 python-more-itertools	fork-vanilla
 python-platformdirs	fork-vanilla
 patchelf	fork-delta
-fuse3	fork-vanilla
+fuse3	fork-delta
 gtest	fork-delta
 alsa-lib	fork-vanilla
 ell	fork-vanilla

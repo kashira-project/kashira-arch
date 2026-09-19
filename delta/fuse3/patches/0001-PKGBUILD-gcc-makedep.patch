@@ -1,0 +1,12 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -10,7 +10,8 @@
+ pkgdesc='Interface for userspace programs to export a filesystem to the Linux kernel'
+ url='https://github.com/libfuse/libfuse'
+ arch=(x86_64)
+-makedepends=(
++makedepends=('gcc'  # kashira: libstdc++ headers for C++ examples
++            
+   glibc
+   libiconv
+   liburing
