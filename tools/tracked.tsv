@@ -218,3 +218,4 @@ python-hatch-vcs	fork-vanilla
 python-calver	fork-vanilla
 python-editables	fork-vanilla
 python-tomlkit	fork-vanilla
+python-poetry-core	fork-vanilla
