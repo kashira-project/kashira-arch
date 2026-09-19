@@ -14,7 +14,7 @@ license=('GPL-3.0-or-later WITH Autoconf-exception-3.0')
 depends=('autoconf')
 optdepends=('automake: macros for use with it')
 source=("https://ftpmirror.gnu.org/${pkgname}/${pkgname}-${pkgver}.tar.xz"{,.sig}
-        "0001_fix_AX_CXX_COMPILE_STDCXX.patch"  # kashira: vendored (cgit output sha drifts))
+        "0001_fix_AX_CXX_COMPILE_STDCXX.patch")  # kashira: vendored (cgit sha drifts)
 sha256sums=('7bcd5d001916f3a50ed7436f4f700e3d2b1bade3ed803219c592d62502a57363'
             'SKIP'
             '63d86e19e074c57ebaecaf9d8ad97ec792fdf19224f96835e7dc80153b74b528')
