@@ -1,0 +1,22 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -25,7 +25,8 @@
+     --disable-static \
+     --enable-hashes=strong,glibc \
+     --enable-obsolete-api=no \
+-    --disable-failure-tokens
++    --disable-failure-tokens \
++    --disable-werror  # kashira: clang hits -Werror on statement-expr/const warnings
+   make
+   
+   cd "${srcdir}/build-libxcrypt-compat/"
+@@ -34,7 +35,8 @@
+     --disable-static \
+     --enable-hashes=strong,glibc \
+     --enable-obsolete-api=glibc \
+-    --disable-failure-tokens
++    --disable-failure-tokens \
++    --disable-werror
+   make
+ }
+ 
