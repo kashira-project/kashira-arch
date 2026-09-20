@@ -70,5 +70,13 @@ package() {
   rm -f "$pkgdir/usr/bin/su" "$pkgdir/usr/share/man/man1/su.1" \
         "$pkgdir"/usr/share/man/*/man1/su.1*
 
+  # Arch parity: these are util-linux programs (chfn/chsh/login/newgrp/
+  # nologin/vigr/vipw); shadow must not ship them
+  rm -f "$pkgdir"/usr/bin/{chfn,chsh,login,newgrp,nologin,vigr,vipw}
+  rm -f "$pkgdir"/usr/share/man/man1/{chfn,chsh,login,newgrp}.1* \
+        "$pkgdir"/usr/share/man/man8/{nologin,vigr,vipw}.8*
+  rm -f "$pkgdir"/usr/share/man/*/man1/{chfn,chsh,login,newgrp}.1* \
+        "$pkgdir"/usr/share/man/*/man8/{nologin,vigr,vipw}.8*
+
   install -Dm644 COPYING "$pkgdir/usr/share/licenses/$pkgname/COPYING"
 }
