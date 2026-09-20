@@ -232,3 +232,4 @@ liburing	fork-vanilla
 doxygen	fork-delta
 fmt	fork-delta
 spdlog	fork-vanilla
+catch2	fork-delta

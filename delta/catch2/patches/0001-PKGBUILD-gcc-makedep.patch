@@ -1,0 +1,12 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -11,7 +11,8 @@
+ url="https://github.com/catchorg/catch2"
+ license=(BSL-1.0)
+ #depends=('gcc-libs' 'glibc') # only needed when building shared library
+-makedepends=(
++makedepends=('gcc'  # kashira: libstdc++ headers (no gcc in base-devel)
++            
+   git
+   cmake
+   python  # python seems to be necessary for building tests (FS#60273)

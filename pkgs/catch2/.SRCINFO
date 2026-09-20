@@ -1,0 +1,18 @@
+pkgbase = catch2
+	pkgdesc = Modern, C++-native, header-only, test framework for unit-tests, TDD and BDD
+	pkgver = 3.16.0
+	pkgrel = 1
+	url = https://github.com/catchorg/catch2
+	arch = x86_64
+	license = BSL-1.0
+	makedepends = git
+	makedepends = cmake
+	makedepends = python
+	conflicts = catch2-v2
+	options = !lto
+	source = catch2::git+https://github.com/catchorg/Catch2#tag=v3.16.0?signed
+	validpgpkeys = FC5D2FD9051354DBF834F9FD56FB686C9DFC8E2C
+	validpgpkeys = E29C46F3B8A7502860793B7DECC9C20E314B2360
+	sha512sums = 2e1d461eeebe132137af0a9ac8006c928cf99b2de21c223d0cfef4a4ec69c8363339e42062bbe9e6a45a36f00d98d7c73205593811f25c55c8ea5d6a9a572325
+
+pkgname = catch2
