@@ -3,7 +3,7 @@
 # Contributor: Dan McGee <dan@archlinux.org>
 
 pkgbase=doxygen
-pkgname=(doxygen)  # kashira: no doxygen-docs (texlive), no wizard (qt6)
+pkgname=(doxygen)  # kashira: no doxygen-docs (texlive), no wizard (qt6), libstdc++ not libc++
 pkgver=1.18.0
 pkgrel=2
 pkgdesc='Documentation system for C++, C, Java, IDL and PHP'
@@ -58,11 +58,12 @@ build() {
     -DCMAKE_INSTALL_PREFIX:PATH=/usr
     -DDOC_INSTALL_DIR:PATH=share/doc/doxygen
     -Dbuild_doc:BOOL=ON
-    -Dbuild_wizard:BOOL=OFF  # kashira: no qt6
+    -Dbuild_wizard:BOOL=OFF
     -Duse_sys_spdlog:BOOL=ON
     -Duse_sys_sqlite3:BOOL=ON
     -Duse_sys_fmt:BOOL=ON
     -Duse_libclang:BOOL=ON
+    -Duse_libc++:BOOL=OFF  # kashira: doxygen defaults to libc++ with clang; we are libstdc++
   )
   cmake "${cmake_options[@]}"
   cmake --build build --verbose

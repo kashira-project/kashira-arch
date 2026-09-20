@@ -1,15 +1,21 @@
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -3,7 +3,7 @@
+@@ -3,33 +3,26 @@
  # Contributor: Dan McGee <dan@archlinux.org>
  
  pkgbase=doxygen
 -pkgname=(doxygen doxygen-docs)
-+pkgname=(doxygen)  # kashira: no doxygen-docs (texlive), no wizard (qt6)
++pkgname=(doxygen)  # kashira: no doxygen-docs (texlive), no wizard (qt6), libstdc++ not libc++
  pkgver=1.18.0
  pkgrel=2
  pkgdesc='Documentation system for C++, C, Java, IDL and PHP'
-@@ -15,21 +15,13 @@
+ url='http://www.doxygen.nl'
+ arch=(x86_64)
+ license=(GPL-2.0-or-later)
+-makedepends=(
++makedepends=('gcc'  # kashira: libstdc++ headers (no gcc in base-devel)
++  
+   clang
    cmake
    flex
    fmt
@@ -31,16 +37,21 @@
  )
  source=(
    ${pkgbase}-${pkgver}.tar.gz::https://github.com/doxygen/doxygen/archive/Release_${pkgver//./_}.tar.gz
-@@ -65,7 +57,7 @@
+@@ -65,11 +58,12 @@
      -DCMAKE_INSTALL_PREFIX:PATH=/usr
      -DDOC_INSTALL_DIR:PATH=share/doc/doxygen
      -Dbuild_doc:BOOL=ON
 -    -Dbuild_wizard:BOOL=ON
-+    -Dbuild_wizard:BOOL=OFF  # kashira: no qt6
++    -Dbuild_wizard:BOOL=OFF
      -Duse_sys_spdlog:BOOL=ON
      -Duse_sys_sqlite3:BOOL=ON
      -Duse_sys_fmt:BOOL=ON
-@@ -92,9 +84,6 @@
+     -Duse_libclang:BOOL=ON
++    -Duse_libc++:BOOL=OFF  # kashira: doxygen defaults to libc++ with clang; we are libstdc++
+   )
+   cmake "${cmake_options[@]}"
+   cmake --build build --verbose
+@@ -92,9 +86,6 @@
      sqlite libsqlite3.so
    )
    optdepends=(
@@ -50,7 +61,7 @@
      'texlive-fontsrecommended: for generating LaTeX, Postscript and PDF output'
      'texlive-fontutils: for generating LaTeX, Postscript and PDF output'
      'texlive-latexextra: for generating LaTeX, Postscript and PDF output'
-@@ -109,11 +98,5 @@
+@@ -109,11 +100,5 @@
    install -vDm 644 $pkgbase-Release_${pkgver//./_}/LICENSE -t "$pkgdir/usr/share/licenses/$pkgname/"
  }
  
