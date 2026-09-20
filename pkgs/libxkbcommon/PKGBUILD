@@ -44,7 +44,7 @@ build() {
     -D enable-docs=true
   )
 
-  arch-meson libxkbcommon build "${meson_options[@]}"
+  arch-meson libxkbcommon build -D enable-docs=false  # kashira: no doxygen "${meson_options[@]}"
   meson compile -C build
 }
 
