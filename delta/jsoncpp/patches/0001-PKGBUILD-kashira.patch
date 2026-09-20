@@ -9,15 +9,7 @@
    'python'
    'meson'
  )
-@@ -42,7 +40,6 @@
- 
-   echo "Building docs..."
-   python doxybuild.py \
--    --doxygen="$(command -v doxygen)" \
-     --with-dot
- }
- 
-@@ -80,7 +77,6 @@
+@@ -80,7 +78,6 @@
    cd ${pkgbase}-${pkgver}
    install -Dm 644 LICENSE -t "${pkgdir}/usr/share/licenses/${pkgname}"
    install -dm 755 "${pkgdir}/usr/share/doc/${pkgbase}"

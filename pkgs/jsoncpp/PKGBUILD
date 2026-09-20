@@ -41,6 +41,7 @@ build() {
 
   echo "Building docs..."
   python doxybuild.py \
+    --doxygen="$(command -v doxygen)" \
     --with-dot
 }
 
