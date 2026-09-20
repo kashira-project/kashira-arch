@@ -3,7 +3,7 @@
 
 pkgname=shadow
 pkgver=4.20.2
-pkgrel=1
+pkgrel=2  # kashira: pam.d removal
 pkgdesc='Password and account management tool suite with shadow file support'
 arch=('x86_64')
 url='https://github.com/shadow-maint/shadow'
