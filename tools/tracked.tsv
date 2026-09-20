@@ -197,7 +197,7 @@ patchelf	fork-delta
 fuse3	fork-delta
 gtest	fork-delta
 alsa-lib	fork-vanilla
-ell	fork-vanilla
+ell	fork-delta
 libical	fork-delta
 python-docutils	fork-vanilla
 python-pygments	fork-delta
@@ -231,5 +231,5 @@ numactl	fork-vanilla
 liburing	fork-vanilla
 doxygen	fork-delta
 fmt	fork-delta
-spdlog	fork-vanilla
+spdlog	fork-delta
 catch2	fork-delta
