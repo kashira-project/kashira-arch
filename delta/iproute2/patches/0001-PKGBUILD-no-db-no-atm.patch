@@ -1,13 +1,11 @@
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -15,9 +15,7 @@
+@@ -14,7 +14,7 @@
+          'libcap' 'libcap.so'
           'libelf'
           'libbpf' 'libbpf.so')
- makedepends=('git' 'db' 'linux-atm' 'iptables')
--optdepends=('db: userspace arp daemon'
--            'linux-atm: ATM support'
--            'python: for routel')
-+optdepends=('python: for routel')
- provides=('iproute')
- options=('!emptydirs')
- validpgpkeys=('9F6FC345B05BE7E766B83C8F80A77F6095CDE47E') # Stephen Hemminger
+-makedepends=('git' 'db' 'linux-atm' 'iptables')
++makedepends=('git' 'iptables' 'gcc')  # kashira: no db(AGPLv3)/linux-atm; gcc for netem's hardcoded cc
+ optdepends=('db: userspace arp daemon'
+             'linux-atm: ATM support'
+             'python: for routel')
