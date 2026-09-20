@@ -233,3 +233,4 @@ doxygen	fork-delta
 fmt	fork-delta
 spdlog	fork-delta
 catch2	fork-delta
+perl-text-charwidth	fork-vanilla
