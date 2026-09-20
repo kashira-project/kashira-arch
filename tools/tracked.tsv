@@ -251,6 +251,6 @@ wayland-protocols	fork-vanilla
 xorg-util-macros	fork-vanilla
 xtrans	fork-vanilla
 libxkbfile	fork-vanilla
-libX11	fork-delta
+libX11	fork-vanilla
 xorg-xkbcomp	fork-vanilla
 default-cursors	fork-vanilla
