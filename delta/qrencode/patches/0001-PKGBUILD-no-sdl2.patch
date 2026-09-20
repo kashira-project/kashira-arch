@@ -1,0 +1,11 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -7,7 +7,7 @@
+ pkgdesc='C library for encoding data in a QR Code symbol.'
+ arch=('x86_64')
+ depends=('libpng')
+-makedepends=('git' 'sdl2')
++makedepends=('git')  # kashira: no sdl2 (demo/test tool only)
+ url='https://fukuchi.org/works/qrencode/'
+ license=('GPL')
+ source=("qrencode::git+https://github.com/fukuchi/libqrencode#tag=v${pkgver}")

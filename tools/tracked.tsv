@@ -161,7 +161,7 @@ xz	fork-delta
 zstd	fork-delta
 libxkbcommon	fork-delta
 libmicrohttpd	fork-vanilla
-qrencode	fork-vanilla
+qrencode	fork-delta
 libpwquality	fork-vanilla
 po4a	fork-delta
 bash-completion	fork-vanilla
@@ -254,3 +254,5 @@ libxkbfile	fork-vanilla
 libX11	fork-vanilla
 xorg-xkbcomp	fork-vanilla
 default-cursors	fork-vanilla
+libpng	fork-vanilla
+sdl2	fork-vanilla
