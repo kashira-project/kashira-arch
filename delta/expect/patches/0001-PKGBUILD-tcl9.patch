@@ -17,11 +17,14 @@
  
  prepare() {
    cd expect${pkgver}
-@@ -26,6 +31,7 @@
+@@ -26,6 +31,10 @@
    patch -Np1 -i ${srcdir}/expect-c99.patch
    patch -Np1 -i ${srcdir}/expect-5.45.4-covscan-fixes.patch
    patch -Np1 -i ${srcdir}/expect-configure-c99.patch
-+  for p in "$srcdir"/expect-5.45.4-tcl9-*.patch; do patch -Np1 -i "$p"; done
++  # aerynOS order matters (const before ansi-args)
++  for n in alloc const ansi-args eval-tokens mkpasswd panic size varargs; do
++    patch -Np1 -i "$srcdir/expect-5.45.4-tcl9-$n.patch"
++  done
  
    autoreconf -fiv
  }
