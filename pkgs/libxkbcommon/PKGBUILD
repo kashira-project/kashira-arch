@@ -6,7 +6,6 @@ pkgbase=libxkbcommon
 pkgname=(
   libxkbcommon
   libxkbcommon-x11
-  libxkbcommon-doc
 )
 pkgver=1.13.2
 pkgrel=1
@@ -41,7 +40,7 @@ prepare() {
 
 build() {
   local meson_options=(
-    -D enable-docs=false  # kashira: no doxygen
+    -D enable-docs=false
   )
 
   arch-meson libxkbcommon build "${meson_options[@]}"
@@ -85,7 +84,6 @@ package_libxkbcommon() {
   _pick x11 "$pkgdir"/usr/include/xkbcommon/*x11*
   _pick x11 "$pkgdir"/usr/share/man/man1/*x11*
 
-  _pick doc "$pkgdir"/usr/share/doc
 
   install -Dt "$pkgdir/usr/share/licenses/$pkgname" -m644 libxkbcommon/LICENSE
 }
@@ -107,12 +105,5 @@ package_libxkbcommon-x11() {
   install -Dt "$pkgdir/usr/share/licenses/$pkgname" -m644 libxkbcommon/LICENSE
 }
 
-package_libxkbcommon-doc() {
-  pkgdesc='API documentation for libxkbcommon'
-
-  mv doc/* "$pkgdir"/
-
-  install -Dt "$pkgdir/usr/share/licenses/$pkgname" -m644 libxkbcommon/LICENSE
-}
 
 # vim:set sw=2 sts=-1 et:

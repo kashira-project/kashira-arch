@@ -1,6 +1,14 @@
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -16,10 +16,8 @@
+@@ -6,7 +6,6 @@
+ pkgname=(
+   libxkbcommon
+   libxkbcommon-x11
+-  libxkbcommon-doc
+ )
+ pkgver=1.13.2
+ pkgrel=1
+@@ -16,10 +15,8 @@
  license=(MIT)
  makedepends=(
    bash-completion
@@ -11,12 +19,33 @@
    libxcb
    libxml2
    meson
-@@ -43,7 +41,7 @@
+@@ -43,7 +40,7 @@
  
  build() {
    local meson_options=(
 -    -D enable-docs=true
-+    -D enable-docs=false  # kashira: no doxygen
++    -D enable-docs=false
    )
  
    arch-meson libxkbcommon build "${meson_options[@]}"
+@@ -87,7 +84,6 @@
+   _pick x11 "$pkgdir"/usr/include/xkbcommon/*x11*
+   _pick x11 "$pkgdir"/usr/share/man/man1/*x11*
+ 
+-  _pick doc "$pkgdir"/usr/share/doc
+ 
+   install -Dt "$pkgdir/usr/share/licenses/$pkgname" -m644 libxkbcommon/LICENSE
+ }
+@@ -109,12 +105,5 @@
+   install -Dt "$pkgdir/usr/share/licenses/$pkgname" -m644 libxkbcommon/LICENSE
+ }
+ 
+-package_libxkbcommon-doc() {
+-  pkgdesc='API documentation for libxkbcommon'
+-
+-  mv doc/* "$pkgdir"/
+-
+-  install -Dt "$pkgdir/usr/share/licenses/$pkgname" -m644 libxkbcommon/LICENSE
+-}
+ 
+ # vim:set sw=2 sts=-1 et:
