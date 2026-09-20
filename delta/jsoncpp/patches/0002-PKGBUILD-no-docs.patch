@@ -1,7 +1,7 @@
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -14,8 +14,6 @@
- makedepends=(
+@@ -15,8 +15,6 @@
+             
    'libgcc'
    'libstdc++'
 -  'doxygen'
@@ -9,7 +9,7 @@
    'python'
    'meson'
  )
-@@ -80,7 +78,6 @@
+@@ -81,7 +79,6 @@
    cd ${pkgbase}-${pkgver}
    install -Dm 644 LICENSE -t "${pkgdir}/usr/share/licenses/${pkgname}"
    install -dm 755 "${pkgdir}/usr/share/doc/${pkgbase}"
