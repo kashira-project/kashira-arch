@@ -71,7 +71,7 @@ libffi	fork-vanilla
 libgcrypt	fork-vanilla
 libgpg-error	fork-vanilla
 libidn2	fork-vanilla
-libisl	fork-vanilla
+libisl	fork-delta
 libksba	fork-vanilla
 libmnl	fork-vanilla
 libmpc	fork-vanilla
