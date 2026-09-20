@@ -48,6 +48,7 @@ build() {
 
   # fake installation to be seperated into packages
   make DESTDIR="${srcdir}/fakeinstall" install
+  rm -rf "${srcdir}/fakeinstall/usr/lib/cups"  # kashira: no cups backend
 
   # add missing tools FS#41132, FS#41687, FS#42716
   for files in `find tools/ -type f -perm -755`; do
