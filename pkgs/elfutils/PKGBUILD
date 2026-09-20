@@ -15,7 +15,8 @@ pkgdesc="Handle ELF object files and DWARF debugging information"
 arch=(x86_64)
 url="https://sourceware.org/elfutils/"
 _url=https://forge.sourceware.org/elfutils/elfutils-mirror.git
-makedepends=(
+makedepends=('gcc'  # kashira: libstdc++ headers (debuginfod.cxx)
+            
   bzip2
   curl
   git

@@ -1,0 +1,12 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -15,7 +15,8 @@
+ arch=(x86_64)
+ url="https://sourceware.org/elfutils/"
+ _url=https://forge.sourceware.org/elfutils/elfutils-mirror.git
+-makedepends=(
++makedepends=('gcc'  # kashira: libstdc++ headers (debuginfod.cxx)
++            
+   bzip2
+   curl
+   git
