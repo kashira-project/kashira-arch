@@ -62,9 +62,9 @@ package() {
   make DESTDIR="$pkgdir" exec_prefix=/usr usbindir=/usr/bin install
   make DESTDIR="$pkgdir" -C man install-man
 
-  # `su -` (login shell) uses the su-l PAM service; ship it (same content as
-  # su — Arch parity)
-  install -Dm644 "$pkgdir/etc/pam.d/su" "$pkgdir/etc/pam.d/su-l"
+  # pam.d services come from util-linux/pambase on Arch; shadow shipping its
+  # own conflicts with util-linux (chfn/chsh/login/su/su-l)
+  rm -rf "$pkgdir/etc/pam.d"
 
   # su is util-linux's (Arch parity); shadow's build drops one too
   rm -f "$pkgdir/usr/bin/su" "$pkgdir/usr/share/man/man1/su.1" \
