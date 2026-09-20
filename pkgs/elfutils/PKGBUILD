@@ -53,6 +53,9 @@ prepare() {
 }
 
 build() {
+  # kashira: clang vs eu.am's hardcoded -Werror
+  CFLAGS+=' -Wno-error=unused-parameter -Wno-error=unused-but-set-variable -Wno-error=unused-but-set-global'
+  CXXFLAGS+=' -Wno-error=unused-parameter'
   local configure_options=(
     --prefix=/usr
     --sysconfdir=/etc

@@ -20,7 +20,7 @@ debugedit	fork-vanilla
 dejagnu	fork-vanilla
 diffutils	fork-vanilla
 e2fsprogs	fork-vanilla
-elfutils	fork-vanilla
+elfutils	fork-delta
 expat	fork-vanilla
 expect	fork-delta
 fakeroot	fork-delta
