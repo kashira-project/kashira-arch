@@ -37,7 +37,7 @@
  )
  source=(
    ${pkgbase}-${pkgver}.tar.gz::https://github.com/doxygen/doxygen/archive/Release_${pkgver//./_}.tar.gz
-@@ -65,11 +58,12 @@
+@@ -65,15 +58,16 @@
      -DCMAKE_INSTALL_PREFIX:PATH=/usr
      -DDOC_INSTALL_DIR:PATH=share/doc/doxygen
      -Dbuild_doc:BOOL=ON
@@ -51,6 +51,11 @@
    )
    cmake "${cmake_options[@]}"
    cmake --build build --verbose
+-  cmake --build build --target docs
++  # kashira: no docs target (texlive)
+ }
+ 
+ check() {
 @@ -92,9 +86,6 @@
      sqlite libsqlite3.so
    )

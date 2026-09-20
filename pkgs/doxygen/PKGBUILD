@@ -67,7 +67,7 @@ build() {
   )
   cmake "${cmake_options[@]}"
   cmake --build build --verbose
-  cmake --build build --target docs
+  # kashira: no docs target (texlive)
 }
 
 check() {
