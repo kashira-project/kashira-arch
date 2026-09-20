@@ -159,7 +159,7 @@ which	fork-vanilla
 xxhash	fork-vanilla
 xz	fork-delta
 zstd	fork-delta
-libxkbcommon	fork-vanilla
+libxkbcommon	fork-delta
 libmicrohttpd	fork-vanilla
 qrencode	fork-vanilla
 libpwquality	fork-vanilla
@@ -240,3 +240,17 @@ libdatrie	fork-vanilla
 perl-inc-latest	fork-vanilla
 alsa-topology-conf	fork-vanilla
 alsa-ucm-conf	fork-vanilla
+xkeyboard-config	fork-vanilla
+xorgproto	fork-vanilla
+xcb-proto	fork-vanilla
+libxau	fork-vanilla
+libxdmcp	fork-vanilla
+libxcb	fork-vanilla
+wayland	fork-delta
+wayland-protocols	fork-vanilla
+xorg-util-macros	fork-vanilla
+xtrans	fork-vanilla
+libxkbfile	fork-vanilla
+libX11	fork-vanilla
+xorg-xkbcomp	fork-vanilla
+default-cursors	fork-vanilla

@@ -16,10 +16,8 @@ arch=(x86_64)
 license=(MIT)
 makedepends=(
   bash-completion
-  doxygen
   git
   glibc
-  graphviz
   libxcb
   libxml2
   meson

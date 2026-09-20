@@ -1,0 +1,13 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -16,10 +16,8 @@
+ license=(MIT)
+ makedepends=(
+   bash-completion
+-  doxygen
+   git
+   glibc
+-  graphviz
+   libxcb
+   libxml2
+   meson
