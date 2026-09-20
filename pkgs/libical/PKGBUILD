@@ -32,6 +32,7 @@ build() {
     -DCMAKE_INSTALL_LIBEXECDIR=lib \
     -DLIBICAL_BUILD_TESTING=true \
     -DLIBICAL_GOBJECT_INTROSPECTION=false \
+    -DLIBICAL_JAVA_BINDINGS=False \
     -DLIBICAL_GLIB_VAPI=false \
     -DCMAKE_DISABLE_FIND_PACKAGE_BerkeleyDB=true
   cmake --build build
