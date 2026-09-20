@@ -256,3 +256,4 @@ xorg-xkbcomp	fork-vanilla
 default-cursors	fork-vanilla
 libpng	fork-delta
 sdl2	fork-vanilla
+cracklib	fork-vanilla
