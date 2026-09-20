@@ -1,0 +1,12 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -37,8 +37,7 @@
+     -D CMAKE_BUILD_TYPE=None
+     -D CMAKE_INSTALL_PREFIX=/usr
+     -D CMAKE_INSTALL_LIBDIR=/usr/lib
+-    -D JSON_BuildTests=ON
+-    -D JSON_TestDataDirectory="$srcdir"/json_test_data-$_test_pkgver/
++    -D JSON_BuildTests=OFF  # kashira: !check globally; tests need gcc headers + ciso646
+     -D JSON_MultipleHeaders=ON
+     -S $pkgname
+     -W no-dev

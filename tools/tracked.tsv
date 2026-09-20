@@ -170,7 +170,7 @@ jsoncpp	fork-delta
 libuv	fork-delta
 rhash	fork-vanilla
 cppdap	fork-delta
-nlohmann-json	fork-vanilla
+nlohmann-json	fork-delta
 hicolor-icon-theme	fork-vanilla
 python-build	fork-delta
 python-installer	fork-delta
