@@ -230,5 +230,5 @@ libiconv	fork-vanilla
 numactl	fork-vanilla
 liburing	fork-vanilla
 doxygen	fork-delta
-fmt	fork-vanilla
+fmt	fork-delta
 spdlog	fork-vanilla
