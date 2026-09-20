@@ -23,7 +23,8 @@ build() {
     -DCMAKE_BUILD_TYPE=None \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -Wno-dev \
-    -DBUILD_SHARED_LIBS=ON
+    -DBUILD_SHARED_LIBS=ON \
+    -DFMT_TEST=OFF  # kashira: test cmake breaks with cmake 4.4 CMP0004
   cmake --build build
 }
 
