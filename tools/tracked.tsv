@@ -196,7 +196,7 @@ python-platformdirs	fork-vanilla
 patchelf	fork-delta
 fuse3	fork-delta
 gtest	fork-delta
-alsa-lib	fork-vanilla
+alsa-lib	fork-delta
 ell	fork-delta
 libical	fork-delta
 python-docutils	fork-vanilla

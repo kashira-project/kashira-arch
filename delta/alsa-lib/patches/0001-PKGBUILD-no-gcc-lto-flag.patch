@@ -1,0 +1,11 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -33,8 +33,6 @@
+ }
+ 
+ build() {
+-  # -flto=auto is not supported: https://github.com/alsa-project/alsa-lib/issues/110
+-  CFLAGS+=" -flto-partition=none"
+   cd $pkgname-$pkgver
+   ./configure --prefix=/usr --without-debug
+   # prevent excessive overlinking due to libtool
