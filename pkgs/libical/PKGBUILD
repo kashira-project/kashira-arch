@@ -17,14 +17,10 @@ depends=(glib2
          libgcc
          libstdc++
          libxml2)
-makedepends=('gcc'  # kashira: libstdc++ headers (no gcc in base-devel)
-            cmake 
-             doxygen
-             gi-docgen
-             git
-             gobject-introspection
-             jdk-openjdk
-             vala)
+makedepends=(cmake
+             gcc  # kashira: libstdc++ headers
+             git)
+# kashira: no gobject-introspection/vala/jdk/gi-docgen/doxygen — libical here serves bluez-obex
 checkdepends=(python-gobject)
 source=(git+https://github.com/libical/libical#tag=v$pkgver)
 sha512sums=('8ae8042a904a904cdcc1bdae7d6b71e93e23f2dfba4a3a2cf44c1db8ee68ac6817bb2674a6dbf1074ffdce51fc543c127480fa12e3e42866de8b920f86f28057')
@@ -35,8 +31,8 @@ build() {
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_INSTALL_LIBEXECDIR=lib \
     -DLIBICAL_BUILD_TESTING=true \
-    -DLIBICAL_GOBJECT_INTROSPECTION=true \
-    -DLIBICAL_GLIB_VAPI=true \
+    -DLIBICAL_GOBJECT_INTROSPECTION=false \
+    -DLIBICAL_GLIB_VAPI=false \
     -DCMAKE_DISABLE_FIND_PACKAGE_BerkeleyDB=true
   cmake --build build
 }
@@ -48,13 +44,5 @@ check() {
 package_libical() {
   DESTDIR="${pkgdir}" cmake --install build
 
-  mkdir -p doc/usr/share
-  mv {"$pkgdir",doc}/usr/share/doc
 }
 
-package_libical-docs() {
-  pkgdesc+=" (documentation)"
-  depends=()
-
-  mv doc/* "$pkgdir"
-}

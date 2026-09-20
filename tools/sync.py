@@ -96,7 +96,7 @@ def materialize(pkgbase):
                 continue
             r = subprocess.run(
                 ["patch", "-p1", "--no-backup-if-mismatch", "-d", dst,
-                 "-i", os.path.join(dpatches, patch)],
+                 "-i", os.path.realpath(os.path.join(dpatches, patch))],
                 capture_output=True, text=True)
             if r.returncode != 0:
                 print(f"DELTA-CONFLICT {pkgbase}: {patch}\n{r.stdout}{r.stderr}",
