@@ -15,8 +15,6 @@ makedepends=('gcc'  # kashira: libstdc++ headers (no gcc in base-devel)
             
   'libgcc'
   'libstdc++'
-  'doxygen'
-  'graphviz'
   'python'
   'meson'
 )
@@ -41,10 +39,6 @@ build() {
   arch-meson --default-library static build-static
   ninja -C build-static
 
-  echo "Building docs..."
-  python doxybuild.py \
-    --doxygen="$(command -v doxygen)" \
-    --with-dot
 }
 
 check() {
@@ -81,7 +75,6 @@ package_jsoncpp-doc() {
   cd ${pkgbase}-${pkgver}
   install -Dm 644 LICENSE -t "${pkgdir}/usr/share/licenses/${pkgname}"
   install -dm 755 "${pkgdir}/usr/share/doc/${pkgbase}"
-  cp -a dist/doxygen/jsoncpp-api-html-${pkgver} "${pkgdir}/usr/share/doc/${pkgbase}/html"
 }
 
 # vim: ts=2 sw=2 et:

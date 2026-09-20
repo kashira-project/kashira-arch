@@ -1,0 +1,30 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -15,8 +15,6 @@
+             
+   'libgcc'
+   'libstdc++'
+-  'doxygen'
+-  'graphviz'
+   'python'
+   'meson'
+ )
+@@ -41,10 +39,6 @@
+   arch-meson --default-library static build-static
+   ninja -C build-static
+ 
+-  echo "Building docs..."
+-  python doxybuild.py \
+-    --doxygen="$(command -v doxygen)" \
+-    --with-dot
+ }
+ 
+ check() {
+@@ -81,7 +75,6 @@
+   cd ${pkgbase}-${pkgver}
+   install -Dm 644 LICENSE -t "${pkgdir}/usr/share/licenses/${pkgname}"
+   install -dm 755 "${pkgdir}/usr/share/doc/${pkgbase}"
+-  cp -a dist/doxygen/jsoncpp-api-html-${pkgver} "${pkgdir}/usr/share/doc/${pkgbase}/html"
+ }
+ 
+ # vim: ts=2 sw=2 et:
