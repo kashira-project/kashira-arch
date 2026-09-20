@@ -14,7 +14,7 @@ depends=('glibc'
          'libcap' 'libcap.so'
          'libelf'
          'libbpf' 'libbpf.so')
-makedepends=('git' 'iptables') # kashira: no db(AGPLv3)/linux-atm -> no arpd/ATM
+makedepends=('git' 'db' 'linux-atm' 'iptables')
 optdepends=('python: for routel')
 provides=('iproute')
 options=('!emptydirs')

@@ -1,14 +1,12 @@
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -14,10 +14,8 @@
-          'libcap' 'libcap.so'
+@@ -15,9 +15,7 @@
           'libelf'
           'libbpf' 'libbpf.so')
--makedepends=('git' 'db' 'linux-atm' 'iptables')
+ makedepends=('git' 'db' 'linux-atm' 'iptables')
 -optdepends=('db: userspace arp daemon'
 -            'linux-atm: ATM support'
 -            'python: for routel')
-+makedepends=('git' 'iptables') # kashira: no db(AGPLv3)/linux-atm -> no arpd/ATM
 +optdepends=('python: for routel')
  provides=('iproute')
  options=('!emptydirs')
