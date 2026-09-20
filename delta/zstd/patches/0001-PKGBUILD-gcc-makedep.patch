@@ -1,0 +1,12 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -21,7 +21,8 @@
+   xz
+   lz4
+ )
+-makedepends=(
++makedepends=('gcc'  # kashira: libstdc++ headers (gen_html is C++)
++            
+   cmake
+   gtest
+   ninja

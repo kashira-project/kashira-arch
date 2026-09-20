@@ -21,7 +21,8 @@ depends=(
   xz
   lz4
 )
-makedepends=(
+makedepends=('gcc'  # kashira: libstdc++ headers (gen_html is C++)
+            
   cmake
   gtest
   ninja

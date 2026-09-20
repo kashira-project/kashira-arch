@@ -158,7 +158,7 @@ vim	fork-delta
 which	fork-vanilla
 xxhash	fork-vanilla
 xz	fork-delta
-zstd	fork-vanilla
+zstd	fork-delta
 libxkbcommon	fork-vanilla
 libmicrohttpd	fork-vanilla
 qrencode	fork-vanilla
