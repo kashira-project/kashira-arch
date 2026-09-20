@@ -238,3 +238,5 @@ libthai	fork-vanilla
 perl-mime-charset	fork-vanilla
 libdatrie	fork-vanilla
 perl-inc-latest	fork-vanilla
+alsa-topology-conf	fork-vanilla
+alsa-ucm-conf	fork-vanilla
