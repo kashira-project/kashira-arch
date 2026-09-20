@@ -69,7 +69,7 @@ build() {
       --enable-python3interp=dynamic \
       --disable-rubyinterp \
       --enable-luainterp=dynamic \
-      --enable-tclinterp=dynamic \
+      --disable-tclinterp \
       --disable-canberra
     make
   )

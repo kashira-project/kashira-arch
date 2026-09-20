@@ -39,7 +39,8 @@
 -      --enable-rubyinterp=dynamic \
 +      --disable-rubyinterp \
        --enable-luainterp=dynamic \
-       --enable-tclinterp=dynamic \
+-      --enable-tclinterp=dynamic \
++      --disable-tclinterp \
        --disable-canberra
      make
    )
