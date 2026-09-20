@@ -21,8 +21,9 @@ sha256sums=('6e390eb7707501a86f2e648d78fddb0d211d1e8699aa1ee201176e9f966a798b')
 
 build() {
   cd ${pkgname}-${pkgver}
-  # The script expects a UTF-8 locale
-  LC_ALL=en_US.UTF-8 perl Build
+  # kashira: run Build.PL first (missing in Arch's recipe); C.UTF-8 is our UTF-8 locale
+  LC_ALL=C.UTF-8 perl Build.PL
+  LC_ALL=C.UTF-8 perl Build
 }
 
 package() {

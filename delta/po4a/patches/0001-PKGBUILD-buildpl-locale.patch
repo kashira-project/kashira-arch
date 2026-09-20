@@ -1,0 +1,14 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -21,8 +21,9 @@
+ 
+ build() {
+   cd ${pkgname}-${pkgver}
+-  # The script expects a UTF-8 locale
+-  LC_ALL=en_US.UTF-8 perl Build
++  # kashira: run Build.PL first (missing in Arch's recipe); C.UTF-8 is our UTF-8 locale
++  LC_ALL=C.UTF-8 perl Build.PL
++  LC_ALL=C.UTF-8 perl Build
+ }
+ 
+ package() {

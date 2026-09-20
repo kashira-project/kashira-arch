@@ -163,7 +163,7 @@ libxkbcommon	fork-vanilla
 libmicrohttpd	fork-vanilla
 qrencode	fork-vanilla
 libpwquality	fork-vanilla
-po4a	fork-vanilla
+po4a	fork-delta
 bash-completion	fork-vanilla
 gpm	fork-vanilla
 jsoncpp	fork-delta
