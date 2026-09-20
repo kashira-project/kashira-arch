@@ -1,0 +1,17 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -16,12 +16,12 @@
+ 
+ build() {
+   cd openldap/libraries/liblmdb
+-  make OPT="$CFLAGS" CPPFLAGS="$CPPFLAGS" LDFLAGS="$LDFLAGS -pthread" prefix=/usr
++  make CC=clang OPT="$CFLAGS" CPPFLAGS="$CPPFLAGS" LDFLAGS="$LDFLAGS -pthread" prefix=/usr
+ }
+ 
+ check() {
+   cd openldap/libraries/liblmdb
+-  make OPT="$CFLAGS" CPPFLAGS="$CPPFLAGS" LDFLAGS="$LDFLAGS -pthread" prefix=/usr test
++  make CC=clang OPT="$CFLAGS" CPPFLAGS="$CPPFLAGS" LDFLAGS="$LDFLAGS -pthread" prefix=/usr test
+ }
+ 
+ package() {

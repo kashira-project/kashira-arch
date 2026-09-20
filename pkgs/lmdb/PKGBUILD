@@ -16,12 +16,12 @@ sha512sums=('2de791a9d68989dcb47a34ca05e0e745ac7e70c436c856174ccdd0ed14e110fbb75
 
 build() {
   cd openldap/libraries/liblmdb
-  make OPT="$CFLAGS" CPPFLAGS="$CPPFLAGS" LDFLAGS="$LDFLAGS -pthread" prefix=/usr
+  make CC=clang OPT="$CFLAGS" CPPFLAGS="$CPPFLAGS" LDFLAGS="$LDFLAGS -pthread" prefix=/usr
 }
 
 check() {
   cd openldap/libraries/liblmdb
-  make OPT="$CFLAGS" CPPFLAGS="$CPPFLAGS" LDFLAGS="$LDFLAGS -pthread" prefix=/usr test
+  make CC=clang OPT="$CFLAGS" CPPFLAGS="$CPPFLAGS" LDFLAGS="$LDFLAGS -pthread" prefix=/usr test
 }
 
 package() {
