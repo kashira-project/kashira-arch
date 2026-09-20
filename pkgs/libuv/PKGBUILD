@@ -52,5 +52,4 @@ package() {
         "$pkgdir"/usr/share/doc/$pkgname/README.md
     install -Dm644 ChangeLog \
         "$pkgdir"/usr/share/doc/$pkgname/ChangeLog
-        "$pkgdir"/usr/share/man/man1/libuv.1
 }
