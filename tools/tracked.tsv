@@ -234,3 +234,5 @@ fmt	fork-delta
 spdlog	fork-delta
 catch2	fork-delta
 perl-text-charwidth	fork-vanilla
+libthai	fork-vanilla
+perl-mime-charset	fork-vanilla
