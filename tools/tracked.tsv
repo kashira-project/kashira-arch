@@ -247,7 +247,7 @@ libxau	fork-vanilla
 libxdmcp	fork-vanilla
 libxcb	fork-vanilla
 wayland	fork-delta
-wayland-protocols	fork-vanilla
+wayland-protocols	fork-delta
 xorg-util-macros	fork-vanilla
 xtrans	fork-vanilla
 libxkbfile	fork-vanilla

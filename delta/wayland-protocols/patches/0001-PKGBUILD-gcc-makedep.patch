@@ -1,0 +1,12 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -7,7 +7,8 @@
+ arch=('any')
+ url='https://wayland.freedesktop.org/'
+ license=('MIT')
+-makedepends=('wayland' 'meson')
++makedepends=('gcc'  # kashira: libstdc++ headers for cxx test-builds
++           'wayland' 'meson')
+ validpgpkeys=('8307C0A224BABDA1BABD0EB9A6EEEC9E0136164A'  # Jonas Ådahl
+               'A66D805F7C9329B4C5D82767CCC4F07FAC641EFF'  # Daniel Stone
+               '34FF9526CFEF0E97A340E2E40FDE7BE0E88F5E48') # Simon Ser
