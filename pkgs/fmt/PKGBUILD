@@ -11,6 +11,7 @@ arch=(x86_64)
 url=https://fmt.dev
 license=(MIT)
 makedepends=(
+  'gcc'  # kashira: libstdc++ headers (no gcc in base-devel)
   cmake
   git
   ninja

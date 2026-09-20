@@ -12,9 +12,11 @@
  pkgver=12.2.0
  pkgrel=1
  pkgdesc='Open-source formatting library for C++'
-@@ -15,15 +12,8 @@
+@@ -14,16 +11,10 @@
+ url=https://fmt.dev
  license=(MIT)
  makedepends=(
++  'gcc'  # kashira: libstdc++ headers (no gcc in base-devel)
    cmake
 -  doxygen
    git
@@ -28,7 +30,7 @@
  )
  source=("git+https://github.com/fmtlib/fmt.git#tag=${pkgver}")
  b2sums=('e095e1d8e2d95a08f8d6430360e76e9b24a4e213ee83adeeeabf93de09dde325c8e2c4bbbab0907d79f77a21ef5db55ca25f836173f3cd94aecb0cc214fc596d')
-@@ -33,9 +23,9 @@
+@@ -33,9 +24,9 @@
      -DCMAKE_BUILD_TYPE=None \
      -DCMAKE_INSTALL_PREFIX=/usr \
      -Wno-dev \
@@ -40,7 +42,7 @@
  }
  
  check() {
-@@ -54,11 +44,5 @@
+@@ -54,11 +45,5 @@
    install -Dm 644 -t "${pkgdir}"/usr/share/licenses/${pkgname} fmt/LICENSE
  }
  
