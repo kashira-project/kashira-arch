@@ -1,5 +1,14 @@
 --- a/PKGBUILD
 +++ b/PKGBUILD
+@@ -4,7 +4,7 @@
+ 
+ pkgbase=libical
+ pkgname=(libical
+-         libical-docs)
++)
+ pkgver=4.0.5
+ pkgrel=1
+ pkgdesc="An open source reference implementation of the icalendar data type and serialization format"
 @@ -17,13 +17,10 @@
           libgcc
           libstdc++
