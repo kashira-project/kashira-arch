@@ -18,6 +18,15 @@
  validpgpkeys=('C7223EBE4EF66513B892598911A30156E0E67611'  # Bryce Harrington
                'C0066D7DB8E9AC6844D728715E54498E697F11D7'  # Derek Foreman
                '34FF9526CFEF0E97A340E2E40FDE7BE0E88F5E48') # emersion <contact@emersion.fr>
+@@ -20,7 +20,7 @@
+             'SKIP')
+ 
+ build() {
+-  arch-meson $pkgbase-$pkgver build
++  arch-meson $pkgbase-$pkgver build -D documentation=false  # kashira: no graphviz/doxygen docs
+   meson compile -C build
+ }
+ 
 @@ -32,17 +32,8 @@
    provides=(libwayland-{client,cursor,egl,server}.so)
  
