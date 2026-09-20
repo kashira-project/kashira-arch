@@ -1,0 +1,13 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -22,6 +22,10 @@
+ #validpgpkeys=('C383B778255613DFDB409D91DB221A6900000011') # "Keith Packard <keithp@keithp.com>"
+ 
+ build() {
++  # kashira: xorg RAWCPP macro pipes stdin; plain 'cpp' doesn't exist without gcc,
++  # and 'clang -E' needs '-'. clang-cpp does the right thing.
++  export RAWCPP=clang-cpp
++
+   cd libX11-${pkgver}
+   ./configure --prefix=/usr \
+     --disable-static \
