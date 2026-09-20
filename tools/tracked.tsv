@@ -254,5 +254,5 @@ libxkbfile	fork-vanilla
 libX11	fork-vanilla
 xorg-xkbcomp	fork-vanilla
 default-cursors	fork-vanilla
-libpng	fork-vanilla
+libpng	fork-delta
 sdl2	fork-vanilla
