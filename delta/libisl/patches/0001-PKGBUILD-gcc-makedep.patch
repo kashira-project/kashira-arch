@@ -1,0 +1,10 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -12,6 +12,7 @@
+ url='https://libisl.sourceforge.io'
+ license=('MIT')
+ depends=('gmp')
++makedepends=('gcc')  # kashira: libstdc++ headers (isl_test_cpp)
+ provides=('isl' 'libisl.so')
+ replaces=('isl')
+ options=(staticlibs)
