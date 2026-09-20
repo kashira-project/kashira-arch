@@ -14,6 +14,10 @@ source=(https://downloads.sourceforge.net/project/expect/Expect/$pkgver/expect${
 	expect-c99.patch
 	expect-5.45.4-covscan-fixes.patch
 	expect-5.45-format-security.patch)
+source+=('expect-5.45.4-tcl9-alloc.patch' 'expect-5.45.4-tcl9-const.patch'
+         'expect-5.45.4-tcl9-ansi-args.patch' 'expect-5.45.4-tcl9-eval-tokens.patch'
+         'expect-5.45.4-tcl9-mkpasswd.patch' 'expect-5.45.4-tcl9-panic.patch'
+         'expect-5.45.4-tcl9-size.patch' 'expect-5.45.4-tcl9-varargs.patch')
 sha256sums=('49a7da83b0bdd9f46d04a04deec19c7767bb9a323e40c4781f89caf760b92c34'
             '26532d2eca40f97d5461eda3705f04d5d636e759268fe8b7b39ce4d7245aa622'
             '5f218d18310052de3a05f1d795f7bb44fc9f058d26069a19e743194d35c49388'
