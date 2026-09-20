@@ -22,7 +22,7 @@ diffutils	fork-vanilla
 e2fsprogs	fork-vanilla
 elfutils	fork-vanilla
 expat	fork-vanilla
-expect	fork-vanilla
+expect	fork-delta
 fakeroot	fork-delta
 file	fork-vanilla
 findutils	fork-vanilla
