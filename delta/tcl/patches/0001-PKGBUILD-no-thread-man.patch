@@ -1,0 +1,10 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -45,6 +45,7 @@
+ package() {
+ 	cd "$_archive/unix"
+ 	make INSTALL_ROOT="$pkgdir" install install-private-headers
++	rm -f "$pkgdir/usr/share/man/man3/Thread.3"  # kashira: conflicts with perl's Thread.3
+ 	ln -sf tclsh${pkgver%.*} "$pkgdir/usr/bin/tclsh"
+ 	ln -sf libtcl${pkgver%.*}.so "$pkgdir/usr/lib/libtcl.so"
+ 	install -Dm0644 -t "$pkgdir/usr/share/licenses/$pkgname/" ../license.terms

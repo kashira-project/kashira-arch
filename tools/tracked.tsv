@@ -149,7 +149,7 @@ sqlite	fork-vanilla
 swig	fork-vanilla
 sysprof	fork-vanilla
 tar	fork-vanilla
-tcl	fork-vanilla
+tcl	fork-delta
 texinfo	fork-vanilla
 tpm2-tss	fork-vanilla
 tzdata	fork-vanilla
