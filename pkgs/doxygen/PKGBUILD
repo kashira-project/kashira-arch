@@ -93,10 +93,6 @@ package_doxygen() {
   )
 
   DESTDIR="$pkgdir" cmake --install build
-  (
-    cd "$pkgdir"
-    _pick $pkgbase-docs usr/share/doc
-  )
   install -vDm 644 $pkgbase-Release_${pkgver//./_}/LICENSE -t "$pkgdir/usr/share/licenses/$pkgname/"
 }
 

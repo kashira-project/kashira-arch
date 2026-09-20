@@ -68,7 +68,14 @@
      'texlive-fontsrecommended: for generating LaTeX, Postscript and PDF output'
      'texlive-fontutils: for generating LaTeX, Postscript and PDF output'
      'texlive-latexextra: for generating LaTeX, Postscript and PDF output'
-@@ -109,11 +100,5 @@
+@@ -102,18 +93,8 @@
+   )
+ 
+   DESTDIR="$pkgdir" cmake --install build
+-  (
+-    cd "$pkgdir"
+-    _pick $pkgbase-docs usr/share/doc
+-  )
    install -vDm 644 $pkgbase-Release_${pkgver//./_}/LICENSE -t "$pkgdir/usr/share/licenses/$pkgname/"
  }
  
