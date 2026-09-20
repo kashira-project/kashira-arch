@@ -57,7 +57,7 @@ build() {
     -DCMAKE_BUILD_TYPE:STRING=None
     -DCMAKE_INSTALL_PREFIX:PATH=/usr
     -DDOC_INSTALL_DIR:PATH=share/doc/doxygen
-    -Dbuild_doc:BOOL=ON
+    -Dbuild_doc:BOOL=OFF  # kashira: no texlive
     -Dbuild_wizard:BOOL=OFF
     -Duse_sys_spdlog:BOOL=ON
     -Duse_sys_sqlite3:BOOL=ON

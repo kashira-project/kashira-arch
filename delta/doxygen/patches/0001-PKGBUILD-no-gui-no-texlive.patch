@@ -37,11 +37,13 @@
  )
  source=(
    ${pkgbase}-${pkgver}.tar.gz::https://github.com/doxygen/doxygen/archive/Release_${pkgver//./_}.tar.gz
-@@ -65,15 +58,16 @@
+@@ -64,16 +57,17 @@
+     -DCMAKE_BUILD_TYPE:STRING=None
      -DCMAKE_INSTALL_PREFIX:PATH=/usr
      -DDOC_INSTALL_DIR:PATH=share/doc/doxygen
-     -Dbuild_doc:BOOL=ON
+-    -Dbuild_doc:BOOL=ON
 -    -Dbuild_wizard:BOOL=ON
++    -Dbuild_doc:BOOL=OFF  # kashira: no texlive
 +    -Dbuild_wizard:BOOL=OFF
      -Duse_sys_spdlog:BOOL=ON
      -Duse_sys_sqlite3:BOOL=ON
