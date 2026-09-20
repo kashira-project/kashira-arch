@@ -11,12 +11,12 @@
    libxcb
    libxml2
    meson
-@@ -46,7 +44,7 @@
-     -D enable-docs=true
+@@ -43,7 +41,7 @@
+ 
+ build() {
+   local meson_options=(
+-    -D enable-docs=true
++    -D enable-docs=false  # kashira: no doxygen
    )
  
--  arch-meson libxkbcommon build "${meson_options[@]}"
-+  arch-meson libxkbcommon build -D enable-docs=false  # kashira: no doxygen "${meson_options[@]}"
-   meson compile -C build
- }
- 
+   arch-meson libxkbcommon build "${meson_options[@]}"

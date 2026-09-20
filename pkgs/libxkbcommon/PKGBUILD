@@ -41,10 +41,10 @@ prepare() {
 
 build() {
   local meson_options=(
-    -D enable-docs=true
+    -D enable-docs=false  # kashira: no doxygen
   )
 
-  arch-meson libxkbcommon build -D enable-docs=false  # kashira: no doxygen "${meson_options[@]}"
+  arch-meson libxkbcommon build "${meson_options[@]}"
   meson compile -C build
 }
 
