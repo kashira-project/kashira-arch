@@ -82,18 +82,5 @@ package_pahole() {
   _pick ostra "$pkgdir"/usr/{bin/ostra-cg,lib/python*}
 }
 
-package_ostra-cg() {
-  pkgdesc="Generate call graphs from encoded traces"
-  depends=(
-    pahole
-    python
-    python-matplotlib
-  )
-
-  mv ostra/* "$pkgdir"
-
-  python -m compileall -d /usr/lib "$pkgdir/usr/lib"
-  python -O -m compileall -d /usr/lib "$pkgdir/usr/lib"
-}
 
 # vim:set sw=2 sts=-1 et:
