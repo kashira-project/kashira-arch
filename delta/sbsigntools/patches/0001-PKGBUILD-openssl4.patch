@@ -1,6 +1,6 @@
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -22,15 +22,19 @@
+@@ -22,16 +22,20 @@
    util-linux
    sed
  )
@@ -17,8 +17,9 @@
  validpgpkeys=('D5606E73C8B46271BEAD9ADF814AE47C214854D6') # James Bottomley <jejb@kernel.org>
  
  prepare() {
+   cd $pkgname
 +  # kashira: openssl 4 (ENGINE API removed)
 +  patch -Np1 -i ../sbsigntools-openssl4.patch
-   cd $pkgname
    git submodule init
    git config submodule."lib/ccan.git".url "$srcdir/ccan"
+   git -c protocol.file.allow=always submodule update
