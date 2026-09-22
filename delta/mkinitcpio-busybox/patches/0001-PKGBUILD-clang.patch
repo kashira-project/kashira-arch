@@ -1,0 +1,11 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -31,7 +31,7 @@
+ build() {
+   # reproducible build
+   export KCONFIG_NOTIMESTAMP=1
+-  make -C "busybox-$pkgver"
++  make CC=clang -C "busybox-$pkgver"  # kashira: busybox Makefile defaults to gcc
+ }
+ 
+ package() {
