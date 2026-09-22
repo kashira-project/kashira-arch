@@ -1,0 +1,23 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -22,15 +22,18 @@
+   util-linux
+   sed
+ )
+-source=(
++source=('sbsigntools-openssl4.patch' 
+   git+https://git.kernel.org/pub/scm/linux/kernel/git/jejb/sbsigntools.git#tag=$_commit?signed
+   git+https://github.com/rustyrussell/ccan
+ )
+-sha256sums=('18d476d5497cab8f7f8acb8710481bdd3de887f6109f2deeed9e6bd2571d3f9d'
++sha256sums=(
++  '05c1ca5b8a371e727ab841fa4a0c6574c2d888ce05b2be062f4c4bc8896c0fbd''18d476d5497cab8f7f8acb8710481bdd3de887f6109f2deeed9e6bd2571d3f9d'
+             'SKIP')
+ validpgpkeys=('D5606E73C8B46271BEAD9ADF814AE47C214854D6') # James Bottomley <jejb@kernel.org>
+ 
+ prepare() {
++  # kashira: openssl 4 (ENGINE API removed)
++  patch -Np1 -i ../sbsigntools-openssl4.patch
+   cd $pkgname
+   git submodule init
+   git config submodule."lib/ccan.git".url "$srcdir/ccan"
