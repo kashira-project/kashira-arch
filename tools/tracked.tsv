@@ -268,5 +268,6 @@ sbsigntools	fork-delta
 gnu-efi	fork-delta
 help2man	fork-vanilla
 sbctl	fork-delta
-go	fork-vanilla
+go	fork-delta
 pcsclite	fork-vanilla
+polkit	fork-vanilla
