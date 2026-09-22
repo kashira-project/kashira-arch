@@ -14,6 +14,7 @@ license=(
   GPL-3.0-or-later
   LGPL-3.0-or-later
 )
+makedepends=('gcc')  # kashira: gnu-efi Make.rules hardcode gcc
 conflicts=(gnu-efi-libs)
 provides=(gnu-efi-libs)
 replaces=(gnu-efi-libs)
