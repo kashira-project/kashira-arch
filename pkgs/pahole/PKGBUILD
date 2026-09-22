@@ -3,8 +3,7 @@
 pkgbase=pahole
 pkgname=(
   pahole
-  ostra-cg
-)
+
 pkgver=1.32
 pkgrel=1
 epoch=1
@@ -40,7 +39,6 @@ prepare() {
   cd pahole
 
   # https://bugs.archlinux.org/task/70013
-  git apply -3 ../0001-CMakeLists.txt-Install-ostra.py-into-Python3_SITELIB.patch
 
   git submodule init
   git submodule set-url lib/bpf "$srcdir/libbpf"
@@ -74,12 +72,10 @@ _pick() {
 }
 
 package_pahole() {
-  optdepends=('ostra-cg: Generate call graphs from encoded traces')
   provides=(libdwarves{,_emit,_reorganize}.so)
 
   DESTDIR="$pkgdir" cmake --install build
 
-  _pick ostra "$pkgdir"/usr/{bin/ostra-cg,lib/python*}
 }
 
 
