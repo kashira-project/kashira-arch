@@ -14,7 +14,7 @@ license=('GPL-2.0-only')
 depends=('awk' 'mkinitcpio-busybox' 'kmod' 'util-linux' 'libarchive' 'coreutils'
          'bash' 'binutils' 'diffutils' 'findutils' 'grep' 'gzip' 'filesystem' 'zstd' 'systemd')
 checkdepends=('bats' 'bats-assert' 'lzop')
-makedepends=('git' 'meson')  # kashira: no asciidoctor (ruby)
+makedepends=('git' 'meson')
 optdepends=('xz: Use lzma or xz compression for the initramfs image'
             'bzip2: Use bzip2 compression for the initramfs image'
             'lzop: Use lzo compression for the initramfs image'
@@ -30,7 +30,7 @@ validpgpkeys=('ECCAC84C1BA08A6CC8E63FBBF22FB1D78A77AEAB'    # Giancarlo Razzolin
               'BB8E6F1B81CF0BB301D74D1CBF425A01E68B38EF')   # nl6720
 
 build(){
-	arch-meson -Dsystemd_hooks=true "$pkgname" build
+	arch-meson -Dsystemd_hooks=true -Ddocs=false "$pkgname" build  # kashira: no asciidoctor (man pages off)
 	meson compile -C build
 }
 
