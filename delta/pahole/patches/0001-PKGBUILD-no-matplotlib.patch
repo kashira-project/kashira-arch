@@ -1,15 +1,13 @@
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -3,8 +3,7 @@
+@@ -3,7 +3,6 @@
  pkgbase=pahole
  pkgname=(
    pahole
 -  ostra-cg
--)
-+
+ )
  pkgver=1.32
  pkgrel=1
- epoch=1
 @@ -23,7 +22,6 @@
    git
    ninja
