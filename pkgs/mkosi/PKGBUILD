@@ -20,7 +20,6 @@ depends=(
 )
 makedepends=(
   git
-  pandoc-cli
   python-build
   python-installer
   python-setuptools
@@ -81,9 +80,6 @@ prepare() {
 build() {
   cd $pkgname
   python -m build --wheel --no-isolation
-  for manpage in mkosi-addon.1.md  mkosi-initrd.1.md  mkosi-sandbox.1.md  mkosi.1.md  mkosi.news.7.md; do
-    pandoc -t man -s -o "$pkgname/resources/man/${manpage%.md}" "$pkgname/resources/man/${manpage}"
-  done
 }
 
 check() {
@@ -104,8 +100,6 @@ package() {
   install -vdm 755 "$pkgdir/etc/mkosi-initrd"
   install -vDm 644 ../$pkgname.tmpfiles "$pkgdir/usr/lib/tmpfiles.d/$pkgname.conf"
 
-  install -vDm 644 $pkgname/resources/man/*.1 -t "$pkgdir/usr/share/man/man1/"
-  install -vDm 644 $pkgname/resources/man/*.7 -t "$pkgdir/usr/share/man/man7/"
   install -vDm 644 docs/*.md {NEWS,README}.md -t "$pkgdir/usr/share/doc/$pkgname/"
 
 
