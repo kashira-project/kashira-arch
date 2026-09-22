@@ -6,7 +6,8 @@
  options=(!strip staticlibs)
 -source=("https://go.dev/dl/go${pkgver}.src.tar.gz"{,.asc})
 +source=("https://go.dev/dl/go${pkgver}.src.tar.gz"{,.asc}
-+        "https://go.dev/dl/go${pkgver}.linux-amd64.tar.gz"{,.asc})
++        "go-bootstrap-${pkgver}.tar.gz::https://go.dev/dl/go${pkgver}.linux-amd64.tar.gz")
++noextract=("go-bootstrap-${pkgver}.tar.gz")
  validpgpkeys=('EB4C1BFD4F042F6DDDCCEC917721F63BD38B4796')
  sha256sums=('4e408abae126d916b6164627193f2c54f0e3ca1312d693b86db45f862ab238b1'
 +            'SKIP'
@@ -18,8 +19,7 @@
    export GOAMD64=v1 # make sure we're building for the right x86-64 version
    export GOROOT_FINAL=/usr/lib/go
 -  export GOROOT_BOOTSTRAP=/usr/lib/go
-+  # kashira: bootstrap from the official binary release (no go in base yet)
-+  export GOROOT_BOOTSTRAP="$srcdir/go"
++  export GOROOT_BOOTSTRAP="$srcdir/go-bootstrap"
  
    # Disable dwarf5 until debugedit catches up
    export GOEXPERIMENT=nodwarf5
