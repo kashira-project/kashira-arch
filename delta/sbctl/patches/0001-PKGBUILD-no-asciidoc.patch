@@ -1,0 +1,11 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -9,7 +9,7 @@
+ arch=('x86_64')
+ license=('MIT')
+ depends=('binutils' 'util-linux' 'pcsclite')
+-makedepends=('go' 'git' 'asciidoc')
++makedepends=('go' 'git')  # kashira: no asciidoc man page
+ source=("git+${url}.git#tag=${pkgver}?signed")
+ validpgpkeys=("C100346676634E80C940FB9E9C02FF419FECBE16")
+ sha256sums=('b40f21c8137a908f3f9aba14a7b94234e84587f02b503a09e0bbcf09e4ad14a3')
