@@ -1,0 +1,4 @@
+[mkinitcpio-busybox]
+source = 'regex'
+url = 'https://www.busybox.net/'
+regex = '([\d.]+) \(stable\)'

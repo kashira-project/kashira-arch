@@ -260,3 +260,4 @@ cracklib	fork-vanilla
 pahole	fork-delta
 rust-bindgen	fork-vanilla
 mkinitcpio	fork-delta
+mkinitcpio-busybox	fork-vanilla
