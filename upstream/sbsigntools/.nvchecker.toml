@@ -1,0 +1,4 @@
+[sbsigntools]
+source = "git"
+git = "https://git.kernel.org/pub/scm/linux/kernel/git/jejb/sbsigntools.git"
+prefix = "v"

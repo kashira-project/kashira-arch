@@ -264,3 +264,6 @@ mkinitcpio-busybox	fork-delta
 mkosi	fork-delta
 pandoc-cli	fork-vanilla
 python-argcomplete	fork-vanilla
+sbsigntools	fork-vanilla
+gnu-efi	fork-vanilla
+help2man	fork-vanilla
