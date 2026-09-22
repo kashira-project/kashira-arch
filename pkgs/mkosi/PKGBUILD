@@ -1,0 +1,115 @@
+# Maintainer: Christian Rebischke <chris.rebischke@archlinux.org>
+# Maintainer: David Runge <dvzrv@archlinux.org>
+# Maintainer: Christian Heusel <gromit@archlinux.org>
+# Maintainer: Anton Hvornum <torxed@archlinux.org>
+# Contributor: Lucas Werkmeister <mail@lucaswerkmeister.de>
+# Contributor: Dave Reisner <dreisner@archlinux.org>
+
+pkgname=mkosi
+pkgver=27
+pkgrel=1
+pkgdesc="Build Legacy-Free OS Images"
+arch=(any)
+url="https://github.com/systemd/mkosi"
+license=(LGPL-2.1-or-later)
+depends=(
+  python
+  python-argcomplete
+  sh
+  systemd
+)
+makedepends=(
+  git
+  pandoc-cli
+  python-build
+  python-installer
+  python-setuptools
+  python-setuptools-scm
+  python-wheel
+)
+checkdepends=(
+  python-pytest
+)
+optdepends=(
+  'acl: for removing directories created by mkosi'
+  'apt: for creating Debian and Ubuntu images'
+  'btrfs-progs: raw_btrfs and subvolume output formats'
+  'cpio: for cpio output format'
+  'debian-archive-keyring: build Debian images'
+  'dnf: for creating CentOS, Fedora, OpenMandriva, Mageia and OpenSUSE images'
+  'dosfstools: for FAT support'
+  'e2fsprogs: for ext2/3/4 support'
+  'edk2-ovmf: for running bootable images using QEMU'
+  'erofs-utils: for EROFS support'
+  'gnupg: for signing image checksums'
+  'kmod: for images using Linux kernels'
+  'mtools: for FAT support'
+  'openssl: for UEFI SecureBoot'
+  'python-pefile: for bootable images'
+  'qemu: for running bootable images using QEMU'
+  'sbsigntools: for UEFI SecureBoot'
+  'socat: for running the "mkosi ssh" subcommand'
+  'squashfs-tools: for squashfs support'
+  'swtpm: for adding software TPM when running bootable images using QEMU'
+  'systemd-ukify: for Unified Kernel Image (UKI) support'
+  'tar: for tar output format and Debian or Ubuntu images'
+  'ubuntu-keyring: for building Ubuntu images'
+  'xfsprogs: for XFS support'
+  'xz: for compressing images with xz'
+  'zstd: for compressing images with zstd'
+  'zypper: for creating OpenSUSE images'
+)
+source=(
+  git+$url.git#tag=v$pkgver
+  $pkgname.tmpfiles
+)
+sha512sums=('5c02eeb6bfa663dc5eb6dc7e7591f0a3259c9b36dd171f727f8720d26a4cabd430c1072000d322fa6f4b995a4301230e194987d8a2e81bae43b72a33c85505cc'
+            '1e50a3007aa3bf8c11998024823717557e911add5f9a6da923584ef9015dc6f1dc5b9ff0333396986a750a67bd4e6947fed88f12d32a9f987cd47902646d23ee')
+b2sums=('f42052a88dd446d6062ab56d2bd3c003da387b01ebf7e97fd902499f3dc522d68151d00825a657f8a57dbb1098efe4ed6c98a21127c3128893b0c3c99adcc85c'
+        'b6a61967ca888d182c59fbecde7cafdd69598e2146dcb5fbcc5b11c5d90bc7626e452805fa2f68f5a53a9bbe2a0f011f869cfb194ba503474cd9eebbd223a71d')
+
+prepare() {
+  cd $pkgname
+  # Cherry-pick fixes for pacman 7.1, see
+  # https://gitlab.archlinux.org/archlinux/packaging/packages/mkosi/-/issues/7
+  git cherry-pick --no-commit c4c3d793d0f6f0a2f26895de5ed9382396f36bb5
+  # Cherry-pick fixes to work with Qemu 11.0.0 and edk2 202602
+  # https://github.com/systemd/mkosi/issues/4292
+  git cherry-pick --no-commit fa8e53881c426bbbd6b0dec6b52583fdd768b12c
+}
+
+build() {
+  cd $pkgname
+  python -m build --wheel --no-isolation
+  for manpage in mkosi-addon.1.md  mkosi-initrd.1.md  mkosi-sandbox.1.md  mkosi.1.md  mkosi.news.7.md; do
+    pandoc -t man -s -o "$pkgname/resources/man/${manpage%.md}" "$pkgname/resources/man/${manpage}"
+  done
+}
+
+check() {
+  cd $pkgname
+  pytest -vv
+}
+
+package() {
+  cd $pkgname
+  python -m installer --destdir="$pkgdir" dist/*.whl
+
+  # add kernel-install integration
+  install -vDm 755 kernel-install/50-$pkgname.install -t "$pkgdir/usr/lib/kernel/install.d/"
+
+  # NOTE: mkosi automatically uses the mkosi-initrd integration from Python's site-packages
+  # distribution overrides can be added below /usr/lib/mkosi-initrd
+  # user overrides can be added below /etc/mkosi-initrd
+  install -vdm 755 "$pkgdir/etc/mkosi-initrd"
+  install -vDm 644 ../$pkgname.tmpfiles "$pkgdir/usr/lib/tmpfiles.d/$pkgname.conf"
+
+  install -vDm 644 $pkgname/resources/man/*.1 -t "$pkgdir/usr/share/man/man1/"
+  install -vDm 644 $pkgname/resources/man/*.7 -t "$pkgdir/usr/share/man/man7/"
+  install -vDm 644 docs/*.md {NEWS,README}.md -t "$pkgdir/usr/share/doc/$pkgname/"
+
+
+  python -m mkosi completion bash | install -vDm 644 /dev/stdin "$pkgdir/usr/share/bash-completion/completions/mkosi"
+  python -m mkosi completion fish | install -vDm 644 /dev/stdin "$pkgdir/usr/share/fish/vendor_completions.d/mkosi.fish"
+  python -m mkosi completion zsh  | install -vDm 644 /dev/stdin "$pkgdir/usr/share/zsh/site-functions/_mkosi"
+}

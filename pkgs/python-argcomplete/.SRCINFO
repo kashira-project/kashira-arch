@@ -1,0 +1,25 @@
+pkgbase = python-argcomplete
+	pkgdesc = Easy, extensible command line tab completion of arguments for your Python script
+	pkgver = 3.7.2
+	pkgrel = 1
+	url = https://github.com/kislyuk/argcomplete
+	arch = any
+	license = Apache-2.0
+	checkdepends = fish
+	checkdepends = python-pexpect
+	checkdepends = python-pip
+	checkdepends = python-setuptools
+	checkdepends = tcsh
+	checkdepends = zsh
+	makedepends = git
+	makedepends = python-build
+	makedepends = python-hatch-vcs
+	makedepends = python-hatchling
+	makedepends = python-installer
+	makedepends = python-wheel
+	depends = python
+	source = argcomplete::git+https://github.com/kislyuk/argcomplete#tag=v3.7.2
+	validpgpkeys = 29BCBADB4ECAAAC2382699388AFAFCD242818A52
+	sha512sums = 261134f29561a2f58561f741b51bd6ff931017dee6a8283b83febfc72d9d9277df3c4674f89fb42ca99dd91205ed68bcaad08582371581e111ed114d248b666c
+
+pkgname = python-argcomplete

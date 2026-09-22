@@ -261,3 +261,6 @@ pahole	fork-delta
 rust-bindgen	fork-vanilla
 mkinitcpio	fork-delta
 mkinitcpio-busybox	fork-delta
+mkosi	fork-vanilla
+pandoc-cli	fork-vanilla
+python-argcomplete	fork-vanilla
