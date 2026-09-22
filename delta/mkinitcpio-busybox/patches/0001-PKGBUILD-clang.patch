@@ -5,7 +5,7 @@
    # reproducible build
    export KCONFIG_NOTIMESTAMP=1
 -  make -C "busybox-$pkgver"
-+  make CC=clang -C "busybox-$pkgver"  # kashira: busybox Makefile defaults to gcc
++  make CC=clang HOSTCC=clang -C "busybox-$pkgver"  # kashira: busybox Makefile + host tools default to gcc
  }
  
  package() {
