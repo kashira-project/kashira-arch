@@ -29,7 +29,7 @@
    )
  
 -  cmake -S pahole -B build -G Ninja "${cmake_options[@]}"
-+  cmake -S pahole -B build -DCMAKE_INSTALL_LIBDIR=lib  # kashira: no lib64 -G Ninja "${cmake_options[@]}"
++  cmake -S pahole -B build -DCMAKE_INSTALL_LIBDIR=lib -G Ninja "${cmake_options[@]}"  # kashira: no lib64
    cmake --build build
  }
  
