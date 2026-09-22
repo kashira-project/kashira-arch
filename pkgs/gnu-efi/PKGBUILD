@@ -14,7 +14,7 @@ license=(
   GPL-3.0-or-later
   LGPL-3.0-or-later
 )
-makedepends=('gcc')  # kashira: gnu-efi Make.rules hardcode gcc
+makedepends=('gcc' 'gnu-binutils-tools')  # kashira: gnu-efi hardcodes gcc + needs GNU objcopy
 conflicts=(gnu-efi-libs)
 provides=(gnu-efi-libs)
 replaces=(gnu-efi-libs)
@@ -37,7 +37,7 @@ build() {
   # upstream provides LDFLAGS directly to ld: https://sourceforge.net/p/gnu-efi/bugs/33/
   LDFLAGS="${LDFLAGS//-Wl/}"
   LDFLAGS="${LDFLAGS//,/ }"
-  make PREFIX=/usr
+  make PREFIX=/usr OBJCOPY=gnu-objcopy OBJDUMP=gnu-objdump  # kashira: llvm-objcopy lacks efi-app-x86_64
 }
 
 package() {
