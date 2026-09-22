@@ -53,7 +53,7 @@ build() {
     -D LIBBPF_EMBEDDED=ON
   )
 
-  cmake -S pahole -B build -G Ninja "${cmake_options[@]}"
+  cmake -S pahole -B build -DCMAKE_INSTALL_LIBDIR=lib  # kashira: no lib64 -G Ninja "${cmake_options[@]}"
   cmake --build build
 }
 
