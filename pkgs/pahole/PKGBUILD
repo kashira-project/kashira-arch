@@ -23,7 +23,6 @@ makedepends=(
   git
   ninja
   python
-  python-matplotlib
 )
 source=(
   "git+$url?signed#tag=v$pkgver"

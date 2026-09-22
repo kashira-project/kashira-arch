@@ -257,5 +257,5 @@ default-cursors	fork-vanilla
 libpng	fork-delta
 sdl2	fork-vanilla
 cracklib	fork-vanilla
-pahole	fork-vanilla
+pahole	fork-delta
 rust-bindgen	fork-vanilla
