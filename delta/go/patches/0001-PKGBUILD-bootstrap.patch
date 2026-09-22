@@ -1,6 +1,6 @@
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -29,16 +29,21 @@
+@@ -29,16 +29,20 @@
  replaces=(go-pie)
  provides=(go-pie)
  options=(!strip staticlibs)
@@ -11,7 +11,6 @@
  sha256sums=('4e408abae126d916b6164627193f2c54f0e3ca1312d693b86db45f862ab238b1'
 +            'SKIP'
 +            '63d339f0da5ab53635a56f2490a7984dfe12dfcff22ad749f63edaf590168445'
-+            'SKIP'
              'SKIP')
  
  build() {
