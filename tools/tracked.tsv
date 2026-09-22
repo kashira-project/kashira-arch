@@ -267,3 +267,6 @@ python-argcomplete	fork-vanilla
 sbsigntools	fork-delta
 gnu-efi	fork-delta
 help2man	fork-vanilla
+sbctl	fork-vanilla
+go	fork-vanilla
+pcsclite	fork-vanilla

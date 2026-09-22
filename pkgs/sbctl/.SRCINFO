@@ -1,0 +1,18 @@
+pkgbase = sbctl
+	pkgdesc = Secure Boot key manager
+	pkgver = 0.18
+	pkgrel = 2
+	url = https://github.com/Foxboron/sbctl
+	arch = x86_64
+	license = MIT
+	makedepends = go
+	makedepends = git
+	makedepends = asciidoc
+	depends = binutils
+	depends = util-linux
+	depends = pcsclite
+	source = git+https://github.com/Foxboron/sbctl.git#tag=0.18?signed
+	validpgpkeys = C100346676634E80C940FB9E9C02FF419FECBE16
+	sha256sums = b40f21c8137a908f3f9aba14a7b94234e84587f02b503a09e0bbcf09e4ad14a3
+
+pkgname = sbctl
