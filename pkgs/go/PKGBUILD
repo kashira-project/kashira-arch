@@ -46,6 +46,7 @@ build() {
   # Disable dwarf5 until debugedit catches up
   export GOEXPERIMENT=nodwarf5
 
+  mkdir -p go-bootstrap && tar -xf "$srcdir/go-bootstrap-$pkgver.tar.gz" -C go-bootstrap --strip-components=1
   cd "$pkgname/src"
   ./make.bash -v
 }
