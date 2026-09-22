@@ -1,0 +1,11 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -14,7 +14,7 @@
+ depends=('awk' 'mkinitcpio-busybox' 'kmod' 'util-linux' 'libarchive' 'coreutils'
+          'bash' 'binutils' 'diffutils' 'findutils' 'grep' 'gzip' 'filesystem' 'zstd' 'systemd')
+ checkdepends=('bats' 'bats-assert' 'lzop')
+-makedepends=('asciidoctor' 'git' 'meson')
++makedepends=('git' 'meson')  # kashira: no asciidoctor (ruby)
+ optdepends=('xz: Use lzma or xz compression for the initramfs image'
+             'bzip2: Use bzip2 compression for the initramfs image'
+             'lzop: Use lzo compression for the initramfs image'
