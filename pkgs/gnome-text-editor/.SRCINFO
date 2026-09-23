@@ -1,0 +1,28 @@
+pkgbase = gnome-text-editor
+	pkgdesc = A simple text editor for the GNOME desktop
+	pkgver = 50.1
+	pkgrel = 1
+	url = https://apps.gnome.org/TextEditor/
+	arch = x86_64
+	groups = gnome
+	license = GPL-3.0-or-later
+	makedepends = appstream
+	makedepends = git
+	makedepends = glib2-devel
+	makedepends = meson
+	makedepends = yelp-tools
+	depends = dconf
+	depends = editorconfig-core-c
+	depends = glib2
+	depends = glibc
+	depends = gtk4
+	depends = gtksourceview5
+	depends = hicolor-icon-theme
+	depends = libadwaita
+	depends = libgcc
+	depends = libspelling
+	depends = pango
+	source = git+https://gitlab.gnome.org/GNOME/gnome-text-editor.git#tag=50.1
+	b2sums = d3c2f074c92fb2dc65ecf76c9848a990b2e8ceafd039efaf29d3308194b8e39766c49924d13d70c315e37cdeb04400ba9d8765e8886ec2f4a2349490c6ab814d
+
+pkgname = gnome-text-editor

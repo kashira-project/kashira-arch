@@ -1,0 +1,44 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -15,11 +15,12 @@
+ depends=(
+   glib2
+   glibc
+-  glycin
++  libjpeg-turbo
++  libpng
++  libtiff
+   shared-mime-info
+ )
+ makedepends=(
+-  gi-docgen
+   git
+   glib2-devel
+   gobject-introspection
+@@ -43,19 +44,19 @@
+   local meson_options=(
+     -D android=disabled
+     -D builtin_loaders=all
+-    -D documentation=true
+-    -D gif=disabled
+-    -D glycin=enabled
+-    -D gtk_doc=true
++    -D documentation=false
++    -D gif=enabled
++    -D glycin=disabled
++    -D gtk_doc=false
+     -D installed_tests=false
+     -D introspection=enabled
+-    -D jpeg=disabled
++    -D jpeg=enabled
+     -D legacy_xpm=enabled
+     -D man=true
+     -D others=enabled
+-    -D png=disabled
++    -D png=enabled
+     -D thumbnailer=disabled
+-    -D tiff=disabled
++    -D tiff=enabled
+   )
+ 
+   arch-meson gdk-pixbuf build "${meson_options[@]}"

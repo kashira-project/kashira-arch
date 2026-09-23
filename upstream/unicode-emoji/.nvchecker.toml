@@ -1,0 +1,4 @@
+[unicode-emoji]
+source = 'regex'
+url = 'http://www.unicode.org/Public/emoji/'
+regex = '\"([\d.]+)/\"'

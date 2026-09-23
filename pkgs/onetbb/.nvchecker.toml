@@ -1,0 +1,5 @@
+[onetbb]
+source = "git"
+git = "https://github.com/oneapi-src/oneTBB.git"
+prefix = "v"
+exclude_regex = ".*(pre|a|alpha|b|beta|rc).*"

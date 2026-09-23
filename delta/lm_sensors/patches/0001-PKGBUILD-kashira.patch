@@ -1,0 +1,38 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -11,11 +11,10 @@
+ url="https://github.com/hramrach/lm-sensors"
+ license=('GPL-2.0-only OR LGPL-2.1-only')
+ depends=('bash' 'glibc')
+-makedepends=('rrdtool' 'perl')
+-optdepends=('rrdtool: for logging with sensord'
+-            'perl: for sensor detection and configuration convert')
++makedepends=('perl')
++optdepends=('perl: for sensor detection and configuration convert')
+ provides=('libsensors.so')
+-backup=('etc/sensors3.conf' 'etc/healthd.conf' 'etc/conf.d/sensord')
++backup=('etc/sensors3.conf' 'etc/healthd.conf')
+ source=(lm_sensors-${pkgver}.tar.gz::${url}/archive/refs/tags/V${_pkgver}.tar.gz
+ 	healthd healthd.conf healthd.service sensord.conf)
+ sha256sums=('c6a0587e565778a40d88891928bf8943f27d353f382d5b745a997d635978a8f0'
+@@ -33,18 +32,17 @@
+ 
+ build() {
+   cd lm-sensors-$_pkgver
+-  make PREFIX=/usr
++  make PREFIX=/usr CC="$CC"
+ }
+ 
+ package() {
+   cd lm-sensors-$_pkgver
+-  make PROG_EXTRA=sensord BUILD_STATIC_LIB=0 \
++  make CC="$CC" BUILD_STATIC_LIB=0 \
+     PREFIX=/usr SBINDIR=/usr/bin MANDIR=/usr/share/man DESTDIR="${pkgdir}" install
+ 
+   install -D -m755 "${srcdir}/healthd" "${pkgdir}/usr/bin/healthd"
+ 
+   install -D -m644 "${srcdir}/healthd.conf" "${pkgdir}/etc/healthd.conf"
+-  install -D -m644 "${srcdir}/sensord.conf" "${pkgdir}/etc/conf.d/sensord"
+  
+   install -D -m644 "${srcdir}/healthd.service" "${pkgdir}/usr/lib/systemd/system/healthd.service"
+   install -D -m644 prog/init/*.service "${pkgdir}/usr/lib/systemd/system/"

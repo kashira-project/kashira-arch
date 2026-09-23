@@ -1,0 +1,57 @@
+# Maintainer: Levente Polyak <anthraxx[at]archlinux[dot]org>
+# Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
+# Contributor: Ionut Biru <ibiru@archlinux.org>
+# Contributor: Timm Preetz <timm@preetz.us>
+
+pkgname=vala
+pkgver=0.56.19
+pkgrel=2
+pkgdesc='Compiler for the GObject type system'
+url='https://wiki.gnome.org/Projects/Vala'
+arch=(x86_64)
+license=(LGPL-2.1-or-later)
+depends=(
+  bash
+  gcc
+  glib2
+  glibc
+  pkg-config
+)
+makedepends=(
+  gobject-introspection
+  libxslt
+)
+checkdepends=(
+  dbus
+  gobject-introspection
+  libx11
+)
+provides=(
+  libvala-${pkgver%.*}.so
+)
+source=(
+  "https://download.gnome.org/sources/vala/${pkgver%.*}/vala-$pkgver.tar.xz"
+)
+b2sums=('333b4e7f0fcc0cb984975718011a81bde55f02ed4fa0e0bc69d2fd553e520b9e0cf5153d2a3c56540d471526249f923764ecd43117e2739930b095c2e1f02829')
+
+prepare() {
+  cd vala-$pkgver
+}
+
+build() {
+  cd vala-$pkgver
+
+  ./configure --prefix=/usr --disable-valadoc
+  sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool
+  make
+}
+
+check() {
+  make -C vala check
+}
+
+package() {
+  make -C vala-$pkgver DESTDIR="$pkgdir" install
+}
+
+# vim:set sw=2 sts=-1 et:

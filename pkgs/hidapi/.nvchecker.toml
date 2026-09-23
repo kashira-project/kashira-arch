@@ -1,0 +1,3 @@
+[hidapi]
+source = "git"
+git = "https://github.com/libusb/hidapi.git"

@@ -1,0 +1,11 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -11,7 +11,7 @@
+ arch=('x86_64')
+ license=('BSD-3-Clause')
+ depends=('glibc' 'libstdc++' 'spirv-tools')
+-makedepends=('cmake' 'ninja' 'spirv-headers' 'python' 'git')
++makedepends=('gcc' 'cmake' 'ninja' 'spirv-headers' 'python' 'git')
+ options=('staticlibs')
+ source=("git+${url}.git#tag=vulkan-sdk-${pkgver}")
+ sha256sums=('8643f6ebfeb91fd6cbdc1462a428862b6ea8ae288d91562603a146365d9c70c6')

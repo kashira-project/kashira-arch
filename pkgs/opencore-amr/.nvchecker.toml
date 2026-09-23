@@ -1,0 +1,4 @@
+[opencore-amr]
+source = 'git'
+git = 'https://git.code.sf.net/p/opencore-amr/code'
+prefix = 'v'

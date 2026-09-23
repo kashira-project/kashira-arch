@@ -1,0 +1,20 @@
+pkgbase = gsound
+	pkgdesc = Small library for playing system sounds
+	pkgver = 1.0.3
+	pkgrel = 4
+	url = https://wiki.gnome.org/Projects/GSound
+	arch = x86_64
+	license = LGPL-2.1-or-later
+	makedepends = git
+	makedepends = gobject-introspection
+	makedepends = gtk-doc
+	makedepends = meson
+	makedepends = vala
+	depends = glib2
+	depends = glibc
+	depends = libcanberra
+	source = git+https://gitlab.gnome.org/GNOME/gsound.git?signed#tag=1.0.3
+	validpgpkeys = E59279669D642A60C0F2F50DFB5C9B2F1D6004CF
+	b2sums = 91b34e0e9f4c0f60bad65d70767f4c7ba995fccdc2ee3d050930e76ea038c75303710d3bfe6815c612d8ed4a8980269fb41964197306f12f1f9492be7135cec8
+
+pkgname = gsound

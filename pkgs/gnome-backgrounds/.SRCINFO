@@ -1,0 +1,16 @@
+pkgbase = gnome-backgrounds
+	pkgdesc = Background images and data for GNOME
+	pkgver = 50.0
+	pkgrel = 1
+	url = https://gitlab.gnome.org/GNOME/gnome-backgrounds
+	arch = any
+	groups = gnome
+	license = CC-BY-SA-3.0
+	makedepends = glib2
+	makedepends = git
+	makedepends = meson
+	depends = libjxl
+	source = git+https://gitlab.gnome.org/GNOME/gnome-backgrounds.git#tag=50.0
+	b2sums = cbada8f2276d2a3c300341dd093662683e539662767019bf29a6abbabc0faec6016e2b6bd0aff77c72c8ad4ab5ea1b4d16a7a3e33634a3330a4fa10d55dcd856
+
+pkgname = gnome-backgrounds

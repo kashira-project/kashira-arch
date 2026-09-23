@@ -1,0 +1,22 @@
+pkgbase = gnome-tour
+	pkgdesc = Guided tour and greeter for GNOME
+	pkgver = 50.0
+	pkgrel = 1
+	url = https://apps.gnome.org/Tour/
+	arch = x86_64
+	groups = gnome
+	license = GPL-3.0-or-later
+	makedepends = appstream
+	makedepends = git
+	makedepends = meson
+	makedepends = rust
+	depends = glib2
+	depends = glibc
+	depends = gtk4
+	depends = hicolor-icon-theme
+	depends = libadwaita
+	depends = libgcc
+	source = git+https://gitlab.gnome.org/GNOME/gnome-tour.git#tag=50.0
+	b2sums = bbea4f457474d476c2c5933e01855ac1d5900f8048f1738910d1e8ed61a4bdc270d3eedcb1709d6a50b61efee0a2b814f0810ab1d4add64e1d3b3b382e0233ff
+
+pkgname = gnome-tour

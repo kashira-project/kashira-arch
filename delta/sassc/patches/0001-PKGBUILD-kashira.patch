@@ -1,0 +1,19 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -10,6 +10,7 @@
+ url='https://sass-lang.com'
+ license=(MIT)
+ depends=(libsass)
++makedepends=('gcc')
+ _archive="$pkgname-$pkgver"
+ source=("https://github.com/sass/$pkgname/archive/$pkgver/$_archive.tar.gz")
+ sha256sums=('608dc9002b45a91d11ed59e352469ecc05e4f58fc1259fc9a9f5b8f0f8348a03')
+@@ -17,7 +18,7 @@
+ build() {
+ 	cd "$_archive"
+ 	autoreconf -i
+-	./configure --prefix=/usr
++	./configure --prefix=/usr --with-libsass=/usr
+ 	make
+ }
+ 

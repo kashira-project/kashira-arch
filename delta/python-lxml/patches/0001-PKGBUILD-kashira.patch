@@ -1,0 +1,50 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -4,7 +4,7 @@
+ # Contributor: Angel Velasquez <angvp@archlinux.org>
+ 
+ pkgbase=python-lxml
+-pkgname=('python-lxml' 'python-lxml-docs')
++pkgname=('python-lxml')
+ pkgver=6.1.3_1
+ pkgrel=1
+ pkgdesc="Python binding for the libxml2 and libxslt libraries"
+@@ -28,7 +28,6 @@
+   'python-beautifulsoup4: support for beautifulsoup parser to parse not well formed HTML'
+   'python-cssselect: support for cssselect'
+   'python-html5lib: support for html5lib parser'
+-  'python-lxml-docs: offline docs'
+   'python-lxml-html-clean: enable htmlclean feature'
+ )
+ makedepends=(
+@@ -38,8 +37,6 @@
+   'python-setuptools'
+   'python-wheel'
+   'python-pygments'
+-  'python-sphinx'
+-  'python-sphinx_rtd_theme'
+   'cython'
+ )
+ checkdepends=(
+@@ -107,21 +104,3 @@
+     ./*.license
+ }
+ 
+-package_python-lxml-docs() {
+-  pkgdesc="Python binding for the libxml2 and libxslt libraries (docs)"
+-  depends=()
+-  options=('docs')
+-
+-  cd "$pkgbase"
+-
+-  # documentation
+-  install -d "$pkgdir"/usr/share/doc/$pkgbase
+-  cp -r doc/html "$pkgdir"/usr/share/doc/$pkgbase
+-
+-  # licenses
+-  install -vDm644 -t "$pkgdir/usr/share/licenses/$pkgname" \
+-    LICENSES.txt \
+-    doc/licenses/BSD.txt \
+-    doc/licenses/elementtree.txt \
+-    ./*.license
+-}

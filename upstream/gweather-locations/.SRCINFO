@@ -1,0 +1,14 @@
+pkgbase = gweather-locations
+	pkgdesc = Location and timezone database for the libgweather library
+	pkgver = 2026.2
+	pkgrel = 1
+	url = https://gitlab.gnome.org/GNOME/gweather-locations
+	arch = x86_64
+	license = GPL-2.0-or-later
+	makedepends = python-gobject
+	makedepends = git
+	makedepends = meson
+	source = git+https://gitlab.gnome.org/GNOME/gweather-locations.git#tag=2026.2
+	b2sums = b97998f85e340952a4383577ffd587714711b0d4f0f82fa279a75516c314c3f69ab28589d907a7b4948e88360442788520c3150b984d7d2a8b1d911d097bbf23
+
+pkgname = gweather-locations

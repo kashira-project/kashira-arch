@@ -1,0 +1,32 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -17,7 +17,6 @@
+ makedepends=(
+   git
+   meson
+-  python-sphinx-furo
+ )
+ checkdepends=(
+   libadwaita
+@@ -28,12 +27,11 @@
+ 
+ build() {
+   local meson_options=(
+-    -D docs=true
++    -D docs=false
+   )
+ 
+   arch-meson $pkgname build "${meson_options[@]}"
+   meson compile -C build
+-  meson compile -C build docs
+ }
+ 
+ check() {
+@@ -47,7 +45,6 @@
+ 
+   local docdir="$pkgdir/usr/share/doc/$pkgname"
+   mkdir -p "$docdir"
+-  cp -a build/docs/en -t "$docdir"
+   rm -r "$docdir/en/.doctrees"
+ }
+ 

@@ -1,0 +1,4 @@
+[phodav]
+source = "git"
+git = "https://gitlab.gnome.org/GNOME/phodav.git"
+prefix = "v"

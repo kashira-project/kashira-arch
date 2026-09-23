@@ -1,0 +1,4 @@
+[libiptcdata]
+source = "git"
+git = "https://github.com/ianw/libiptcdata.git"
+prefix = "release_"

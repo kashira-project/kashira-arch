@@ -1,0 +1,40 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -3,10 +3,7 @@
+ # Contributor: Ionut Biru <ibiru@archlinux.org>
+ 
+ pkgbase=pygobject
+-pkgname=(
+-  python-gobject
+-  python-gobject-docs
+-)
++pkgname=(python-gobject)
+ pkgver=3.56.3
+ pkgrel=1
+ pkgdesc="Python bindings for GLib/GObject/GIO/GTK"
+@@ -25,10 +22,7 @@
+   gobject-introspection
+   meson
+   python-cairo
+-  python-pydata-sphinx-theme
+   python-setuptools
+-  python-sphinx
+-  python-sphinx-copybutton
+ )
+ checkdepends=(
+   gdk-pixbuf2
+@@ -78,14 +72,6 @@
+   python -O -m compileall -d /usr/lib "$pkgdir/usr/lib"
+ }
+ 
+-package_python-gobject-docs() {
+-  pkgdesc="Developer documentation for PyGObject"
+-  depends=()
+-  optdepends=()
+-
+-  python -m sphinx -b html pygobject/docs "$pkgdir/usr/share/doc/pygobject/html"
+-  rm -r "$pkgdir/usr/share/doc/pygobject/html/.doctrees"
+-}
+ 
+ 
+ # vim:set sw=2 sts=-1 et:

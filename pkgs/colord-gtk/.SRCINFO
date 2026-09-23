@@ -1,0 +1,47 @@
+pkgbase = colord-gtk
+	pkgdesc = Additional GTK support code for colord
+	pkgver = 0.3.1
+	pkgrel = 1
+	url = https://www.freedesktop.org/software/colord/
+	arch = x86_64
+	license = LGPL-2.1-or-later
+	makedepends = cairo
+	makedepends = colord
+	makedepends = docbook-utils
+	makedepends = docbook-xsl
+	makedepends = git
+	makedepends = glib2
+	makedepends = glibc
+	makedepends = gobject-introspection
+	makedepends = gtk-doc
+	makedepends = gtk3
+	makedepends = gtk4
+	makedepends = libcolord
+	makedepends = meson
+	makedepends = vala
+	source = git+https://github.com/hughsie/colord-gtk?signed#tag=0.3.1
+	validpgpkeys = 163EB50119225DB3DF8F49EA17ACBA8DFA970E17
+	b2sums = c288f0941a3db370d27393013a31bab205fd305419fb3815a454b9f76772a9622114acde611bfad985744e1d9c5ce0cfda39c3df826014bb8627445bcce2219d
+
+pkgname = colord-gtk-common
+	pkgdesc = Additional GTK support code for colord - common files
+
+pkgname = colord-gtk
+	pkgdesc = Additional GTK3 support code for colord
+	depends = colord-gtk-common=0.3.1-1
+	depends = cairo
+	depends = glib2
+	depends = glibc
+	depends = gtk3
+	depends = libcolord
+	provides = libcolord-gtk.so
+
+pkgname = colord-gtk4
+	pkgdesc = Additional GTK4 support code for colord
+	depends = colord-gtk-common=0.3.1-1
+	depends = cairo
+	depends = glib2
+	depends = glibc
+	depends = gtk4
+	depends = libcolord
+	provides = libcolord-gtk4.so

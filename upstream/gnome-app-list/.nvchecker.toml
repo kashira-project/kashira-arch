@@ -1,0 +1,3 @@
+[gnome-app-list]
+source = "git"
+git = "https://gitlab.gnome.org/GNOME/gnome-app-list.git"

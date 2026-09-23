@@ -1,0 +1,56 @@
+# Maintainer: Fabian Bornschein <fabiscafe@archlinux.org>
+# Contributor: Balló György <ballogyor+arch at gmail dot com>
+
+pkgname=gnome-tour
+pkgver=50.0
+pkgrel=1
+pkgdesc="Guided tour and greeter for GNOME"
+url="https://apps.gnome.org/Tour/"
+arch=(x86_64)
+license=(GPL-3.0-or-later)
+depends=(
+  glib2
+  glibc
+  gtk4
+  hicolor-icon-theme
+  libadwaita
+  libgcc
+)
+makedepends=(
+  appstream
+  git
+  meson
+  rust
+)
+groups=(gnome)
+source=("git+https://gitlab.gnome.org/GNOME/gnome-tour.git#tag=${pkgver/[a-z]/.&}")
+b2sums=('bbea4f457474d476c2c5933e01855ac1d5900f8048f1738910d1e8ed61a4bdc270d3eedcb1709d6a50b61efee0a2b814f0810ab1d4add64e1d3b3b382e0233ff')
+
+# Use debug
+export CARGO_PROFILE_RELEASE_DEBUG=2 CARGO_PROFILE_RELEASE_STRIP=false
+
+# Use LTO
+export CARGO_PROFILE_RELEASE_LTO=true CARGO_PROFILE_RELEASE_CODEGEN_UNITS=1
+
+prepare() {
+  cd $pkgname
+
+  # Match CARGO_HOME in src/meson.build
+  CARGO_HOME="$srcdir/build/cargo-home" \
+    cargo fetch --locked --target "$(rustc --print host-tuple)"
+}
+
+build() {
+  arch-meson $pkgname build
+  meson compile -C build
+}
+
+check() {
+  meson test -C build --print-errorlogs --no-rebuild
+}
+
+package() {
+  meson install -C build --destdir "$pkgdir" --no-rebuild
+}
+
+# vim:set sw=2 sts=-1 et:

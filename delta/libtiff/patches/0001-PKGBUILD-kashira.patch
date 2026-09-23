@@ -1,0 +1,13 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -23,10 +23,7 @@
+ )
+ makedepends=(
+   cmake
+-  freeglut
+   git
+-  glu
+-  mesa
+ )
+ optdepends=(
+   'freeglut: for using tiffgt'

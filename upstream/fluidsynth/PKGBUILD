@@ -1,0 +1,84 @@
+# Maintainer: David Runge <dvzrv@archlinux.org>
+# Contributor: Ray Rashif <schiv@archlinux.org>
+# Contributor: damir <damir@archlinux.org>
+
+pkgname=fluidsynth
+pkgver=2.6.1
+pkgrel=1
+pkgdesc="A real-time software synthesizer based on the SoundFont 2 specifications"
+arch=(x86_64)
+url="https://www.fluidsynth.org/"
+_url="https://github.com/fluidsynth/fluidsynth"
+license=(LGPL-2.1-or-later)
+groups=(pro-audio)
+depends=(
+  glibc
+  libgcc
+  libgomp
+  libstdc++
+  sdl3
+)
+makedepends=(
+  alsa-lib
+  cmake
+  dbus
+  doxygen
+  jack
+  ladspa
+  libpipewire
+  libpulse
+  libsndfile
+  portaudio
+  readline
+  systemd-libs
+)
+provides=(
+  libfluidsynth.so
+  soundfont-synthesizer
+)
+backup=(etc/conf.d/$pkgname)
+source=(
+  $pkgname-$pkgver.tar.gz::$_url/archive/v$pkgver.tar.gz
+)
+sha512sums=('5c46421ba17559cb826fb2e6b8002b3459c910ff2ebd6d75c55f3139bea58487ddb4ac8da71c6bb72bc5af9590e11752b3d88a8e41170b8e41f228e9a08257cd')
+b2sums=('257a2ffe9dd11abec672df20d006f9d9e8b18b0ba6a969f13b8caab7f1f083e66fbf3ef363d5532f638a64d141d28dddef56288906290d8fe4df2d31a16e334a')
+
+build() {
+  local cmake_options=(
+    -B build
+    -D CMAKE_BUILD_TYPE=None
+    -D CMAKE_INSTALL_PREFIX=/usr
+    -D FLUID_DAEMON_ENV_FILE=/etc/conf.d/fluidsynth
+    -D LIB_SUFFIX=""
+    -D enable-ladspa=ON
+    -D enable-portaudio=ON
+    -S $pkgname-$pkgver
+    -W no-dev
+  )
+
+  cmake "${cmake_options[@]}"
+  cmake --build build --verbose
+}
+
+check() {
+  make check -k -C build
+}
+
+package() {
+  depends+=(
+    alsa-lib libasound.so
+    dbus libdbus-1.so
+    jack libjack.so
+    libpipewire libpipewire-0.3.so
+    libpulse libpulse-simple.so
+    libsndfile libsndfile.so
+    portaudio libportaudio.so
+    readline libreadline.so
+    systemd-libs libsystemd.so
+  )
+
+  DESTDIR="$pkgdir" cmake --install build
+  install -vDm 644 build/$pkgname.service -t "$pkgdir/usr/lib/systemd/user/"
+  install -vDm 644 build/$pkgname.conf "$pkgdir/etc/conf.d/$pkgname"
+  install -vDm 644 $pkgname-$pkgver/{AUTHORS,{CONTRIBUTING,README}.md,THANKS,TODO} -t "$pkgdir/usr/share/doc/$pkgname/"
+}

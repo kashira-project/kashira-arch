@@ -1,0 +1,19 @@
+pkgbase = osinfo-db
+	pkgdesc = Osinfo database of information about operating systems for virtualization provisioning tools
+	pkgver = 20260812
+	pkgrel = 1
+	url = https://libosinfo.org/
+	arch = any
+	license = GPL-2.0-or-later
+	checkdepends = python-lxml
+	checkdepends = python-pytest
+	makedepends = git
+	makedepends = osinfo-db-tools
+	source = git+https://gitlab.com/libosinfo/osinfo-db.git?signed#tag=v20260812
+	validpgpkeys = DAF3A6FDB26B62912D0E8E3FBE86EBB415104FDF
+	validpgpkeys = 09B9C8FF223EF113AFA06A39EE926C2BDACC177B
+	validpgpkeys = 206D3B352F566F3B0E6572E997D9123DE37A484F
+	validpgpkeys = 4252D86A52041137C291CADFC85C5E957062A701
+	b2sums = 3d915633f29bd3029f4e2a9d775e062a969a53ffa370bfff63117bbcd79350e090475bc1cfd306a5b211019d8587e0d4bb3e61ca30358ae16c24502e6f6c9208
+
+pkgname = osinfo-db

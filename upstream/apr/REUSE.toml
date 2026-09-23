@@ -1,0 +1,33 @@
+version = 1
+
+[[annotations]]
+path = [
+    "PKGBUILD",
+    "README.md",
+    "keys/**",
+    ".SRCINFO",
+    ".nvchecker.toml",
+    "*.install",
+    "*.sysusers",
+    "*.tmpfiles",
+    "*.logrotate",
+    "*.pam",
+    "*.service",
+    "*.socket",
+    "*.timer",
+    "*.desktop",
+    "*.hook",
+]
+SPDX-FileCopyrightText = "Arch Linux contributors"
+SPDX-License-Identifier = "0BSD"
+
+[[annotations]]
+path = [
+    "dont_override_external_buildflags.patch",
+    "fix_apr-config.patch",
+    "fix-apr.pc.patch",
+    "omit_extra_libs.patch",
+    "ship_find_apr.m4.patch",
+]
+SPDX-FileCopyrightText = "apr contributors"
+SPDX-License-Identifier = "Apache-2.0"

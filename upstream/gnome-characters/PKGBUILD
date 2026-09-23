@@ -1,0 +1,63 @@
+# Maintainer: Fabian Bornschein <fabiscafe@archlinux.org>
+# Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
+# Contributor: Jan de Groot <jgc@archlinux.org>
+
+pkgname=gnome-characters
+pkgver=50.0
+pkgrel=1
+pkgdesc="A character map application"
+url="https://apps.gnome.org/Characters/"
+arch=(x86_64)
+license=("BSD-3-Clause AND GPL-2.0-or-later")
+depends=(
+  dconf
+  emoji-font
+  gjs
+  glib2
+  glibc
+  gnome-desktop-4
+  gtk4
+  hicolor-icon-theme
+  libadwaita
+)
+makedepends=(
+  appstream
+  git
+  glib2-devel
+  gobject-introspection
+  gperf
+  meson
+)
+checkdepends=(weston)
+groups=(gnome)
+source=("git+https://gitlab.gnome.org/GNOME/gnome-characters.git#tag=${pkgver/[a-z]/.&}")
+b2sums=('a67e1e6d9530970434e1bb5e3834b0bb7f6109e5ba23d23531cefa05068bcaf929e7f60a23e7cebfb82d7357ae21e76aada83d20042d0b2efac1ed3a94237009')
+
+prepare() {
+  cd $pkgname
+}
+
+build() {
+  arch-meson $pkgname build
+  meson compile -C build
+}
+
+check() (
+  export XDG_RUNTIME_DIR="$PWD/runtime-dir"
+  mkdir -p -m 700 "$XDG_RUNTIME_DIR"
+
+  export WAYLAND_DISPLAY=wayland-5
+  weston --backend=headless-backend.so --socket=$WAYLAND_DISPLAY --idle-time=0 &
+  _w=$!
+
+  trap "kill $_w; wait" EXIT
+
+  meson test -C build --print-errorlogs
+)
+
+package() {
+  meson install -C build --destdir "$pkgdir"
+  install -Dt "$pkgdir/usr/share/licenses/$pkgname" -m644 $pkgname/COPYING
+}
+
+# vim:set sw=2 sts=-1 et:

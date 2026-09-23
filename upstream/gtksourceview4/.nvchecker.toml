@@ -1,0 +1,5 @@
+[gtksourceview4]
+source = "git"
+git = "https://gitlab.gnome.org/GNOME/gtksourceview.git"
+include_regex = '4(\.\d+)*'
+exclude_regex = '4\.9\d(\.\d+)*'

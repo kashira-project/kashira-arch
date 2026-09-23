@@ -1,0 +1,67 @@
+# Maintainer: Balló György <ballogyor+arch at gmail dot com>
+
+pkgname=showtime
+pkgver=50.0
+pkgrel=1
+pkgdesc='Video player for GNOME'
+arch=(any)
+url='https://apps.gnome.org/Showtime/'
+license=(GPL-3.0-or-later)
+groups=(gnome)
+depends=(
+  dconf
+  glib2
+  graphene
+  gst-plugins-bad-libs
+  gst-plugins-base
+  gst-plugins-base-libs
+  gst-plugins-good
+  gst-plugin-gtk4
+  gstreamer
+  gtk4
+  hicolor-icon-theme
+  libadwaita
+  python
+  python-gobject
+)
+makedepends=(
+  appstream
+  blueprint-compiler
+  git
+  meson
+)
+optdepends=(
+  'gst-libav: Extra media codecs'
+  'gst-plugins-bad: Extra media codecs'
+  'gst-plugins-ugly: Extra media codecs'
+)
+source=(
+  # Showtime tags use SSH signatures which makepkg doesn't understand
+  "git+https://gitlab.gnome.org/GNOME/showtime.git#tag=${pkgver/[a-z]/.&}"
+)
+b2sums=('c3b3b3c8b3efcc3f9e1152b21f7097ee66064794e6308f8f771978a5467e4520aa849ddcde9448d5a5c49948a59c8486089ba9ef8006d1b47ab375686b0dafeb')
+validpgpkeys=(
+  E7F8575DF41BB394502E2AB50EDDDE9A9B3384C3 # kramo <contact@kramo.page>
+)
+
+prepare() {
+  cd $pkgname
+}
+
+build() {
+  arch-meson $pkgname build
+  meson compile -C build
+}
+
+check() {
+  meson test -C build --print-errorlogs
+}
+
+package() {
+  meson install -C build --destdir "$pkgdir"
+
+  python -m compileall -d /usr/lib "$pkgdir/usr/lib"
+  python -O -m compileall -d /usr/lib "$pkgdir/usr/lib"
+}
+
+# vim:set sw=2 sts=-1 et:

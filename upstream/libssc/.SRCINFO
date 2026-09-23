@@ -1,0 +1,19 @@
+pkgbase = libssc
+	pkgdesc = Library for exposing Qualcomm Sensor Core sensors to Linux
+	pkgver = 0.4.4
+	pkgrel = 1
+	url = https://libssc.dylanvanassche.be/
+	arch = x86_64
+	license = GPL-3.0-or-later
+	makedepends = git
+	makedepends = meson
+	depends = glib2
+	depends = glibc
+	depends = libgcc
+	depends = libqmi
+	depends = libqrtr-glib
+	depends = protobuf-c
+	source = git+https://codeberg.org/DylanVanAssche/libssc#tag=v0.4.4
+	sha256sums = 28d9063308f0ab480d2cb79bcfff9e5fc02f5e271f9774e9448ae86911ea5c7e
+
+pkgname = libssc

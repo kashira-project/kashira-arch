@@ -1,0 +1,70 @@
+# Maintainer: Fabian Bornschein <fabiscafe@archlinux.org>
+# Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
+# Contributor: Igor Dyatlov <dyatlov.igor@gmail.com>
+
+pkgname=gnome-console
+pkgver=50.0
+pkgrel=1
+pkgdesc="A simple user-friendly terminal emulator for the GNOME desktop"
+url="https://apps.gnome.org/Console/"
+arch=(x86_64)
+license=(GPL-3.0-or-later)
+depends=(
+  dconf
+  gtk4
+  glib2
+  glibc
+  hicolor-icon-theme
+  libadwaita
+  libgcc
+  libgtop
+  pango
+  vte4
+)
+makedepends=(
+  appstream
+  git
+  glib2-devel
+  meson
+)
+checkdepends=(
+  dbus
+  mutter
+  vulkan-swrast
+)
+groups=(gnome)
+source=("$pkgname::git+https://gitlab.gnome.org/GNOME/console.git#tag=${pkgver/[a-z]/.&}")
+b2sums=('8041082f14cbf6cb5a77934b5f109870b8c4aa02000b3cc86d27ff91af4fb284f8f1af048f14e9f973e8444e217528e9d9d0d05f87ce09db4e469df76dd53e57')
+
+prepare() {
+  cd $pkgname
+}
+
+build() {
+  local meson_options=(
+    -D tests=true
+  )
+
+  arch-meson $pkgname build "${meson_options[@]}"
+  meson compile -C build
+}
+
+check() (
+  export XDG_RUNTIME_DIR="$PWD/runtime-dir"
+  mkdir -p -m 700 "$XDG_RUNTIME_DIR"
+
+  dbus-run-session -- \
+  mutter \
+    --headless \
+    --wayland \
+    --no-x11 \
+    --virtual-monitor 1024x768 \
+    -- \
+      meson test -C build --print-errorlogs
+)
+
+package() {
+  meson install -C build --destdir "$pkgdir"
+}
+
+# vim:set sw=2 sts=-1 et:

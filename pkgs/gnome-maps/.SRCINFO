@@ -1,0 +1,37 @@
+pkgbase = gnome-maps
+	pkgdesc = Find places around the world
+	pkgver = 50.5
+	pkgrel = 1
+	url = https://apps.gnome.org/Maps
+	arch = x86_64
+	groups = gnome
+	license = GPL-2.0-or-later
+	makedepends = blueprint-compiler
+	makedepends = git
+	makedepends = gobject-introspection
+	makedepends = meson
+	makedepends = yelp-tools
+	depends = cairo
+	depends = dconf
+	depends = geoclue
+	depends = geocode-glib-2
+	depends = gjs
+	depends = glib2
+	depends = glibc
+	depends = gtk4
+	depends = hicolor-icon-theme
+	depends = json-glib
+	depends = libadwaita
+	depends = libgcc
+	depends = libgweather-4
+	depends = libportal
+	depends = librest
+	depends = librsvg
+	depends = libshumate
+	depends = libxml2
+	depends = pango
+	source = git+https://gitlab.gnome.org/GNOME/gnome-maps.git?signed#tag=50.5
+	validpgpkeys = 7448F128A4B18AB2EF87F092FA6624580A420D5D
+	b2sums = 87588809720b16c52c3361c6171915d6bfb0c1c6f68487d40ac5947cbfb6cf16e2855c72adbe24fbd34b40ff2c41dffebe6a28a63f724e50f5594d144790838c
+
+pkgname = gnome-maps

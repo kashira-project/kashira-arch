@@ -1,0 +1,19 @@
+pkgbase = bolt
+	pkgdesc = Thunderbolt 3 device manager
+	pkgver = 0.9.11
+	pkgrel = 3
+	url = https://gitlab.freedesktop.org/bolt/bolt
+	arch = x86_64
+	license = LGPL-2.1-or-later
+	checkdepends = umockdev
+	makedepends = asciidoc
+	makedepends = meson
+	makedepends = python-setuptools
+	makedepends = patch
+	makedepends = glib2-devel
+	depends = polkit
+	depends = systemd
+	source = https://gitlab.freedesktop.org/bolt/bolt/-/archive/0.9.11/bolt-0.9.11.tar.gz
+	sha256sums = cde4fc6d4a188e37d088cf59a5b2d174ac4b03d57bf9d084d711ba92105c33c0
+
+pkgname = bolt

@@ -1,0 +1,37 @@
+# Maintainer: Fabian Bornschein <fabiscafe@archlinux.org>
+
+pkgname=gnome-app-list
+pkgver=3.0
+pkgrel=1
+pkgdesc="Provides app recommendation data for the GNOME project"
+arch=(any)
+url="https://gitlab.gnome.org/GNOME/gnome-app-list"
+license=(LGPL-2.1-or-later)
+makedepends=(
+  git
+  libxml2
+  meson
+)
+checkdepends=(
+  flake8
+  python-black
+)
+source=("git+$url.git#tag=${pkgver/[a-z]/.&}")
+b2sums=('4d6c22ed348112e72476a53260ba28fb7f1cbb167d59f9ff164b45dd7e65eb4478114c3ff5ae4b9d946a05bfc882a14b4b94489d9860c9e2adee20fc9acbd148')
+
+prepare() {
+  cd $pkgname
+}
+
+build() {
+  arch-meson $pkgname build
+  meson compile -C build
+}
+
+check() {
+  meson test -C build --print-errorlogs
+}
+
+package() {
+  meson install -C build --destdir "$pkgdir"
+}

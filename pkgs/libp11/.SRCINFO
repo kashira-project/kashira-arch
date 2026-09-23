@@ -1,0 +1,15 @@
+pkgbase = libp11
+	pkgdesc = A library implementing a small layer on top of the PKCS11 API
+	pkgver = 0.4.21
+	pkgrel = 1
+	url = https://github.com/OpenSC/libp11/wiki
+	arch = x86_64
+	license = LGPL-2.1-or-later
+	depends = openssl
+	source = https://github.com/OpenSC/libp11/releases/download/libp11-0.4.21/libp11-0.4.21.tar.gz
+	source = https://github.com/OpenSC/libp11/releases/download/libp11-0.4.21/libp11-0.4.21.tar.gz.asc
+	validpgpkeys = AC915EA30645D9D3D4DAE4FEB1048932DD3AAAA3
+	sha256sums = efdb523aef8613d447e6a2d38227d4b389866f4bcf4b503130acd7f759490847
+	sha256sums = SKIP
+
+pkgname = libp11

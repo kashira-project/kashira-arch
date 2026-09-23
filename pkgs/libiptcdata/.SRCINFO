@@ -1,0 +1,16 @@
+pkgbase = libiptcdata
+	pkgdesc = Library for manipulating the IPTC metadata
+	pkgver = 1.0.5
+	pkgrel = 5
+	url = https://libiptcdata.sourceforge.net/
+	arch = x86_64
+	license = LGPL-2.0-or-later
+	makedepends = git
+	makedepends = gtk-doc
+	makedepends = python-setuptools
+	depends = glibc
+	optdepends = python: Python bindings
+	source = git+https://github.com/ianw/libiptcdata.git#tag=release_1_0_5
+	b2sums = def76cf757f9c4b8f0d4f2e406e14fe3bb98364bcc8d4307609e0cf3927e0befe514389795401a83a867ca4b5f0407d097b22dc0ecb82166aa4f8a3c88241db9
+
+pkgname = libiptcdata

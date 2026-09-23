@@ -1,0 +1,11 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -7,7 +7,7 @@
+ arch=('x86_64')
+ license=('GPL-2.0-or-later')
+ depends=('libxml2' 'glib2' 'glibc' 'libstdc++' 'libgcc')
+-makedepends=('gettext' 'xmlto' 'docbook-xsl' 'meson')
++makedepends=('gettext' 'xmlto' 'docbook-xsl' 'meson' 'gcc')
+ # https://gitlab.freedesktop.org/xdg/shared-mime-info
+ url="https://www.freedesktop.org/wiki/Specifications/shared-mime-info-spec/"
+ source=(https://gitlab.freedesktop.org/xdg/shared-mime-info/-/archive/$pkgver/shared-mime-info-$pkgver.tar.bz2

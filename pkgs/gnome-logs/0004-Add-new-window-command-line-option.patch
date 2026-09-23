@@ -1,0 +1,99 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Ball=C3=B3=20Gy=C3=B6rgy?= <ballogyor@gmail.com>
+Date: Wed, 23 Apr 2025 09:22:02 +0200
+Subject: [PATCH] Add "new-window" command-line option
+
+And specify this action in the desktop file this allows the user to choose
+the desired action when the application is launched: when the "new-window"
+option is requested, a new window will be opened, otherwise raise the
+existing window.
+---
+ data/org.gnome.Logs.desktop.in |  5 +++++
+ src/gl-application.c           | 27 +++++++++++++++++++++++++++
+ 2 files changed, 32 insertions(+)
+
+diff --git a/data/org.gnome.Logs.desktop.in b/data/org.gnome.Logs.desktop.in
+index 1c12bb6ec48b..3a6ab857cae3 100644
+--- a/data/org.gnome.Logs.desktop.in
++++ b/data/org.gnome.Logs.desktop.in
+@@ -12,3 +12,8 @@ Icon=org.gnome.Logs
+ Terminal=false
+ StartupNotify=true
+ DBusActivatable=true
++Actions=new-window;
++
++[Desktop Action new-window]
++Exec=gnome-logs --new-window
++Name=New Window
+diff --git a/src/gl-application.c b/src/gl-application.c
+index 4a6cd6c12b47..84b5ea72c1e1 100644
+--- a/src/gl-application.c
++++ b/src/gl-application.c
+@@ -62,6 +62,11 @@ on_new_window (GSimpleAction *action,
+     application = GTK_APPLICATION (user_data);
+     priv = gl_application_get_instance_private (GL_APPLICATION (application));
+ 
++    if (priv->journal == NULL) {
++        g_application_activate (G_APPLICATION (application));
++        return;
++    }
++
+     window = gl_window_new (GTK_APPLICATION (application));
+     gl_window_load_journal (GL_WINDOW (window), priv->journal);
+     gtk_window_present (GTK_WINDOW (window));
+@@ -277,33 +282,55 @@ static void
+ gl_application_activate (GApplication *application)
+ {
+     GlApplicationPrivate *priv;
++    GtkWindow *window;
+ 
+     priv = gl_application_get_instance_private (GL_APPLICATION (application));
++    window = gtk_application_get_active_window (GTK_APPLICATION (application));
++
++    if (window)
++    {
++        gtk_window_present (window);
++        return;
++    }
++
+     priv->journal = gl_journal_new (NULL);
+ 
+     if (priv->journal)
+     {
+         launch_window (application);
+     }
+ }
+ 
+ static const GOptionEntry options[] =
+ {
++    { "new-window", 'w', 0, G_OPTION_ARG_NONE, NULL,
++      N_("Open a new window"), NULL },
+     { "version", 'v', 0, G_OPTION_ARG_NONE, NULL,
+       N_("Print version information and exit"), NULL },
+     { NULL }
+ };
+ 
+ static gint
+ gl_application_handle_local_options (GApplication *application,
+                                      GVariantDict *options)
+ {
+     if (g_variant_dict_contains (options, "version"))
+     {
+         g_print ("%s - Version %s\n", g_get_application_name (), PACKAGE_VERSION);
+         return 0;
+     }
+ 
++    if (g_variant_dict_contains (options, "new-window"))
++    {
++        g_application_register (application, NULL, NULL);
++
++        if (g_application_get_is_remote (application))
++        {
++            g_action_group_activate_action (G_ACTION_GROUP(application), "new-window", NULL);
++            return 0;
++        }
++    }
++
+     return -1;
+ }
+ 

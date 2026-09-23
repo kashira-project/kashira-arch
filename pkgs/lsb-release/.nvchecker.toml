@@ -1,0 +1,7 @@
+[lsb-release]
+source = "git"
+git = "https://github.com/LinuxStandardBase/lsb-samples.git"
+branch = "master"
+use_commit = true
+from_pattern = '^([0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]).*$'
+to_pattern = '2.0.r55.\1'

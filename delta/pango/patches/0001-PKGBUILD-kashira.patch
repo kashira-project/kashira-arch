@@ -1,0 +1,27 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -28,7 +28,7 @@
+   libxrender
+ )
+ makedepends=(
+-  gi-docgen
++  gcc
+   git
+   glib2-devel
+   gobject-introspection
+@@ -41,11 +41,14 @@
+ 
+ prepare() {
+   cd pango
++
++  # clang 23 escalates -Wunused-but-set-global via this flag (glib macros)
++  sed -i "/'-Werror=unused-but-set-variable',/d" meson.build
+ }
+ 
+ build() {
+   local meson_options=(
+-    -D documentation=true
++    -D documentation=false
+     -D man-pages=true
+     -D sysprof=enabled
+   )

@@ -1,0 +1,88 @@
+# Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
+# Maintainer: Fabian Bornschein <fabiscafe@archlinux.org>
+# Contributor: Jan de Groot <jgc@archlinux.org>
+# Contributor: Yosef Or Boczko <yoseforb@gnome.org>
+
+pkgname=gnome-software
+pkgver=50.4
+pkgrel=1
+pkgdesc="Allows you to find and install new apps"
+url="https://apps.gnome.org/Software"
+arch=(x86_64)
+license=(GPL-2.0-or-later)
+depends=(
+  appstream
+  dconf
+  gdk-pixbuf2
+  glib2
+  glibc
+  gnome-app-list
+  gsettings-desktop-schemas
+  gtk4
+  hicolor-icon-theme
+  json-glib
+  libadwaita
+  libgcc
+  libgudev
+  libmalcontent
+  libsoup3
+  libsysprof-capture
+  libxmlb
+  pango
+  polkit
+  systemd
+)
+makedepends=(
+  docbook-xsl
+  flatpak
+  fwupd
+  git
+  glib2-devel
+  gobject-introspection
+  gtk-doc
+  itstool
+  libglib-testing
+  malcontent
+  meson
+)
+optdepends=(
+  'flatpak: Flatpak support plugin'
+  'fwupd: fwupd support plugin'
+  'malcontent: Parental control plugin'
+)
+groups=(gnome)
+source=(
+  "git+https://gitlab.gnome.org/GNOME/gnome-software.git?signed#tag=${pkgver/[a-z]/.&}"
+  "git+https://gitlab.gnome.org/mwleeds/gnome-pwa-list.git"
+)
+b2sums=('22980d21768a73dc52dbe60d8603f6aac54ba92a6260ea496c471130440a2bf56fc1af0248238bedbfeb119b3e5a62640786c4ae8c36486ccf6ab47a04896103'
+        'SKIP')
+validpgpkeys=(
+  2AA441054BD2F1715EC11610FB183E7EF3C36A0D # Milan Crha <mcrha@redhat.com>
+  923B7025EE03C1C59F42684CF0942E894B2EAFA0 # Philip Withnall <pwithnall@gnome.org>
+)
+
+prepare() {
+  cd $pkgname
+
+  git submodule init
+  git submodule set-url subprojects/gnome-pwa-list "$srcdir/gnome-pwa-list"
+  git -c protocol.file.allow=always -c protocol.allow=never submodule update
+}
+
+build() {
+  local meson_options=(
+    -D packagekit=false
+  )
+
+  arch-meson $pkgname build "${meson_options[@]}"
+  meson compile -C build
+}
+
+# Not running tests - need root and a D-Bus system bus
+
+package() {
+  meson install -C build --destdir "$pkgdir"
+}
+
+# vim:set sw=2 sts=-1 et:

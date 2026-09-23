@@ -1,0 +1,50 @@
+# Maintainer: Fabian Bornschein <fabiscafe@archlinux.org>
+# Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
+
+pkgname=gnome-font-viewer
+pkgver=50.0
+pkgrel=1
+pkgdesc="A font viewer utility for GNOME"
+url="https://apps.gnome.org/FontViewer/"
+arch=(x86_64)
+license=(GPL-2.0-or-later)
+depends=(
+  cairo
+  fontconfig
+  freetype2
+  fribidi
+  glib2
+  glibc
+  gtk4
+  harfbuzz
+  hicolor-icon-theme
+  libadwaita
+  libgcc
+  pango
+)
+makedepends=(
+  git
+  meson
+)
+groups=(gnome)
+source=("git+https://gitlab.gnome.org/GNOME/gnome-font-viewer.git#tag=${pkgver/[a-z]/.&}")
+b2sums=('cf1a4439d99880ba5a94c28370a1ebe2d54b6bf8afcec1ecbace701cf69c63f02e0ed3e830c1fd10d85328854bcea78e8afeca6ef1f763705c6e1b37e1901860')
+
+prepare() {
+  cd $pkgname
+}
+
+build() {
+  arch-meson $pkgname build
+  meson compile -C build
+}
+
+check() {
+  meson test -C build --print-errorlogs
+}
+
+package() {
+  meson install -C build --destdir "$pkgdir"
+}
+
+# vim:set sw=2 sts=-1 et:

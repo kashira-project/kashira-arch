@@ -1,0 +1,72 @@
+# Maintainer: Fabian Bornschein <fabiscafe@archlinux.org>
+# Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
+
+pkgname=gnome-remote-desktop
+pkgver=50.2
+pkgrel=1
+pkgdesc="GNOME Remote Desktop server"
+url="https://gitlab.gnome.org/GNOME/gnome-remote-desktop"
+arch=(x86_64)
+license=(GPL-2.0-or-later)
+depends=(
+  cairo
+  dconf
+  freerdp
+  fuse3
+  glib2
+  glibc
+  krb5
+  libdrm
+  libei
+  libepoxy
+  libfdk-aac
+  libgcc
+  libnotify
+  libpipewire
+  libsecret
+  libva
+  libvncserver
+  libxkbcommon
+  opus
+  pipewire
+  polkit
+  systemd
+  systemd-libs
+  tpm2-tss
+  vulkan-icd-loader
+)
+makedepends=(
+  asciidoc
+  ffnvcodec-headers
+  git
+  glib2-devel
+  meson
+  vulkan-headers
+)
+groups=(gnome)
+source=("git+$url.git?signed#tag=${pkgver/[a-z]/.&}")
+b2sums=('5e649f0160c9d0ff03b56c18210209c2e0f35bab2007c56732de56db5b107a2be22f2beed813f800389f750a3b11f0da33a79bc0527bfdb5e55cb867e5b50653')
+validpgpkeys=(
+  8307C0A224BABDA1BABD0EB9A6EEEC9E0136164A # Jonas Ådahl <jadahl@gmail.com>
+  E60DADB5546D3F01AF35B87289F540EAB24513E2 # Ray Strode <rstrode@redhat.com>
+)
+
+prepare() {
+  cd $pkgname
+}
+
+build() {
+  local meson_options=(
+    -D tests=false
+    -D vnc=true
+  )
+
+  arch-meson $pkgname build "${meson_options[@]}"
+  meson compile -C build
+}
+
+package() {
+  meson install -C build --destdir "$pkgdir"
+}
+
+# vim:set sw=2 sts=-1 et:

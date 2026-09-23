@@ -1,0 +1,4 @@
+[gnome-color-manager]
+source = "git"
+git = "https://gitlab.gnome.org/GNOME/gnome-color-manager.git"
+include_regex = '\d+\.\d+\.\d+'

@@ -1,0 +1,4 @@
+[lv2]
+source = "git"
+git = "https://gitlab.com/lv2/lv2.git"
+prefix = "v"

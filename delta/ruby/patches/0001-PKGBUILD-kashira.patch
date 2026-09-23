@@ -1,0 +1,85 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -8,13 +8,7 @@
+ 
+ # Do not re-package default gems (see https://stdgems.org/). Trying to do that will lead to multiple problems
+ 
+-pkgname=(
+-  ruby
+-  ruby-docs
+-  ruby-default-gems
+-  ruby-bundled-gems
+-  ruby-stdlib
+-)
++pkgname=(ruby)
+ pkgver=3.4.10
+ pkgrel=1
+ pkgdesc='An object-oriented language for quick and easy programming'
+@@ -22,19 +16,16 @@
+ arch=(x86_64)
+ license=(BSD-2-Clause)
+ makedepends=(
+-  doxygen
+   libgcc
+   gdbm
+   glibc
+   gmp
+-  graphviz
+   libffi
+   libxcrypt
+   libyaml
+   openssl
+   readline
+   rust
+-  tk
+   zlib
+ )
+ checkdepends=(
+@@ -47,7 +38,7 @@
+ sha512sums=('c28d59946c0a1b8e4385a772e0651c6f4154c18ab8a2a62289c3213eb4fe937cec0942e0076cda429576e58ad277b18f4b5611e644d15b122c1cd96baf10f284')
+ b2sums=('57c851d6e147918549bec0738c985bc461089184717b7e5350d9addf3cb74f5dc2f635e9cd72233d0d4f59b7340c36ffe3f11a1305fbcf40572de145690b99a2')
+ 
+-_bootstrap=0
++_bootstrap=1
+ _rubyver="${pkgver:0:3}.0"
+ _bundled_gems=(
+   abbrev
+@@ -328,38 +319,4 @@
+   done
+ }
+ 
+-package_ruby-docs() {
+-  pkgdesc='Documentation files for Ruby'
+-
+-  cd "ruby-${pkgver}"
+-  make DESTDIR="${pkgdir}" install-doc install-capi
+-  install --verbose -D --mode=0644 BSDL COPYING --target-directory "${pkgdir}/usr/share/licenses/${pkgname}"
+-}
+-
+-package_ruby-bundled-gems() {
+-  pkgdesc='Bundled gems which are part of Ruby StdLib'
+-  replaces=(ruby-bundledgems)
+-  conflicts=(ruby-bundledgems)
+-  depends=("${_bundled_gems[@]/#/ruby-}")
+-
+-  cd "ruby-${pkgver}"
+-  install --verbose -D --mode=0644 BSDL COPYING --target-directory "${pkgdir}/usr/share/licenses/${pkgname}"
+-}
+-
+-package_ruby-default-gems() {
+-  pkgdesc='Default gems which are part of Ruby StdLib'
+-  depends=("${_default_tool_gems[@]/#/ruby-}")
+-
+-  cd "ruby-${pkgver}"
+-  install --verbose -D --mode=0644 BSDL COPYING --target-directory "${pkgdir}/usr/share/licenses/${pkgname}"
+-}
+-
+-package_ruby-stdlib() {
+-  pkgdesc='Full Ruby StdLib including default gems, bundled gems and tools'
+-  depends=(ruby-default-gems ruby-bundled-gems)
+-
+-  cd "ruby-${pkgver}"
+-  install --verbose -D --mode=0644 BSDL COPYING --target-directory "${pkgdir}/usr/share/licenses/${pkgname}"
+-}
+-
+ # vim: tabstop=2 shiftwidth=2 expandtab:

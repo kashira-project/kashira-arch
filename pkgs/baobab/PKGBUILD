@@ -1,0 +1,63 @@
+# Maintainer: Fabian Bornschein <fabiscafe@archlinux.org>
+# Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
+# Contributor: Ionut Biru <ibiru@archlinux.org>
+
+pkgname=baobab
+pkgver=50.0
+pkgrel=1
+pkgdesc="A graphical directory tree analyzer"
+url="https://apps.gnome.org/Baobab"
+arch=(x86_64)
+license=(GPL-2.0-or-later)
+depends=(
+  cairo
+  dconf
+  glib2
+  glibc
+  graphene
+  gsettings-desktop-schemas
+  gtk4
+  hicolor-icon-theme
+  libadwaita
+  librsvg
+  pango
+)
+makedepends=(
+  appstream
+  git
+  gobject-introspection
+  meson
+  vala
+  yelp-tools
+)
+groups=(gnome)
+source=(
+  "git+https://gitlab.gnome.org/GNOME/baobab.git?signed#tag=${pkgver/[a-z]/.&}"
+  0001-Scanner-Initialize-root-results-as-empty.patch
+)
+b2sums=('47ecc058384fd7053c46fc0245056a8c2807d28a4bb449b4ca0e202e20e9cfc341e2545b3bdce02ea04cdd9415d9448a6221e87aeead5fc0b57df09c4bc2e503'
+        '0235be7b06f3b0d706813c46891927222017dc18e7e6694671e6606f9767865573c99c9239ec8aa33e2238a31f059fa0d8c4433b497a05ae204737c23ba46337')
+validpgpkeys=(3475CBA8D3483594C889B470D64A8D747F6FE706) # Maximiliano Sandoval <msandova@gnome.org>
+
+prepare() {
+  cd baobab
+
+  # Initialize root results as empty
+  # https://gitlab.gnome.org/GNOME/baobab/-/merge_requests/96
+  git apply -3 ../0001-Scanner-Initialize-root-results-as-empty.patch
+}
+
+build() {
+  arch-meson baobab build
+  meson compile -C build
+}
+
+check() {
+  meson test -C build --print-errorlogs
+}
+
+package() {
+  meson install -C build --destdir "$pkgdir"
+}
+
+# vim:set sw=2 sts=-1 et:

@@ -1,0 +1,6 @@
+[libspelling]
+source = "git"
+git = "https://gitlab.gnome.org/GNOME/libspelling.git"
+include_regex = '\d+(\.\d+)*'
+from_pattern = '\.?(alpha|beta|rc)\.?'
+to_pattern = '\1'

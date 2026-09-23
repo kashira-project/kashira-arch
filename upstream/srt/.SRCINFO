@@ -1,0 +1,19 @@
+pkgbase = srt
+	pkgdesc = Secure Reliable Transport library
+	pkgver = 1.5.7
+	pkgrel = 1
+	url = https://www.srtalliance.org/
+	arch = x86_64
+	license = MPL-2.0
+	makedepends = cmake
+	makedepends = git
+	makedepends = ninja
+	depends = bash
+	depends = glibc
+	depends = libgcc
+	depends = libstdc++
+	depends = openssl
+	source = git+https://github.com/Haivision/srt#tag=v1.5.7
+	b2sums = b2016a1f664ee4c338de5537c4215cc5b8e91e93106801b077c6e3f3f79ac4048173e1dad2bf0b82812db1b134d496d84756b489ee81257197c412783f7d5301
+
+pkgname = srt

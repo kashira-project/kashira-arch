@@ -1,0 +1,6 @@
+[libdmapsharing]
+source = "git"
+git = "https://gitlab.gnome.org/GNOME/libdmapsharing.git"
+prefix = "LIBDMAPSHARING_"
+from_pattern = '_'
+to_pattern = '.'

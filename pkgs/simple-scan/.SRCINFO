@@ -1,0 +1,31 @@
+pkgbase = simple-scan
+	pkgdesc = Simple scanning utility
+	pkgver = 50.0
+	pkgrel = 1
+	url = https://apps.gnome.org/SimpleScan/
+	arch = x86_64
+	groups = gnome
+	license = GPL-3.0-or-later
+	makedepends = git
+	makedepends = meson
+	makedepends = vala
+	makedepends = yelp-tools
+	depends = cairo
+	depends = colord-sane
+	depends = dconf
+	depends = gdk-pixbuf2
+	depends = glib2
+	depends = glibc
+	depends = gtk4
+	depends = hicolor-icon-theme
+	depends = libadwaita
+	depends = libcolord
+	depends = libgusb
+	depends = libwebp
+	depends = sane
+	depends = zlib
+	source = git+https://gitlab.gnome.org/GNOME/simple-scan.git#tag=50.0
+	validpgpkeys = 4D0BE12F0E4776D8AACE9696E66C775AEBFE6C7D
+	b2sums = 30e4ffda3004a5341af3a396d9972725ddf0a629f9d07f720514f918a609271b57210b8e46763b05b745108cd806ea94bf0351741d35cd385daa2904a70c2218
+
+pkgname = simple-scan

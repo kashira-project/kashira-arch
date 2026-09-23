@@ -1,0 +1,12 @@
+pkgbase = sassc
+	pkgdesc = C implementation of Sass CSS preprocessor
+	pkgver = 3.6.2
+	pkgrel = 5
+	url = https://sass-lang.com
+	arch = x86_64
+	license = MIT
+	depends = libsass
+	source = https://github.com/sass/sassc/archive/3.6.2/sassc-3.6.2.tar.gz
+	sha256sums = 608dc9002b45a91d11ed59e352469ecc05e4f58fc1259fc9a9f5b8f0f8348a03
+
+pkgname = sassc

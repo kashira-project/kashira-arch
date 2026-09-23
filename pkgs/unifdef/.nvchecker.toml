@@ -1,0 +1,4 @@
+[unifdef]
+source = 'regex'
+url = 'https://dotat.at/prog/unifdef/'
+regex = 'unifdef-([\d.]+).tar'

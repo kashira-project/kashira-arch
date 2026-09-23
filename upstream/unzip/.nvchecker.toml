@@ -1,0 +1,4 @@
+[unzip]
+source = 'regex'
+url = 'https://infozip.sourceforge.net/UnZip.html'
+regex = 'UnZip ([\d.]+)'

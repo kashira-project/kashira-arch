@@ -1,0 +1,22 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Jeremias Ortega <jeremias@ortega.tech>
+Date: Sun, 9 Mar 2025 22:07:55 -0600
+Subject: [PATCH] Scanner: Initialize root results as empty
+
+Fixes #134
+---
+ src/baobab-scanner.vala | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/baobab-scanner.vala b/src/baobab-scanner.vala
+index 07223b65b850..7910f4a03b8c 100644
+--- a/src/baobab-scanner.vala
++++ b/src/baobab-scanner.vala
+@@ -469,6 +469,7 @@ namespace Baobab {
+             scan_error = null;
+ 
+             results_queue = new AsyncQueue<ResultsArray> ();
++            root = new Results.empty();
+         }
+     }
+ }

@@ -1,0 +1,6 @@
+[xorg-xwayland]
+source = "regex"
+regex = "xwayland-([\\d.]+)\\."
+url = "https://gitlab.freedesktop.org/xorg/xserver/-/tags"
+include_regex = "^\\d+\\.\\d+\\.\\d+$"
+exclude_regex = "^\\d+\\.\\d+\\.99$"

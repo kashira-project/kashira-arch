@@ -1,0 +1,7 @@
+[unicode-cldr]
+source = 'git'
+git = 'https://github.com/unicode-org/cldr.git'
+include_regex = 'release-\d+(-\d+)*'
+prefix = 'release-'
+from_pattern = '-'
+to_pattern = '.'

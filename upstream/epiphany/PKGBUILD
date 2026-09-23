@@ -1,0 +1,87 @@
+# Maintainer: Fabian Bornschein <fabiscafe@archlinux.org>
+# Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
+# Contributor: Jan de Groot <jgc@archlinux.org>
+
+pkgname=epiphany
+pkgver=50.6
+pkgrel=1
+pkgdesc="A GNOME web browser based on the WebKit rendering engine"
+url="https://apps.gnome.org/Epiphany"
+arch=(x86_64)
+license=(GPL-3.0-or-later)
+depends=(
+  cairo
+  dconf
+  gcr-4
+  gdk-pixbuf2
+  glib2
+  glibc
+  gmp
+  gstreamer
+  gtk4
+  hicolor-icon-theme
+  json-glib
+  libadwaita
+  libarchive
+  libgcc
+  libportal
+  libportal-gtk4
+  libsecret
+  libsoup3
+  libxml2
+  nettle
+  pango
+  sqlite
+  webkitgtk-6.0
+)
+makedepends=(
+  blueprint-compiler
+  git
+  glib2-devel
+  gobject-introspection
+  lsb-release
+  meson
+  python-docutils
+  startup-notification
+  yelp-tools
+)
+checkdepends=(
+  aspell
+  glibc-locales
+  hspell
+  hunspell
+  libvoikko
+  nuspell
+  xdg-desktop-portal-gtk
+  xorg-server-xvfb
+)
+groups=(gnome)
+source=("git+https://gitlab.gnome.org/GNOME/epiphany.git#tag=${pkgver/[a-z]/.&}")
+b2sums=('ac2c58ab7c4d8a7bd16a069c630ddd8eba8b60f4c6aab199732725e31e65e0e77970fb46dcb13bc1df9e522754bd6fa1847fb21d25d1308102eadffd103b1765')
+
+prepare() {
+  cd epiphany
+}
+
+build() {
+  arch-meson epiphany build
+  meson compile -C build
+}
+
+check() (
+  export XDG_RUNTIME_DIR="$PWD/runtime-dir"
+  mkdir -p -m 700 "$XDG_RUNTIME_DIR"
+
+  export LC_COLLATE=en_US.UTF-8
+  export LIBGL_ALWAYS_SOFTWARE=1
+  export WEBKIT_DISABLE_SANDBOX_THIS_IS_DANGEROUS=1
+
+  xvfb-run -s '-nolisten local' dbus-run-session \
+    meson test -C build --print-errorlogs
+)
+
+package() {
+  meson install -C build --destdir "$pkgdir"
+}
+
+# vim:set sw=2 sts=-1 et:

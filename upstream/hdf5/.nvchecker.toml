@@ -1,0 +1,4 @@
+[hdf5]
+source = "git"
+git = "https://github.com/HDFGroup/hdf5.git"
+exclude_regex = ".*(beta|rc).*"

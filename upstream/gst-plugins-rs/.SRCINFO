@@ -1,0 +1,497 @@
+pkgbase = gst-plugins-rs
+	pkgdesc = Multimedia graph framework
+	pkgver = 0.15.4
+	pkgrel = 1
+	url = https://gstreamer.freedesktop.org/
+	arch = x86_64
+	groups = gst-plugins-rs
+	license = MPL-2.0
+	makedepends = cairo
+	makedepends = cargo-c
+	makedepends = clang
+	makedepends = cmake
+	makedepends = csound
+	makedepends = dav1d
+	makedepends = fontconfig
+	makedepends = freetype2
+	makedepends = git
+	makedepends = graphene
+	makedepends = gst-plugins-bad
+	makedepends = gst-plugins-bad-libs
+	makedepends = gst-plugins-base
+	makedepends = gst-plugins-base-libs
+	makedepends = gst-plugins-good
+	makedepends = gtk4
+	makedepends = libsodium
+	makedepends = libstdc++
+	makedepends = nasm
+	makedepends = openssl
+	makedepends = pango
+	makedepends = rust
+	makedepends = vulkan-headers
+	makedepends = vulkan-icd-loader
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	options = !lto
+	source = git+https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs.git?signed#tag=0.15.4
+	source = 0001-Update-lockfile.patch
+	validpgpkeys = 7F4BC7CC3CA06F97336BBFEB0668CC1486C2D7B5
+	b2sums = 271492d6096a59643e99b876716c43b70161ff5a5b5ca18ca04dbbc7d178f508317730d51b3efe0e9287f8a2e6048e80bbad6f6e735af64d68aeec9ec969ab0b
+	b2sums = a484e253f4ae9cca78185e2b8b7f27ad0862bb67372b08353dc1b1cbbe72b21eeee3eb0be4767b591f63fe63b0461d40d4e47d913b1d207319e18a2aaac9c2b3
+
+pkgname = gst-webrtc-signalling-server
+	pkgdesc = Multimedia graph framework - webrtc signalling server
+	depends = glibc
+	depends = libgcc
+
+pkgname = gst-plugin-aws
+	pkgdesc = Multimedia graph framework - aws plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugin-hlssink3=0.15.4-1
+	depends = gst-plugins-bad
+	depends = gst-plugins-base-libs
+	depends = openssl
+
+pkgname = gst-plugin-burn
+	pkgdesc = Multimedia graph framework - burn plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-bad-libs
+	depends = gst-plugins-base-libs
+	depends = vulkan-icd-loader
+
+pkgname = gst-plugin-cdg
+	pkgdesc = Multimedia graph framework - cdg plugin
+	license = MIT OR Apache-2.0
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-claxon
+	pkgdesc = Multimedia graph framework - claxon plugin
+	license = MIT OR Apache-2.0
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-csound
+	pkgdesc = Multimedia graph framework - csound plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = csound
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-dav1d
+	pkgdesc = Multimedia graph framework - dav1d plugin
+	license = MIT OR Apache-2.0
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = dav1d
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-debugseimetainserter
+	pkgdesc = Multimedia graph framework - debugseimetainserter plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-deepgram
+	pkgdesc = Multimedia graph framework - deepgram plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+	depends = openssl
+
+pkgname = gst-plugin-demucs
+	pkgdesc = Multimedia graph framework - demucs plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-elevenlabs
+	pkgdesc = Multimedia graph framework - elevenlabs plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-fallbackswitch
+	pkgdesc = Multimedia graph framework - fallbackswitch plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+	depends = gst-plugins-good
+
+pkgname = gst-plugin-ffv1
+	pkgdesc = Multimedia graph framework - ffv1 plugin
+	license = MIT OR Apache-2.0
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-gif
+	pkgdesc = Multimedia graph framework - gif plugin
+	license = MIT OR Apache-2.0
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-gopbuffer
+	pkgdesc = Multimedia graph framework - gopbuffer plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-gtk4
+	pkgdesc = Multimedia graph framework - gtk4 plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = graphene
+	depends = gst-plugins-base-libs
+	depends = gtk4
+
+pkgname = gst-plugin-hlsmultivariantsink
+	pkgdesc = Multimedia graph framework - hlsmultivariantsink plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugin-hlssink3=0.15.4-1
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-hlssink3
+	pkgdesc = Multimedia graph framework - hlssink3 plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugin-isobmff=0.15.4-1
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-hsv
+	pkgdesc = Multimedia graph framework - hsv plugin
+	license = MIT OR Apache-2.0
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-icecast
+	pkgdesc = Multimedia graph framework - icecast plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-isobmff
+	pkgdesc = Multimedia graph framework - isobmff plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+	replaces = gst-plugin-fmp4<=0.14.4-2
+	replaces = gst-plugin-mp4<=0.14.4-2
+
+pkgname = gst-plugin-json
+	pkgdesc = Multimedia graph framework - json plugin
+
+pkgname = gst-plugin-lewton
+	pkgdesc = Multimedia graph framework - lewton plugin
+	license = MIT OR Apache-2.0
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-livesync
+	pkgdesc = Multimedia graph framework - livesync plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-mpegtslive
+	pkgdesc = Multimedia graph framework - mpegtslive plugin
+
+pkgname = gst-plugin-originalbuffer
+	pkgdesc = Multimedia graph framework - originalbuffer plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-quinn
+	pkgdesc = Multimedia graph framework - quinn plugin
+
+pkgname = gst-plugin-raptorq
+	pkgdesc = Multimedia graph framework - raptorq plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-rav1e
+	pkgdesc = Multimedia graph framework - rav1e plugin
+	license = MIT OR Apache-2.0
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-regex
+	pkgdesc = Multimedia graph framework - regex plugin
+
+pkgname = gst-plugin-reqwest
+	pkgdesc = Multimedia graph framework - reqwest plugin
+	license = MIT OR Apache-2.0
+
+pkgname = gst-plugin-rsanalytics
+	pkgdesc = Multimedia graph framework - rsanalytics plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-bad-libs
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-rsaudiofx
+	pkgdesc = Multimedia graph framework - rsaudiofx plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-rsaudioparsers
+	pkgdesc = Multimedia graph framework - rsaudioparsers plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-rsclosedcaption
+	pkgdesc = Multimedia graph framework - rsclosedcaption plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugin-textaccumulate=0.15.4-1
+	depends = gst-plugin-textwrap=0.15.4-1
+	depends = cairo
+	depends = gst-plugins-bad
+	depends = gst-plugins-base-libs
+	depends = pango
+	optdepends = gst-plugin-aws: transcriberbin, translationbin
+
+pkgname = gst-plugin-rsfile
+	pkgdesc = Multimedia graph framework - rsfile plugin
+	license = MIT OR Apache-2.0
+
+pkgname = gst-plugin-rsflv
+	pkgdesc = Multimedia graph framework - rsflv plugin
+	license = MIT OR Apache-2.0
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-rsinter
+	pkgdesc = Multimedia graph framework - rsinter plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-rsonvif
+	pkgdesc = Multimedia graph framework - rsonvif plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = cairo
+	depends = gst-plugins-base-libs
+	depends = pango
+
+pkgname = gst-plugin-rspng
+	pkgdesc = Multimedia graph framework - rspng plugin
+	license = MIT OR Apache-2.0
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-rsrtp
+	pkgdesc = Multimedia graph framework - rsrtp plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-rsrtsp
+	pkgdesc = Multimedia graph framework - rsrtsp plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+	depends = gst-plugins-good
+
+pkgname = gst-plugin-rstracers
+	pkgdesc = Multimedia graph framework - rstracers plugin
+
+pkgname = gst-plugin-rsvideofx
+	pkgdesc = Multimedia graph framework - rsvideofx plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = cairo
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-rswebp
+	pkgdesc = Multimedia graph framework - rswebp plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+	depends = libwebp
+
+pkgname = gst-plugin-rswebrtc
+	pkgdesc = Multimedia graph framework - rswebrtc plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugin-rsrtp=0.15.4-1
+	depends = gst-plugins-bad-libs
+	depends = gst-plugins-base
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-skia
+	pkgdesc = Multimedia graph framework - skia plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = fontconfig
+	depends = freetype2
+	depends = gst-plugins-base-libs
+	depends = libstdc++
+
+pkgname = gst-plugin-sodium
+	pkgdesc = Multimedia graph framework - sodium plugin
+	license = MIT
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = libsodium
+
+pkgname = gst-plugin-speechmatics
+	pkgdesc = Multimedia graph framework - speechmatics plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-spotify
+	pkgdesc = Multimedia graph framework - spotify plugin
+
+pkgname = gst-plugin-streamgrouper
+	pkgdesc = Multimedia graph framework - streamgrouper plugin
+
+pkgname = gst-plugin-textaccumulate
+	pkgdesc = Multimedia graph framework - textaccumulate plugin
+
+pkgname = gst-plugin-textahead
+	pkgdesc = Multimedia graph framework - textahead plugin
+
+pkgname = gst-plugin-textwrap
+	pkgdesc = Multimedia graph framework - textwrap plugin
+
+pkgname = gst-plugin-threadshare
+	pkgdesc = Multimedia graph framework - threadshare plugin
+	license = LGPL-2.1-or-later
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-togglerecord
+	pkgdesc = Multimedia graph framework - togglerecord plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-uriplaylistbin
+	pkgdesc = Multimedia graph framework - uriplaylistbin plugin
+
+pkgname = gst-plugin-webrtchttp
+	pkgdesc = Multimedia graph framework - webrtchttp plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-bad
+	depends = gst-plugins-bad-libs
+	depends = gst-plugins-base-libs
+
+pkgname = gst-plugin-whisper
+	pkgdesc = Multimedia graph framework - whisper plugin
+	depends = glib2
+	depends = glibc
+	depends = gstreamer
+	depends = libgcc
+	depends = gst-plugins-base-libs
+	depends = libstdc++
+	depends = vulkan-icd-loader

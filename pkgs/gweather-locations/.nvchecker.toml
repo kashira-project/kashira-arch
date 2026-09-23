@@ -1,0 +1,3 @@
+[gweather-locations]
+source = "git"
+git = "https://gitlab.gnome.org/GNOME/gweather-locations.git"

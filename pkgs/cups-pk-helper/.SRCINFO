@@ -1,0 +1,17 @@
+pkgbase = cups-pk-helper
+	pkgdesc = A helper that makes system-config-printer use PolicyKit
+	pkgver = 0.2.7
+	pkgrel = 2
+	url = https://www.freedesktop.org/software/cups-pk-helper/releases/
+	arch = x86_64
+	license = GPL-2.0-or-later
+	makedepends = meson
+	makedepends = glib2-devel
+	depends = polkit
+	depends = libcups
+	depends = glib2
+	depends = glibc
+	source = https://www.freedesktop.org/software/cups-pk-helper/releases/cups-pk-helper-0.2.7.tar.xz
+	sha256sums = 66070ddb448fe9fcee76aa26be2ede5a80f85563e3a4afd59d2bfd79fbe2e831
+
+pkgname = cups-pk-helper

@@ -1,0 +1,58 @@
+# Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
+# Maintainer: Levente Polyak <anthraxx[at]archlinux[dot]org>
+# Contributor: Bartłomiej Piotrowski <bpiotrowski@archlinux.org>
+
+pkgname=bubblewrap
+pkgver=0.13.0
+pkgrel=1
+pkgdesc='Unprivileged sandboxing tool'
+url='https://github.com/containers/bubblewrap'
+arch=(x86_64)
+license=(LGPL-2.1-or-later)
+depends=(
+  glibc
+  libcap
+  libgcc
+)
+makedepends=(
+  bash-completion
+  docbook-xsl
+  git
+  libxslt
+  meson
+)
+source=("git+$url?signed#tag=v$pkgver")
+b2sums=('5ca3d4a066d48e04441e71ec3809fc5cb039914cd80247d49f79521c4606dbd2d5243c28abc6da7aea5b74770ce979d0f6f3b3b11761733faf20b87f7bf8c117')
+validpgpkeys=(
+  DA98F25C0871C49A59EAFF2C4DE8FF2A63C7CC90 # Simon McVittie <smcv@collabora.com>
+  252C6FEA78A69D3BC0AD458A616C5BDC0C29AB04 # Alexander Larsson <alexl@redhat.com>
+)
+
+prepare() {
+  cd $pkgname
+}
+
+build() {
+  local meson_options=(
+    # major.minor.0 of linux-lts
+    -D assume_kernel=6.18.0
+
+    -D selinux=disabled
+  )
+
+  arch-meson $pkgname build "${meson_options[@]}"
+  meson compile -C build
+}
+
+check() {
+  # Broken in our build containers
+  meson test -C build --print-errorlogs || :
+}
+
+package() {
+  replaces=("bubblewrap-suid<=0.11.2-1")
+
+  meson install -C build --destdir "$pkgdir"
+}
+
+# vim:set sw=2 sts=-1 et:

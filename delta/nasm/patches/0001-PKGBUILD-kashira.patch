@@ -1,0 +1,39 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -9,17 +9,7 @@
+ url='https://www.nasm.us'
+ license=(BSD-2-Clause)
+ depends=(glibc zlib)
+-makedepends=(
+-  perl-font-ttf
+-  perl-sort-versions
+-  fontconfig
+-  ttf-roboto
+-  ttf-roboto-mono
+-  ghostscript
+-  xmlto
+-  asciidoc
+-  diffutils
+-)
++makedepends=('perl')
+ source=(https://www.nasm.us/pub/nasm/releasebuilds/${pkgver}/${pkgname}-${pkgver}.tar.xz)
+ sha512sums=('dc80d8a9a582423e62703da3cc3f37ee57735939b975faa8a72d061a8b596f763d206c7cc3e48c32d2ad726f38e430dc3b85cffd0c3b32e71e20ad9cc24f4804')
+ b2sums=('616a807e7ab126a1223618a457266b6f00ee3f212cbb11027125ce3ecf3beebaa935cd96e3f9640cc46d99659ad19c9d6506bf5e5a062718b203cc62f8a217fe')
+@@ -31,7 +21,7 @@
+     --docdir=/usr/share/doc/${pkgname} \
+     --htmldir=/usr/share/doc/${pkgname}/html
+ 
+-  make all doc
++  make all
+ }
+ 
+ check() {
+@@ -41,7 +31,7 @@
+ 
+ package() {
+   cd ${pkgname}-${pkgver}
+-  make DESTDIR="${pkgdir}" install install_doc
++  make DESTDIR="${pkgdir}" install
+   install -Dm 644 LICENSE -t "${pkgdir}"/usr/share/licenses/nasm
+ }
+ 

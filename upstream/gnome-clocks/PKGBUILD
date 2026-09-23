@@ -1,0 +1,58 @@
+# Maintainer: Fabian Bornschein <fabiscafe@archlinux.org>
+# Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
+
+pkgname=gnome-clocks
+pkgver=50.0
+pkgrel=2
+pkgdesc="Clocks applications for GNOME"
+url="https://apps.gnome.org/Clocks"
+arch=(x86_64)
+license=(GPL-2.0-or-later)
+depends=(
+  dconf
+  geoclue
+  geocode-glib-2
+  glib2
+  glibc
+  gnome-desktop-4
+  gsettings-desktop-schemas
+  gtk4
+  hicolor-icon-theme
+  icu
+  libadwaita
+  libgcc
+  libgweather-4
+)
+makedepends=(
+  git
+  gobject-introspection
+  meson
+  vala
+  vorbis-tools
+  yelp-tools
+)
+groups=(gnome)
+source=("git+https://gitlab.gnome.org/GNOME/gnome-clocks.git?signed#tag=${pkgver/[a-z]/.&}")
+b2sums=('86217d68bf528cef3c77b5b587713a91a76e85653b664488c60ae790106e1728e3e093dec5431bdaabb6c85c5f355ca8f938ae07597d546370bc775a0470bba3')
+validpgpkeys=(
+  3475CBA8D3483594C889B470D64A8D747F6FE706 # Maximiliano Sandoval <msandova@gnome.org>
+)
+
+prepare() {
+  cd $pkgname
+}
+
+build() {
+  arch-meson $pkgname build
+  meson compile -C build
+}
+
+check() {
+  meson test -C build --print-errorlogs
+}
+
+package() {
+  meson install -C build --destdir "$pkgdir"
+}
+
+# vim:set sw=2 sts=-1 et:

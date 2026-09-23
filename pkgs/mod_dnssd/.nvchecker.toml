@@ -1,0 +1,4 @@
+[mod_dnssd]
+source = "regex"
+url = "https://0pointer.de/lennart/projects/mod_dnssd/"
+regex = "mod_dnssd-([^\"]*).tar.gz"

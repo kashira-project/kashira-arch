@@ -1,0 +1,4 @@
+[imlib2]
+source = "git"
+git = "https://git.enlightenment.org/old/legacy-imlib2.git"
+prefix = "v"

@@ -1,0 +1,30 @@
+pkgbase = gnome-color-manager
+	pkgdesc = GNOME Color Profile Tools
+	pkgver = 3.36.2
+	pkgrel = 2
+	url = https://gitlab.gnome.org/GNOME/gnome-color-manager
+	arch = x86_64
+	groups = gnome
+	license = GPL-2.0-or-later
+	checkdepends = xorg-server-xvfb
+	makedepends = docbook-sgml
+	makedepends = docbook-utils
+	makedepends = git
+	makedepends = meson
+	makedepends = perl-sgmls
+	makedepends = yelp-tools
+	depends = cairo
+	depends = colord
+	depends = libgcc
+	depends = gdk-pixbuf2
+	depends = glib2
+	depends = glibc
+	depends = gtk3
+	depends = hicolor-icon-theme
+	depends = lcms2
+	depends = libcolord
+	depends = pango
+	source = git+https://gitlab.gnome.org/GNOME/gnome-color-manager.git#tag=3.36.2
+	b2sums = a9f5ddc1ce5fc17227cf9a05677aa21ffd89b45e58e4e1ba37d5e57cd9736b89e28b046d2a66ceff02d93652ccfbee8903fd5be035420be6fe56b789936df412
+
+pkgname = gnome-color-manager

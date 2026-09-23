@@ -1,0 +1,77 @@
+# Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
+# Contributor: Balló György <ballogyor+arch at gmail dot com>
+
+pkgname=rygel
+pkgver=45.2
+pkgrel=1
+epoch=1
+pkgdesc="UPnP AV MediaServer and MediaRenderer"
+url="https://gitlab.gnome.org/GNOME/rygel"
+arch=(x86_64)
+license=(LGPL-2.1-or-later)
+depends=(
+  gdk-pixbuf2
+  glib2
+  glibc
+  gssdp
+  gst-editing-services
+  gst-plugins-base-libs
+  gstreamer
+  gtk4
+  gupnp
+  gupnp-av
+  gupnp-dlna
+  hicolor-icon-theme
+  libgee
+  libmediaart
+  libsoup3
+  libunistring
+  libx11
+  libxml2
+  sqlite
+  tinysparql
+)
+makedepends=(
+  git
+  gobject-introspection
+  meson
+  vala
+)
+optdepends=(
+  'gst-libav: Extra media codecs'
+  'gst-plugins-bad: Extra media codecs'
+  'gst-plugins-base: Extra media codecs'
+  'gst-plugins-good: Extra media codecs'
+  'gst-plugins-ugly: Extra media codecs'
+  'localsearch: Share indexed media files'
+  'tumbler: Thumbnailing service'
+)
+provides=(librygel-{core,db,renderer,renderer-gst,ruih,server}-2.8.so)
+backup=(etc/rygel.conf)
+groups=(gnome)
+source=(
+  "git+$url.git?signed#tag=${pkgver/[a-z]/.&}"
+)
+b2sums=('f013601c52478d53133b96ad733d42e9fbe7265cb32bc9ef2bd7c02b03a86af4e211c429a2bd05b305bbc13bca5a03466b3812c3c04980902ffd769f7c22a3cf')
+validpgpkeys=(
+  AC9CD4E32D7C7F6357BA8ADD10F6E970175D29E1 # Jens Georg <mail@jensge.org>
+)
+
+prepare() {
+  cd rygel
+}
+
+build() {
+  arch-meson rygel build
+  meson compile -C build
+}
+
+check() {
+  meson test -C build --print-errorlogs
+}
+
+package() {
+  meson install -C build --destdir "$pkgdir"
+}
+
+# vim:set sw=2 sts=-1 et:

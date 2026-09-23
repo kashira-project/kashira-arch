@@ -1,0 +1,34 @@
+pkgbase = decibels
+	pkgdesc = Audio player for GNOME
+	pkgver = 49.6.1
+	pkgrel = 1
+	url = https://apps.gnome.org/Decibels/
+	arch = any
+	groups = gnome
+	license = GPL-3.0-or-later
+	makedepends = appstream
+	makedepends = blueprint-compiler
+	makedepends = git
+	makedepends = meson
+	makedepends = typescript
+	depends = dconf
+	depends = gjs
+	depends = glib2
+	depends = graphene
+	depends = gst-plugins-bad-libs
+	depends = gst-plugins-base
+	depends = gst-plugins-base-libs
+	depends = gst-plugins-good
+	depends = gstreamer
+	depends = gtk4
+	depends = hicolor-icon-theme
+	depends = libadwaita
+	optdepends = gst-libav: Extra media codecs
+	optdepends = gst-plugins-bad: Extra media codecs
+	optdepends = gst-plugins-ugly: Extra media codecs
+	source = git+https://gitlab.gnome.org/GNOME/decibels.git#tag=49.6.1
+	source = git+https://gitlab.gnome.org/BrainBlasted/gi-typescript-definitions.git
+	b2sums = 1ad0258d85be24d824ea9f12a32041fd133edf3e60a5b90fa551887bcac94b23759dba5fd4055cd5fda07adc9e4d6b1001adc6076742948c20e91bdb1b8ab44b
+	b2sums = SKIP
+
+pkgname = decibels

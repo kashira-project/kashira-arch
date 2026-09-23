@@ -1,0 +1,49 @@
+# Maintainer: Balló György <ballogyor+arch at gmail dot com>
+# Contributor: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
+# Contributor: Jan de Groot <jgc@archlinux.org>
+
+pkgname=libmediaart
+pkgver=1.9.7
+pkgrel=2
+pkgdesc='Library tasked with managing, extracting and handling media art caches'
+arch=(x86_64)
+url='https://gitlab.gnome.org/GNOME/libmediaart'
+license=(LGPL-2.1-or-later)
+depends=(
+  gdk-pixbuf2
+  glib2
+  glibc
+)
+makedepends=(
+  git
+  glib2-devel
+  gobject-introspection
+  gtk-doc
+  imagemagick
+  meson
+  vala
+)
+source=("git+https://gitlab.gnome.org/GNOME/$pkgname.git#tag=$pkgver")
+b2sums=(f76aef2fa23d091ca6a07908d8bb61a38d04f6d7f9bb02f9d23413e03396f9f834d827b2638eac8974304fdcfe89aa64c69c63c906b74270c4b3b1b76a413853)
+
+prepare() {
+  cd $pkgname
+
+  # Workaround for save_to_pixbuf from png to jpeg fails on alpha channel
+  # https://gitlab.gnome.org/GNOME/gdk-pixbuf/-/issues/293
+  convert tests/cover.png -alpha off tests/cover.png
+}
+
+build() {
+  arch-meson $pkgname build \
+    -D gtk_doc=true
+  meson compile -C build
+}
+
+check() {
+  meson test -C build --print-errorlogs
+}
+
+package() {
+  meson install -C build --destdir "$pkgdir"
+}

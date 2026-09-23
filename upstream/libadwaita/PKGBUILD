@@ -1,0 +1,116 @@
+# Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
+# Maintainer: Fabian Bornschein <fabiscafe@archlinux.org>
+
+pkgbase=libadwaita
+pkgname=(
+  libadwaita
+  libadwaita-demos
+  libadwaita-docs
+)
+pkgver=1.9.4
+pkgrel=1
+epoch=1
+pkgdesc="Building blocks for modern adaptive GNOME applications"
+url="https://gnome.pages.gitlab.gnome.org/libadwaita/"
+arch=(x86_64)
+license=(LGPL-2.1-or-later)
+depends=(
+  appstream
+  fribidi
+  glib2
+  glibc
+  graphene
+  gtk4
+  pango
+)
+makedepends=(
+  gi-docgen
+  git
+  glib2-devel
+  gobject-introspection
+  meson
+  sassc
+  vala
+)
+checkdepends=(weston)
+source=(
+  "git+https://gitlab.gnome.org/GNOME/libadwaita.git#tag=${pkgver/[a-z]/.&}"
+  0001-tests-Make-pass-with-appstream-1.2.0.patch
+)
+b2sums=('8e044bc38270c2f8783893ab9bea7f75996b7850ceb3d1a54373d49defef6c6114c3f0317d037da051a33506db3a6ac38de07bd39a28794e1995facfbef3c8a1'
+        'e0cc42e0863acf12746a15800dc1ba867cdddf0af1f59eaa1220ff93a69204b402613479e4e2f012196fe71fb3aa1a1017fd969eda430aed3d0f8c3169e49566')
+
+prepare() {
+  cd $pkgname
+
+  # https://gitlab.gnome.org/GNOME/libadwaita/-/work_items/1161
+  git apply -3 ../0001-tests-Make-pass-with-appstream-1.2.0.patch
+}
+
+build() {
+  local meson_options=(
+    -D gtk_doc=true
+  )
+
+  arch-meson $pkgname build "${meson_options[@]}"
+  meson compile -C build
+}
+
+check() (
+  export XDG_RUNTIME_DIR="$PWD/runtime-dir"
+  mkdir -p -m 700 "$XDG_RUNTIME_DIR"
+
+  export WAYLAND_DISPLAY=wl-$pkgbase-$RANDOM
+  weston --backend=headless --socket=$WAYLAND_DISPLAY --idle-time=0 &
+  _w=$!
+
+  trap "kill $_w; wait" EXIT
+
+  meson test -C build --print-errorlogs
+)
+
+_pick() {
+  local p="$1" f d; shift
+  for f; do
+    d="$srcdir/$p/${f#$pkgdir/}"
+    mkdir -p "$(dirname "$d")"
+    mv "$f" "$d"
+    rmdir -p --ignore-fail-on-non-empty "$(dirname "$f")"
+  done
+}
+
+package_libadwaita() {
+  depends+=(libgtk-4.so)
+  provides+=(libadwaita-1.so)
+
+  meson install -C build --destdir "$pkgdir"
+
+  cd "$pkgdir"
+
+  _pick demo usr/bin/adwaita-1-demo
+  _pick demo usr/share/applications/org.gnome.Adwaita1.Demo.desktop
+  _pick demo usr/share/icons/hicolor/*/apps/org.gnome.Adwaita1.Demo[-.]*
+  _pick demo usr/share/metainfo/org.gnome.Adwaita1.Demo.metainfo.xml
+
+  _pick docs usr/share/doc
+}
+
+package_libadwaita-demos() {
+  pkgdesc+=" (demo applications)"
+  depends=(
+    glib2
+    glibc
+    gtk4
+    hicolor-icon-theme
+    libadwaita
+  )
+  mv demo/* "$pkgdir"
+}
+
+package_libadwaita-docs() {
+  pkgdesc+=" (documentation)"
+  depends=()
+  mv docs/* "$pkgdir"
+}
+
+# vim:set sw=2 sts=-1 et:

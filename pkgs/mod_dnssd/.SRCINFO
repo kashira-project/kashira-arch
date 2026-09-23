@@ -1,0 +1,17 @@
+pkgbase = mod_dnssd
+	pkgdesc = Zeroconf module for Apache
+	pkgver = 0.6
+	pkgrel = 10
+	url = https://0pointer.de/lennart/projects/mod_dnssd/
+	arch = x86_64
+	license = Apache-2.0
+	depends = apache
+	depends = apr
+	depends = avahi
+	depends = glibc
+	source = http://0pointer.de/lennart/projects/mod_dnssd/mod_dnssd-0.6.tar.gz
+	source = fix_undefined_reference.patch
+	b2sums = 01aee3624e413f5a00d6e63e5e74d9dc1667db9e9747b65a7fce9ab762cf0f9a5cd3ef4dcccf9532e9aa70435bd6afd846fdbaafff6667ba1fd9d413ea6fe0d9
+	b2sums = aa89b74651a656f9520aa99e7bd25bd8929675a40ea1630834208038be268eb4987535539ac2a1e337e3535efad216a0fa35cf5c35d88c1a7d290d411093c0f7
+
+pkgname = mod_dnssd

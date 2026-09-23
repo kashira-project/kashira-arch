@@ -1,0 +1,11 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -11,7 +11,7 @@
+ arch=(x86_64)
+ license=(MIT)
+ depends=()
+-makedepends=(
++makedepends=('gcc' 
+   git
+   meson
+ )

@@ -1,0 +1,11 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -8,7 +8,7 @@
+ arch=(x86_64)
+ license=('MIT')
+ depends=('libpciaccess' 'glibc')
+-makedepends=('python-docutils' 'meson')
++makedepends=('python-docutils' 'meson' 'cairo')
+ checkdepends=('cairo')
+ optdepends=('cairo: needed for modetest tool')
+ replaces=('libdrm-new' 'libdrm-nouveau')

@@ -1,0 +1,22 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: "Jan Alexander Steffens (heftig)" <heftig@archlinux.org>
+Date: Sun, 16 Mar 2025 20:28:26 +0100
+Subject: [PATCH] build: Use cargo --release for all buildtypes except debug
+
+---
+ src/meson.build | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/meson.build b/src/meson.build
+index 55e55c304a46..1274995512e8 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -17,7 +17,7 @@ run_command(
+ cargo_options = [ '--manifest-path', meson.project_source_root() / 'Cargo.toml' ]
+ cargo_options += [ '--target-dir', meson.project_build_root() / 'src' ]
+ 
+-if get_option('buildtype') == 'release'
++if get_option('buildtype') != 'debug'
+   cargo_options += [ '--release' ]
+   rust_target = 'release'
+   message('Building in release mode')

@@ -1,0 +1,66 @@
+# Maintainer: Fabian Bornschein <fabiscafe@archlinux.org>
+# Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
+# Contributor: Jan de Groot <jgc@archlinux.org>
+
+pkgname=gnome-maps
+pkgver=50.5
+pkgrel=1
+pkgdesc="Find places around the world"
+url="https://apps.gnome.org/Maps"
+arch=(x86_64)
+license=(GPL-2.0-or-later)
+depends=(
+  cairo
+  dconf
+  geoclue
+  geocode-glib-2
+  gjs
+  glib2
+  glibc
+  gtk4
+  hicolor-icon-theme
+  json-glib
+  libadwaita
+  libgcc
+  libgweather-4
+  libportal
+  librest
+  librsvg
+  libshumate
+  libxml2
+  pango
+)
+makedepends=(
+  blueprint-compiler
+  git
+  gobject-introspection
+  meson
+  yelp-tools
+)
+groups=(gnome)
+source=(
+  "git+https://gitlab.gnome.org/GNOME/gnome-maps.git?signed#tag=${pkgver/[a-z]/.&}"
+)
+b2sums=('87588809720b16c52c3361c6171915d6bfb0c1c6f68487d40ac5947cbfb6cf16e2855c72adbe24fbd34b40ff2c41dffebe6a28a63f724e50f5594d144790838c')
+validpgpkeys=(
+  7448F128A4B18AB2EF87F092FA6624580A420D5D # Marcus Lundblad <ml@update.uu.se>
+)
+
+prepare() {
+  cd $pkgname
+}
+
+build() {
+  arch-meson $pkgname build
+  meson compile -C build
+}
+
+check() {
+  meson test -C build --print-errorlogs
+}
+
+package() {
+  meson install -C build --destdir "$pkgdir"
+}
+
+# vim:set sw=2 sts=-1 et:

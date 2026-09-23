@@ -1,0 +1,40 @@
+# Maintainer: Fabian Bornschein <fabiscafe@archlinux.org>
+# Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
+
+pkgname=gweather-locations
+pkgver=2026.2
+pkgrel=1
+pkgdesc="Location and timezone database for the libgweather library"
+url="https://gitlab.gnome.org/GNOME/gweather-locations"
+arch=(x86_64)
+license=(GPL-2.0-or-later)
+makedepends=(
+  python-gobject
+  git
+  meson
+)
+source=("git+https://gitlab.gnome.org/GNOME/gweather-locations.git#tag=${pkgver/[a-z]/.&}")
+b2sums=('b97998f85e340952a4383577ffd587714711b0d4f0f82fa279a75516c314c3f69ab28589d907a7b4948e88360442788520c3150b984d7d2a8b1d911d097bbf23')
+
+prepare() {
+  cd $pkgname
+
+  # Use full path to Locations.xml
+  ## https://gitlab.gnome.org/GNOME/gweather-locations/-/merge_requests/50
+  sed -i "s|'Locations\.xml',|meson.current_source_dir() / 'Locations.xml',|" data/meson.build
+}
+
+build() {
+  arch-meson $pkgname build
+  meson compile -C build
+}
+
+check() {
+  meson test -C build --print-errorlogs --no-rebuild
+}
+
+package() {
+  meson install -C build --destdir "$pkgdir" --no-rebuild
+}
+
+# vim:set sw=2 sts=-1 et:

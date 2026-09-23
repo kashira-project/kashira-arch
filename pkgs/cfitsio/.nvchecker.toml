@@ -1,0 +1,4 @@
+[cfitsio]
+source = 'git'
+git = 'https://github.com/HEASARC/cfitsio'
+prefix = 'cfitsio-'

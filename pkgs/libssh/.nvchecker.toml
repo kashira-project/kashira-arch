@@ -1,0 +1,5 @@
+[libssh]
+source = 'git'
+git = 'https://gitlab.com/libssh/libssh-mirror'
+include_regex = 'libssh-.*'
+prefix = 'libssh-'

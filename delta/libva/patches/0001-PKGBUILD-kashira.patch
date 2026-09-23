@@ -1,0 +1,10 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -22,7 +22,6 @@
+ makedepends=(
+   git
+   libglvnd
+-  mesa
+   meson
+ )
+ optdepends=(

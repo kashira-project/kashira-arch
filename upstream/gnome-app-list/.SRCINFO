@@ -1,0 +1,16 @@
+pkgbase = gnome-app-list
+	pkgdesc = Provides app recommendation data for the GNOME project
+	pkgver = 3.0
+	pkgrel = 1
+	url = https://gitlab.gnome.org/GNOME/gnome-app-list
+	arch = any
+	license = LGPL-2.1-or-later
+	checkdepends = flake8
+	checkdepends = python-black
+	makedepends = git
+	makedepends = libxml2
+	makedepends = meson
+	source = git+https://gitlab.gnome.org/GNOME/gnome-app-list.git#tag=3.0
+	b2sums = 4d6c22ed348112e72476a53260ba28fb7f1cbb167d59f9ff164b45dd7e65eb4478114c3ff5ae4b9d946a05bfc882a14b4b94489d9860c9e2adee20fc9acbd148
+
+pkgname = gnome-app-list

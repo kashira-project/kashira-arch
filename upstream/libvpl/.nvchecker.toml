@@ -1,0 +1,5 @@
+[libvpl]
+source = "git"
+git = "https://github.com/intel/libvpl.git"
+prefix = "v"
+exclude_regex = "v202(3|2|1)\\.[0-9]+\\.?[0-9a-zA-Z]*"

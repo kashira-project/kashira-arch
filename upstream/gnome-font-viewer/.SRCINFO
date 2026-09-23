@@ -1,0 +1,26 @@
+pkgbase = gnome-font-viewer
+	pkgdesc = A font viewer utility for GNOME
+	pkgver = 50.0
+	pkgrel = 1
+	url = https://apps.gnome.org/FontViewer/
+	arch = x86_64
+	groups = gnome
+	license = GPL-2.0-or-later
+	makedepends = git
+	makedepends = meson
+	depends = cairo
+	depends = fontconfig
+	depends = freetype2
+	depends = fribidi
+	depends = glib2
+	depends = glibc
+	depends = gtk4
+	depends = harfbuzz
+	depends = hicolor-icon-theme
+	depends = libadwaita
+	depends = libgcc
+	depends = pango
+	source = git+https://gitlab.gnome.org/GNOME/gnome-font-viewer.git#tag=50.0
+	b2sums = cf1a4439d99880ba5a94c28370a1ebe2d54b6bf8afcec1ecbace701cf69c63f02e0ed3e830c1fd10d85328854bcea78e8afeca6ef1f763705c6e1b37e1901860
+
+pkgname = gnome-font-viewer

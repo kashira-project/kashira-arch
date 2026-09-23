@@ -1,0 +1,3 @@
+[libsonic]
+source = "git"
+git = "https://github.com/waywardgeek/sonic.git"

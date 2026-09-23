@@ -1,0 +1,25 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Automeris naranja
+ <104251-automerisnaranja@users.noreply.gitlab.gnome.org>
+Date: Thu, 31 Oct 2024 20:46:43 -0300
+Subject: [PATCH] gl-window: Fix GtkInfoBar being blank
+
+The info bar label needs to be binded to "widget_class"
+with "gtk_widget_class_bind_template_child_private".
+---
+ src/gl-window.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/gl-window.c b/src/gl-window.c
+index 45f52a03759c..b294ede5de43 100644
+--- a/src/gl-window.c
++++ b/src/gl-window.c
+@@ -349,6 +349,8 @@ gl_window_class_init (GlWindowClass *klass)
+                                                   event_list);
+     gtk_widget_class_bind_template_child_private (widget_class, GlWindow,
+                                                   info_bar);
++    gtk_widget_class_bind_template_child_private (widget_class, GlWindow,
++                                                  message_label);
+ 
+     gtk_widget_class_bind_template_callback (widget_class,
+                                              on_help_button_clicked);

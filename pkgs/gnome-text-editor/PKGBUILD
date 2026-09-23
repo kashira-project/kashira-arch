@@ -1,0 +1,56 @@
+# Maintainer: Fabian Bornschein <fabiscafe@archlinux.org>
+# Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
+
+pkgname=gnome-text-editor
+pkgver=50.1
+pkgrel=1
+pkgdesc="A simple text editor for the GNOME desktop"
+url="https://apps.gnome.org/TextEditor/"
+arch=(x86_64)
+license=(GPL-3.0-or-later)
+depends=(
+  dconf
+  editorconfig-core-c
+  glib2
+  glibc
+  gtk4
+  gtksourceview5
+  hicolor-icon-theme
+  libadwaita
+  libgcc
+  libspelling
+  pango
+)
+makedepends=(
+  appstream
+  git
+  glib2-devel
+  meson
+  yelp-tools
+)
+groups=(gnome)
+source=("git+https://gitlab.gnome.org/GNOME/gnome-text-editor.git#tag=${pkgver/[a-z]/.&}")
+b2sums=('d3c2f074c92fb2dc65ecf76c9848a990b2e8ceafd039efaf29d3308194b8e39766c49924d13d70c315e37cdeb04400ba9d8765e8886ec2f4a2349490c6ab814d')
+
+prepare() {
+  cd $pkgname
+}
+
+build() {
+  local meson_options=(
+    -D bugreport_url="https://gitlab.archlinux.org/archlinux/packaging/packages/gnome-text-editor/-/issues"
+  )
+
+  arch-meson $pkgname build "${meson_options[@]}"
+  meson compile -C build
+}
+
+check() {
+  meson test -C build --print-errorlogs
+}
+
+package() {
+  meson install -C build --destdir "$pkgdir"
+}
+
+# vim:set sw=2 sts=-1 et:

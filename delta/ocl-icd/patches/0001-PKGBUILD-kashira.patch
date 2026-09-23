@@ -1,0 +1,11 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -9,7 +9,7 @@
+ url="https://github.com/OCL-dev/ocl-icd"
+ license=('BSD-2-Clause')
+ depends=('glibc')
+-makedepends=('ruby' 'mesa' 'xmlto' 'asciidoc' 'opencl-headers>=2.1')
++makedepends=('ruby' 'xmlto' 'opencl-headers>=2.1')
+ checkdepends=()
+ provides=('opencl-icd-loader')
+ conflicts=('libcl')

@@ -1,0 +1,12 @@
+pkgbase = utf8cpp
+	pkgdesc = UTF-8 with C++ in a Portable Way
+	pkgver = 4.2.0
+	pkgrel = 1
+	url = https://github.com/nemtrif/utfcpp
+	arch = any
+	license = BSL-1.0
+	makedepends = cmake
+	source = https://github.com/nemtrif/utfcpp/archive/v4.2.0/utf8cpp-4.2.0.tar.gz
+	sha256sums = 54a8e96ea835a7359e8e53d03e30e9833d51350cc4615ff53f8449ef19ee46ab
+
+pkgname = utf8cpp

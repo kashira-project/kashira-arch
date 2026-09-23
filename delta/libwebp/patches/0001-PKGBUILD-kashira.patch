@@ -1,0 +1,18 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -21,7 +21,6 @@
+   giflib
+   libjpeg-turbo
+   libpng
+-  libtiff
+   ninja
+ )
+ source=(
+@@ -107,7 +106,6 @@
+     glibc
+     libjpeg-turbo
+     libpng
+-    libtiff
+     libwebp
+   )
+ 

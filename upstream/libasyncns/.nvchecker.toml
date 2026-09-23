@@ -1,0 +1,4 @@
+[libasyncns]
+source = "git"
+git = "https://git.0pointer.net/clone/libasyncns.git"
+prefix = "v"

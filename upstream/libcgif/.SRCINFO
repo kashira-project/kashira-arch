@@ -1,0 +1,13 @@
+pkgbase = libcgif
+	pkgdesc = A fast and lightweight GIF encoding library
+	pkgver = 0.5.4
+	pkgrel = 1
+	url = https://github.com/dloebl/cgif
+	arch = x86_64
+	license = MIT
+	makedepends = meson
+	depends = glibc
+	source = libcgif-0.5.4.tar.gz::https://github.com/dloebl/cgif/archive/v0.5.4.tar.gz
+	sha256sums = 83a70a15bc2da41f081a44ebc58ee48e2e1d524a6d3fdb4a24064afa08d5ad4d
+
+pkgname = libcgif

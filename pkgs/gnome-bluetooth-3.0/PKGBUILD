@@ -1,0 +1,67 @@
+# Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
+# Maintainer: Fabian Bornschein <fabiscafe@archlinux.org>
+# Contributor: Ionut Biru <ibiru@archlinux.org>
+# Contributor: Roman Kyrylych <roman@archlinux.org>
+
+pkgname=gnome-bluetooth-3.0
+pkgver=47.2
+pkgrel=1
+pkgdesc="GNOME Bluetooth Subsystem"
+url="https://wiki.gnome.org/Projects/GnomeBluetooth"
+arch=(x86_64)
+license=(LGPL-2.1-or-later)
+depends=(
+  bluez
+  bluez-obex
+  glib2
+  glibc
+  gsound
+  gtk4
+  libgcc
+  libadwaita
+  libnotify
+  systemd-libs
+  upower
+)
+makedepends=(
+  docbook-xsl
+  git
+  glib2-devel
+  gobject-introspection
+  gtk-doc
+  meson
+  python
+  systemd
+)
+checkdepends=(
+  python-dbusmock
+  python-gobject
+)
+provides=(libgnome-bluetooth{,-ui}-3.0.so)
+source=(
+  "git+https://gitlab.gnome.org/GNOME/gnome-bluetooth.git#tag=${pkgver/[a-z]/.&}"
+)
+b2sums=('ad51b87fb480fed650b0481a29373bb8d3810c25b0808f8f807878d7229d5c5729b9a3608539ff4de48d7b1a7b030f2ec98443b8e2410b2af1b3f8537135cdc1')
+
+prepare() {
+  cd gnome-bluetooth
+}
+
+build() {
+  local meson_options=(
+    -D gtk_doc=true
+  )
+
+  arch-meson gnome-bluetooth build "${meson_options[@]}"
+  meson compile -C build
+}
+
+check() {
+  meson test -C build --print-errorlogs
+}
+
+package() {
+  meson install -C build --destdir "$pkgdir"
+}
+
+# vim:set sw=2 sts=-1 et:

@@ -1,0 +1,11 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -48,7 +48,7 @@
+ 
+ build() {
+   cd $pkgname
+-  make EXTRA_CFLAGS="$CFLAGS"
++  make CC="$CC" EXTRA_CFLAGS="$CFLAGS"
+ }
+ 
+ check() {

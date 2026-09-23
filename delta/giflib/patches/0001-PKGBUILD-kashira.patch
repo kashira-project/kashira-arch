@@ -1,0 +1,18 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -14,11 +14,10 @@
+ license=('MIT')
+ depends=('glibc')
+ makedepends=(
+-  'docbook-xml'
+-  'docbook-xsl'
+-  'git'
+-  'imagemagick'
+-  'xmlto'
++ 'docbook-xml'
++ 'docbook-xsl'
++ 'git'
++ 'xmlto'
+ )
+ provides=('libgif.so')
+ source=("${pkgname}::git+https://git.code.sf.net/p/giflib/code#tag=${pkgver}")

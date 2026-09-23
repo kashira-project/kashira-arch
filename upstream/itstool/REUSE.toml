@@ -1,0 +1,31 @@
+version = 1
+
+[[annotations]]
+path = [
+    "PKGBUILD",
+    "README.md",
+    "keys/**",
+    ".SRCINFO",
+    ".nvchecker.toml",
+    "*.install",
+    "*.sysusers",
+    "*.tmpfiles",
+    "*.logrotate",
+    "*.pam",
+    "*.service",
+    "*.socket",
+    "*.timer",
+    "*.desktop",
+    "*.hook",
+]
+SPDX-FileCopyrightText = "Arch Linux contributors"
+SPDX-License-Identifier = "0BSD"
+
+[[annotations]]
+path = [
+    "0001-Fix-the-crash-from-912099.patch",
+    "0002-Fix-insufficiently-quoted-regular-expressions.patch",
+    "0003-Fix-handling-of-untranslated-nodes.patch",
+]
+SPDX-FileCopyrightText = "itstool contributors"
+SPDX-License-Identifier = "GPL-3.0-only"

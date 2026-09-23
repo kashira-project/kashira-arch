@@ -1,0 +1,5 @@
+[libvpx]
+source = "git"
+git = "https://chromium.googlesource.com/webm/libvpx"
+prefix = "v"
+exclude_regex = '.*-rc\d?'

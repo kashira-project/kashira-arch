@@ -1,0 +1,58 @@
+# Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
+# Maintainer: Fabian Bornschein <fabiscafe@archlinux.org>
+# Contributor: Thomas Dziedzic < gostrc at gmail >
+# Contributor: Jaroslav Lichtblau <dragonlord@aur.archlinux.org>
+# Contributor: Joeny Ang <ang(dot)joeny(at)gmail(dot)com>
+
+pkgname=simple-scan
+pkgver=50.0
+pkgrel=1
+pkgdesc="Simple scanning utility"
+url="https://apps.gnome.org/SimpleScan/"
+arch=(x86_64)
+license=(GPL-3.0-or-later)
+depends=(
+  cairo
+  colord-sane
+  dconf
+  gdk-pixbuf2
+  glib2
+  glibc
+  gtk4
+  hicolor-icon-theme
+  libadwaita
+  libcolord
+  libgusb
+  libwebp
+  sane
+  zlib
+)
+makedepends=(
+  git
+  meson
+  vala
+  yelp-tools
+)
+groups=(gnome)
+source=(
+  "git+https://gitlab.gnome.org/GNOME/simple-scan.git#tag=${pkgver/[a-z]/.&}"
+)
+b2sums=('30e4ffda3004a5341af3a396d9972725ddf0a629f9d07f720514f918a609271b57210b8e46763b05b745108cd806ea94bf0351741d35cd385daa2904a70c2218')
+validpgpkeys=(
+  4D0BE12F0E4776D8AACE9696E66C775AEBFE6C7D # Jeremy Bicha <jeremy.bicha@canonical.com>
+)
+
+build() {
+  arch-meson $pkgname build
+  meson compile -C build
+}
+
+check() {
+  meson test -C build --print-errorlogs
+}
+
+package() {
+  meson install -C build --destdir "$pkgdir"
+}
+
+# vim:set sw=2 sts=-1 et:

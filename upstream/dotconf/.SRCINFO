@@ -1,0 +1,12 @@
+pkgbase = dotconf
+	pkgdesc = A C library for parsing configuration files
+	pkgver = 1.4.1
+	pkgrel = 1
+	url = https://github.com/williamh/dotconf
+	arch = x86_64
+	license = LGPL2.1
+	depends = glibc
+	source = dotconf-1.4.1.tar.gz::https://github.com/williamh/dotconf/archive/refs/tags/v1.4.1.tar.gz
+	sha256sums = 5922c46cacf99b2ecc4853d28a2bda4a489292e73276e604bd9cba29dfca892d
+
+pkgname = dotconf

@@ -1,0 +1,23 @@
+pkgbase = tecla
+	pkgdesc = Keyboard layout viewer
+	pkgver = 50.0
+	pkgrel = 1
+	url = https://gitlab.gnome.org/GNOME/tecla
+	arch = x86_64
+	groups = gnome
+	license = GPL-2.0-or-later
+	makedepends = git
+	makedepends = meson
+	depends = glib2
+	depends = glibc
+	depends = gtk4
+	depends = hicolor-icon-theme
+	depends = libadwaita
+	depends = libgcc
+	depends = libxkbcommon
+	depends = pango
+	depends = wayland
+	source = git+https://gitlab.gnome.org/GNOME/tecla.git#tag=50.0
+	b2sums = a01ee02f42a3d3dcdd25632783dbe6fc6591731c6a580e2b2be1fe38c072fe7c5e73cf27fe2093399aa4500ff5d2d7e61cfe91ef058afa970d8ba4566c300c15
+
+pkgname = tecla

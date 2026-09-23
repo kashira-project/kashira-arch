@@ -1,0 +1,5 @@
+[gpgmepp]
+source = "git"
+git = "https://github.com/gpg/gpgmepp"
+prefix = "gpgmepp-"
+include_regex = "gpgmepp-.*"

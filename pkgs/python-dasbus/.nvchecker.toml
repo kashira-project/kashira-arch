@@ -1,0 +1,4 @@
+[python-dasbus]
+source = "git"
+git = "https://github.com/rhinstaller/dasbus.git"
+prefix = "v"

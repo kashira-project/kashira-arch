@@ -1,0 +1,18 @@
+pkgbase = gnome-menus
+	pkgdesc = GNOME menu specifications
+	pkgver = 3.38.1
+	pkgrel = 1
+	url = https://gitlab.gnome.org/GNOME/gnome-menus
+	arch = x86_64
+	groups = gnome
+	license = LGPL-2.0-or-later
+	makedepends = git
+	makedepends = gobject-introspection
+	depends = glib2
+	depends = glibc
+	provides = libgnome-menu-3.so
+	source = git+https://gitlab.gnome.org/GNOME/gnome-menus.git?signed#tag=3.38.1
+	validpgpkeys = 53EF3DC3B63E2899271BD26322E8091EEA11BBB7
+	b2sums = 8938032023025f89de93d2baab7fc647aa3f9a00841fbd822a55c735f83dadff5f89a6aa1b5d84effc808921863e96c9d5e7a260cb9b448ef9a071907ac1bc20
+
+pkgname = gnome-menus

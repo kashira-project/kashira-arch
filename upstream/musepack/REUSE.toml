@@ -1,0 +1,48 @@
+version = 1
+
+[[annotations]]
+path = [
+    "PKGBUILD",
+    "README.md",
+    "keys/**",
+    ".SRCINFO",
+    ".nvchecker.toml",
+    "*.install",
+    "*.sysusers",
+    "*.tmpfiles",
+    "*.logrotate",
+    "*.pam",
+    "*.service",
+    "*.socket",
+    "*.timer",
+    "*.desktop",
+    "*.hook",
+]
+SPDX-FileCopyrightText = "Arch Linux contributors"
+SPDX-License-Identifier = "0BSD"
+
+[[annotations]]
+path = [
+    "01_am-maintainer-mode.patch",
+    "02_link-libm.patch",
+    "04_link-order.patch",
+    "05_visibility.patch",
+    "1001_missing_extern_kw.patch",
+    "add_subdir-objects.patch",
+]
+SPDX-FileCopyrightText = "musepack contributors"
+SPDX-License-Identifier = "BSD-3-Clause"
+
+[[annotations]]
+path = [
+    "musepack-tools-495-incompatible-pointers.patch",
+]
+SPDX-FileCopyrightText = "musepack contributors"
+SPDX-License-Identifier = "LGPL-2.1-or-later"
+
+[[annotations]]
+path = [
+    "03_mpcchap.patch",
+]
+SPDX-FileCopyrightText = "musepack contributors"
+SPDX-License-Identifier = "GPL-2.0-or-later"

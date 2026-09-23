@@ -1,0 +1,54 @@
+# Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
+
+pkgname=gnome-color-manager
+pkgver=3.36.2
+pkgrel=2
+pkgdesc="GNOME Color Profile Tools"
+url="https://gitlab.gnome.org/GNOME/gnome-color-manager"
+arch=(x86_64)
+license=(GPL-2.0-or-later)
+depends=(
+  cairo
+  colord
+  libgcc
+  gdk-pixbuf2
+  glib2
+  glibc
+  gtk3
+  hicolor-icon-theme
+  lcms2
+  libcolord
+  pango
+)
+makedepends=(
+  docbook-sgml
+  docbook-utils
+  git
+  meson
+  perl-sgmls
+  yelp-tools
+)
+checkdepends=(xorg-server-xvfb)
+groups=(gnome)
+source=("git+$url.git#tag=$pkgver")
+b2sums=('a9f5ddc1ce5fc17227cf9a05677aa21ffd89b45e58e4e1ba37d5e57cd9736b89e28b046d2a66ceff02d93652ccfbee8903fd5be035420be6fe56b789936df412')
+
+prepare() {
+  cd $pkgname
+}
+
+build() {
+  arch-meson $pkgname build
+  meson compile -C build
+}
+
+check() {
+  dbus-run-session xvfb-run -s '-nolisten local' \
+    meson test -C build --print-errorlogs
+}
+
+package() {
+  meson install -C build --destdir "$pkgdir"
+}
+
+# vim:set sw=2 sts=-1 et:

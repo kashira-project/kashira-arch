@@ -1,0 +1,82 @@
+# Maintainer: Fabian Bornschein <fabiscafe@archlinux.org>
+# Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
+
+pkgname=gnome-logs
+pkgver=50.0
+pkgrel=1
+pkgdesc="A log viewer for the systemd journal"
+url="https://apps.gnome.org/Logs"
+arch=(x86_64)
+license=(GPL-3.0-only)
+depends=(
+  dconf
+  glib2
+  glibc
+  gsettings-desktop-schemas
+  gtk4
+  hicolor-icon-theme
+  libadwaita
+  libgcc
+  pango
+  systemd
+  systemd-libs
+)
+makedepends=(
+  appstream
+  git
+  glib2-devel
+  meson
+  yelp-tools
+)
+groups=(gnome)
+source=(
+  "git+https://gitlab.gnome.org/GNOME/gnome-logs.git#tag=${pkgver/[a-z]/.&}"
+  0001-gl-application-Add-CTRL-Q-to-quit.patch
+  0002-gl-window-Fix-GtkInfoBar-being-blank.patch
+  0003-Fix-crash-when-invalid-journal-opened.patch
+  0004-Add-new-window-command-line-option.patch
+)
+b2sums=('2a3d9b62ebb146832540b43e18f9a83339735157040b412d53410c4e77053ad32a00281574b29b1c58d0ed12699f2060fe5dc456f482c9049a0e0d962e7aaa55'
+        '772d3ddab3a828ce14af1822e89fc643b2a3fa152ef28fee769428d0ebb4b3b98232979511cc7a9da1fa5cde995e548623b02cf31223ec8fcfc2270e134d4540'
+        '88925a3383b6ad2a564b5aa6d2450e0f3976c07f7e1011ab7f72f50aae9b8d3195985e57a08ed8e4d148d9fbb0ff9357e4a27e88739630291eda6d56299ed831'
+        'c5c7aa26779d62f533be893e7a0eb1b5346908bc3eacec0a2772dc62cfb476624579bfba108e4ba91261d1df0dfe0355bc70429db0cd4eaa32cf09689aa633a5'
+        '6760954275c19374b9dcad9c12aed1b907352e7645ed6fbace0a9d5ca17b1dcc9519036fb44f4ba71dbf5a5dc89b02885dc4b9401acde106789184221d64dde4')
+
+prepare() {
+  cd $pkgname
+
+  # Add CTRL+Q to quit
+  # https://gitlab.gnome.org/GNOME/gnome-logs/-/merge_requests/71
+  git apply -3 ../0001-gl-application-Add-CTRL-Q-to-quit.patch
+
+  # Fix GtkInfoBar being blank
+  # https://gitlab.gnome.org/GNOME/gnome-logs/-/merge_requests/73
+  git apply -3 ../0002-gl-window-Fix-GtkInfoBar-being-blank.patch
+
+  # Fix crash when invalid journal opened
+  # https://gitlab.gnome.org/GNOME/gnome-logs/-/merge_requests/77
+  git apply -3 ../0003-Fix-crash-when-invalid-journal-opened.patch
+
+  # Add "new-window" command-line option
+  # https://gitlab.gnome.org/GNOME/gnome-logs/-/merge_requests/78
+  git apply -3 ../0004-Add-new-window-command-line-option.patch
+}
+
+build() {
+  local meson_options=(
+    -D man=true
+  )
+
+  arch-meson $pkgname build "${meson_options[@]}"
+  meson compile -C build
+}
+
+check() {
+  meson test -C build --print-errorlogs
+}
+
+package() {
+  meson install -C build --destdir "$pkgdir"
+}
+
+# vim:set sw=2 sts=-1 et:
