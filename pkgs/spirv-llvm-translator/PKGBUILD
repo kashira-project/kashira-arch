@@ -15,7 +15,7 @@ depends=(
   llvm-libs
   spirv-tools
 )
-makedepends=(
+makedepends=('gcc' 
   cmake
   git
   llvm

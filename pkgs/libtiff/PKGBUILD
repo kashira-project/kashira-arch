@@ -23,6 +23,7 @@ depends=(
 )
 makedepends=(
   cmake
+  gcc
   git
 )
 optdepends=(

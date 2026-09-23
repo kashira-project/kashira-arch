@@ -1,6 +1,14 @@
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -28,7 +28,7 @@
+@@ -4,7 +4,6 @@
+ pkgbase=pango
+ pkgname=(
+   pango
+-  pango-docs
+ )
+ pkgver=1.58.2
+ pkgrel=1
+@@ -28,7 +27,7 @@
    libxrender
  )
  makedepends=(
@@ -9,7 +17,7 @@
    git
    glib2-devel
    gobject-introspection
-@@ -41,11 +41,14 @@
+@@ -41,11 +40,14 @@
  
  prepare() {
    cd pango
@@ -25,3 +33,19 @@
      -D man-pages=true
      -D sysprof=enabled
    )
+@@ -62,15 +64,6 @@
+ 
+   meson install -C build --destdir "$pkgdir"
+ 
+-  mkdir -p doc/usr/share
+-  mv {"$pkgdir",doc}/usr/share/doc
+-}
+-
+-package_pango-docs() {
+-  pkgdesc+=" (documentation)"
+-  depends=()
+-
+-  mv doc/* "$pkgdir"
+ }
+ 
+ # vim:set sw=2 sts=-1 et:

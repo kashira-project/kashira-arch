@@ -4,7 +4,6 @@
 pkgbase=pango
 pkgname=(
   pango
-  pango-docs
 )
 pkgver=1.58.2
 pkgrel=1
@@ -65,15 +64,6 @@ package_pango() {
 
   meson install -C build --destdir "$pkgdir"
 
-  mkdir -p doc/usr/share
-  mv {"$pkgdir",doc}/usr/share/doc
-}
-
-package_pango-docs() {
-  pkgdesc+=" (documentation)"
-  depends=()
-
-  mv doc/* "$pkgdir"
 }
 
 # vim:set sw=2 sts=-1 et:

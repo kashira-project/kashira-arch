@@ -35,8 +35,6 @@ package_libepoxy() {
 
   meson install -C build --destdir "$pkgdir"
 
-  mkdir -p doc/usr/share
-  mv {"$pkgdir",doc}/usr/share/doc
 
   install -Dt "$pkgdir/usr/share/licenses/$pkgname" -m644 libepoxy/COPYING
 }

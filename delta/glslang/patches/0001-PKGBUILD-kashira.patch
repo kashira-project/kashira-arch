@@ -9,3 +9,19 @@
  options=('staticlibs')
  source=("git+${url}.git#tag=vulkan-sdk-${pkgver}")
  sha256sums=('8643f6ebfeb91fd6cbdc1462a428862b6ea8ae288d91562603a146365d9c70c6')
+@@ -26,6 +26,7 @@
+     -GNinja \
+     -DCMAKE_INSTALL_PREFIX='/usr' \
+     -DCMAKE_BUILD_TYPE='None' \
++    -DCMAKE_INSTALL_LIBDIR=lib \
+     -DALLOW_EXTERNAL_SPIRV_TOOLS='ON' \
+     -DBUILD_SHARED_LIBS='OFF'
+   cmake --build build-static
+@@ -35,6 +36,7 @@
+     -GNinja \
+     -DCMAKE_INSTALL_PREFIX='/usr' \
+     -DCMAKE_BUILD_TYPE='None' \
++    -DCMAKE_INSTALL_LIBDIR=lib \
+     -DALLOW_EXTERNAL_SPIRV_TOOLS='ON' \
+     -DBUILD_SHARED_LIBS='ON' \
+     -DGLSLANG_TESTS='ON'

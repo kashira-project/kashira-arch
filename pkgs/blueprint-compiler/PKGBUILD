@@ -43,9 +43,6 @@ check() {
 package() {
   meson install -C build --destdir "$pkgdir" --no-rebuild
 
-  local docdir="$pkgdir/usr/share/doc/$pkgname"
-  mkdir -p "$docdir"
-  rm -r "$docdir/en/.doctrees"
 }
 
 # vim:set sw=2 sts=-1 et:

@@ -17,6 +17,7 @@ depends=(
   sh
 )
 makedepends=(
+  gcc
   cmake
   git
   ninja

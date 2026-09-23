@@ -1,6 +1,14 @@
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -32,6 +32,7 @@
+@@ -17,6 +17,7 @@
+   sh
+ )
+ makedepends=(
++  gcc
+   cmake
+   git
+   ninja
+@@ -32,6 +33,7 @@
      -D BUILD_SHARED_LIBS=ON
      -D CMAKE_BUILD_TYPE=Release
      -D CMAKE_INSTALL_PREFIX=/usr

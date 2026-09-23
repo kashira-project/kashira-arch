@@ -26,6 +26,10 @@ from concurrent.futures import ThreadPoolExecutor
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GITLAB = "https://gitlab.archlinux.org/archlinux/packaging/packages/{}.git"
+def gitlab_url(name):
+    # '+' etc. must be percent-encoded or GitLab redirects to sign-in
+    from urllib.parse import quote
+    return GITLAB.format(quote(name, safe=''))
 CACHE = os.path.join(ROOT, ".cache")
 
 

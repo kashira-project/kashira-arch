@@ -10,7 +10,7 @@
  _commit=c84bc9459357a40e46e2fec0408d04fbdde2c973  # tags/1.5.10^0
  source=("git+https://github.com/anholt/libepoxy#commit=$_commit")
  sha256sums=('SKIP')
-@@ -31,11 +30,6 @@
+@@ -31,18 +30,11 @@
    meson compile -C build
  }
  
@@ -22,3 +22,10 @@
  package_libepoxy() {
    provides=(libepoxy.so)
  
+   meson install -C build --destdir "$pkgdir"
+ 
+-  mkdir -p doc/usr/share
+-  mv {"$pkgdir",doc}/usr/share/doc
+ 
+   install -Dt "$pkgdir/usr/share/licenses/$pkgname" -m644 libepoxy/COPYING
+ }

@@ -39,6 +39,7 @@ sha512sums=('c28d59946c0a1b8e4385a772e0651c6f4154c18ab8a2a62289c3213eb4fe937cec0
 b2sums=('57c851d6e147918549bec0738c985bc461089184717b7e5350d9addf3cb74f5dc2f635e9cd72233d0d4f59b7340c36ffe3f11a1305fbcf40572de145690b99a2')
 
 _bootstrap=1
+provides=('rubygems')
 _rubyver="${pkgver:0:3}.0"
 _bundled_gems=(
   abbrev
