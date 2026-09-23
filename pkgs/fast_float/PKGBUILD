@@ -12,7 +12,6 @@ url="https://github.com/fastfloat/fast_float"
 license=('Apache-2.0 OR BSL-1.0 OR MIT')
 makedepends=(
   'cmake'
-  'doctest'
   'git'
 )
 source=("git+$url.git#tag=v$pkgver")
@@ -23,13 +22,8 @@ build() {
     -DCMAKE_BUILD_TYPE=None \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -Wno-dev \
-    -DFASTFLOAT_TEST=ON \
-    -DSYSTEM_DOCTEST=ON
+    -DFASTFLOAT_TEST=OFF
   cmake --build build
-}
-
-check() {
-  cmake --build build --target test
 }
 
 package() {

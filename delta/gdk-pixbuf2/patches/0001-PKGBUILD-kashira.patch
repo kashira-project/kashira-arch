@@ -1,6 +1,14 @@
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -15,11 +15,12 @@
+@@ -4,7 +4,6 @@
+ pkgbase=gdk-pixbuf2
+ pkgname=(
+   gdk-pixbuf2
+-  gdk-pixbuf2-docs
+ )
+ pkgver=2.44.7
+ pkgrel=1
+@@ -15,11 +14,12 @@
  depends=(
    glib2
    glibc
@@ -15,7 +23,7 @@
    git
    glib2-devel
    gobject-introspection
-@@ -43,19 +44,19 @@
+@@ -43,19 +43,19 @@
    local meson_options=(
      -D android=disabled
      -D builtin_loaders=all
@@ -42,3 +50,21 @@
    )
  
    arch-meson gdk-pixbuf build "${meson_options[@]}"
+@@ -72,17 +72,8 @@
+ 
+   meson install -C build --destdir "$pkgdir"
+ 
+-  mkdir -p doc/usr/share
+-  mv {"$pkgdir",doc}/usr/share/doc
+ 
+   install -Dt "$pkgdir/usr/share/libalpm/hooks" -m644 *.hook
+ }
+ 
+-package_gdk-pixbuf2-docs() {
+-  pkgdesc+=" (documentation)"
+-  depends=()
+-
+-  mv doc/* "$pkgdir"
+-}
+-
+ # vim:set sw=2 sts=-1 et:

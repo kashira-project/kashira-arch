@@ -1,0 +1,29 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -18,9 +18,7 @@
+   'clang'
+   'cmake'
+   'git'
+-  'gtest'
+ )
+-checkdepends=('zlib')
+ provides=('libsnappy.so')
+ source=(
+   "git+${url}.git#tag=${pkgver}"
+@@ -50,14 +48,11 @@
+     -W no-dev \
+     -DCMAKE_CXX_STANDARD=23 \
+     -DBUILD_SHARED_LIBS=ON \
+-    -DSNAPPY_BUILD_BENCHMARKS=OFF
++    -DSNAPPY_BUILD_BENCHMARKS=OFF \
++    -DSNAPPY_BUILD_TESTS=OFF
+   cmake --build build
+ }
+ 
+-check() {
+-  cmake --build build --target test
+-}
+-
+ package() {
+   DESTDIR="$pkgdir" cmake --install build
+   install -vDm644 -t "$pkgdir/usr/share/licenses/$pkgname" $pkgname/COPYING

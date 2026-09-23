@@ -44,6 +44,7 @@ prepare() {
 
 build() {
   cmake -B build -S $pkgname \
+    -D CMAKE_INSTALL_LIBDIR=lib \
   -DCMAKE_INSTALL_PREFIX=/usr \
   -DCMAKE_BUILD_TYPE=None \
   -DCMAKE_POLICY_VERSION_MINIMUM=3.5

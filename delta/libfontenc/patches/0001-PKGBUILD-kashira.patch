@@ -1,0 +1,11 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -8,7 +8,7 @@
+ arch=('x86_64')
+ url="https://gitlab.freedesktop.org/xorg/lib/libfontenc"
+ license=('MIT')
+-depends=('zlib' 'glibc' 'xorg-fonts-encodings')
++depends=('zlib' 'glibc')
+ makedepends=('pkgconfig' 'xorgproto' 'xorg-util-macros')
+ source=(https://xorg.freedesktop.org/releases/individual/lib/${pkgname}-${pkgver}.tar.xz{,.sig})
+ sha512sums=('19050c4c9ea1143b555b92faec641fd6b4976de463ad1fb67d20a7bf2f610bbc3debd3c65925cd8329691a9fb0435d004a05b6486e1dc600719e8c479812b912'

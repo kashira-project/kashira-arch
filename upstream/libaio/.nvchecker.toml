@@ -1,0 +1,5 @@
+[libaio]
+source = "git"
+git = "https://codeberg.org/jmoyer/libaio"
+prefix = "libaio-"
+include_regex = '(libaio)-([\d.*]+)'

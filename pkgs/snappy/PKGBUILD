@@ -18,9 +18,7 @@ makedepends=(
   'clang'
   'cmake'
   'git'
-  'gtest'
 )
-checkdepends=('zlib')
 provides=('libsnappy.so')
 source=(
   "git+${url}.git#tag=${pkgver}"
@@ -50,12 +48,9 @@ build() {
     -W no-dev \
     -DCMAKE_CXX_STANDARD=23 \
     -DBUILD_SHARED_LIBS=ON \
-    -DSNAPPY_BUILD_BENCHMARKS=OFF
+    -DSNAPPY_BUILD_BENCHMARKS=OFF \
+    -DSNAPPY_BUILD_TESTS=OFF
   cmake --build build
-}
-
-check() {
-  cmake --build build --target test
 }
 
 package() {

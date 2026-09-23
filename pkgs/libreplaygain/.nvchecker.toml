@@ -1,0 +1,4 @@
+[libreplaygain]
+source = 'regex'
+url = 'https://www.musepack.net/index.php?pg=src'
+regex = 'libreplaygain_r(\d+).tar'

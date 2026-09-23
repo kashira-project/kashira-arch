@@ -32,7 +32,8 @@ b2sums=('aa5a5b24dc265fa346d6d23788399866e60f2365ed3fb3a365482d0322b5cef91edb0a7
 build() {
   local cmake_options=(
     -D CMAKE_BUILD_TYPE=Release
-    -D CMAKE_INSTALL_PREFIX=/usr
+    -D CMAKE_INSTALL_PREFIX=/usr \
+      -D CMAKE_INSTALL_LIBDIR=lib
     -D CMAKE_INSTALL_SYSCONFDIR=/etc
     -D CMAKE_SKIP_INSTALL_RPATH=ON
   )

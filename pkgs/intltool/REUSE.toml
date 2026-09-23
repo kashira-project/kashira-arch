@@ -1,0 +1,32 @@
+version = 1
+
+[[annotations]]
+path = [
+    "PKGBUILD",
+    "README.md",
+    "keys/**",
+    ".SRCINFO",
+    ".nvchecker.toml",
+    "*.install",
+    "*.sysusers",
+    "*.tmpfiles",
+    "*.logrotate",
+    "*.pam",
+    "*.service",
+    "*.socket",
+    "*.timer",
+    "*.desktop",
+    "*.hook",
+]
+SPDX-FileCopyrightText = "Arch Linux contributors"
+SPDX-License-Identifier = "0BSD"
+
+[[annotations]]
+path = [
+    "intltool-0.51.0-perl-5.26.patch",
+    "intltool_distcheck-fix.patch",
+    "intltool-fixrace.patch",
+    "intltool-merge-Create-cache-file-atomically.patch",
+]
+SPDX-FileCopyrightText = "intltool contributors"
+SPDX-License-Identifier = "TODO-Choose-a-license"

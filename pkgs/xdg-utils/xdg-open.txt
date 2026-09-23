@@ -1,0 +1,109 @@
+   xdg-open
+
+Name
+
+   xdg-open — opens a file or URL in the user's preferred application
+
+Synopsis
+
+   xdg-open { file | URL }
+
+   xdg-open { --help | --manual | --version }
+
+Description
+
+   xdg-open opens a file or URL in the user's preferred application. If a URL
+   is provided the URL will be opened in the user's preferred web browser. If a
+   file is provided the file will be opened in the preferred application for
+   files of that type. xdg-open supports file, ftp, http and https URLs.
+
+   xdg-open is for use inside a desktop session only. It is not recommended to
+   use xdg-open as root.
+
+   As xdg-open can not handle arguments that begin with a “ - ” it is
+   recommended to pass filepaths in one of the following ways:
+
+   Pass absolute paths, i.e. by using realpath as a preprocessor.
+
+   Prefix known relative filepaths with a “ ./ ” . For example using sed -E
+   's|^[^/]|./\0|' .
+
+   Pass a file URL.
+
+Options
+
+   --help
+
+   Show command synopsis.
+
+   --manual
+
+   Show this manual page.
+
+   --version
+
+   Show the xdg-utils version information.
+
+Exit Codes
+
+   An exit code of 0 indicates success while a non-zero exit code indicates
+   failure. The following failure codes can be returned:
+
+   1
+
+   Error in command line syntax.
+
+   2
+
+   One of the files passed on the command line did not exist.
+
+   3
+
+   A required tool could not be found.
+
+   4
+
+   The action failed.
+
+   In case of success the process launched from the .desktop file will not be
+   forked off and therefore may result in xdg-open running for a very long
+   time. This behaviour intentionally differs from most desktop specific
+   openers to allow terminal based applications to run using the same terminal
+   xdg-open was called from.
+
+   Reporting Issues
+
+   Please keep in mind xdg-open inherits most of the flaws of its configuration
+   and the underlying opener.
+
+   In case the command xdg-mime query default "$(xdg-mime query filetype
+   path/to/troublesome_file)" names the program responsible for any unexpected
+   behaviour you can fix that by setting a different handler. (If the program
+   is broken let the developers know)
+
+   Also see the security note on xdg-mime (1) for the default subcommand.
+
+   If a flaw is reproducible using the desktop specific opener (and isn't a
+   configuration issue): Please report to whoever is responsible for that first
+   (reporting to xdg-utils is better than not reporting at all, but since the
+   xdg-utils are maintained in very little spare time a fix will take much
+   longer)
+
+   In case an issue specific to xdg-open please report it to
+   https://gitlab.freedesktop.org/xdg/xdg-utils/-/issues .
+
+See Also
+
+   xdg-mime (1) , xdg-settings (1) , MIME applications associations
+   specification
+
+Examples
+
+   xdg-open 'http://www.freedesktop.org/'
+
+   Opens the freedesktop.org website in the user's default browser.
+
+   xdg-open /tmp/foobar.png
+
+   Opens the PNG image file /tmp/foobar.png in the user's default image viewing
+   application.

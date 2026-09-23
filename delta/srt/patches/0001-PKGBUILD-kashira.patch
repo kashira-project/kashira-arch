@@ -1,0 +1,29 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -16,15 +16,10 @@
+ )
+ makedepends=(
+   cmake
+-  git
+   ninja
+ )
+-source=("git+https://github.com/Haivision/srt#tag=v$pkgver")
+-b2sums=('b2016a1f664ee4c338de5537c4215cc5b8e91e93106801b077c6e3f3f79ac4048173e1dad2bf0b82812db1b134d496d84756b489ee81257197c412783f7d5301')
+-
+-prepare() {
+-  cd srt
+-}
++source=("$pkgname-$pkgver.tar.gz::https://github.com/Haivision/srt/archive/refs/tags/v$pkgver.tar.gz")
++b2sums=('5f5e1a9d6201c4c5452706aa624757091f89fdcb2a4bc884952185bff140526303589310b5614c4a5b49d1345e3d2acc0324cf55bc0d2d39882076637e8a07f0')
+ 
+ build() {
+   local cmake_options=(
+@@ -34,7 +29,7 @@
+     -DENABLE_TESTING=ON
+   )
+ 
+-  cmake -S srt -B build -G Ninja "${cmake_options[@]}"
++  cmake -S srt-$pkgver -B build -G Ninja "${cmake_options[@]}"
+   cmake --build build
+ }
+ 

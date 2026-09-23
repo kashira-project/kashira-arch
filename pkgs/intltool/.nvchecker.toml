@@ -1,0 +1,4 @@
+[intltool]
+source = 'regex'
+url = 'https://launchpad.net/intltool/+download'
+regex = 'intltool-([\d.]+).tar'

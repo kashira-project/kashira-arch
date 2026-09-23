@@ -8,7 +8,7 @@ arch=('x86_64')
 url="https://www.openprinting.org/download/ijs/"
 license=('AGPL-3.0-or-later')
 depends=('glibc' 'sh')
-makedepends=('docbook-utils' 'ghostscript')
+makedepends=()
 source=("https://www.openprinting.org/download/ijs/download/ijs-$pkgver.tar.bz2"
         # this one misses ijs-config and its manpage but adds AGPL v3 COPYING
         #ijs-$pkgver.tar.gz::https://github.com/ArtifexSoftware/ijs/archive/refs/tags/$pkgver.tar.gz

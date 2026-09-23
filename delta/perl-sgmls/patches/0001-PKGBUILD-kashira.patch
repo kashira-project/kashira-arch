@@ -1,0 +1,10 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -46,5 +46,6 @@
+ 	make install
+ 
+ 	# FS#51874
+-	ln -sv /usr/bin/vendor_perl/sgmlspl.pl "$pkgdir"/usr/bin/sgmlspl
++	# kashira: perl installvendorbin is /usr/bin (no vendor_perl subdir)
++	ln -sv sgmlspl.pl "$pkgdir"/usr/bin/sgmlspl
+ }

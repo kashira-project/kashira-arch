@@ -1,8 +1,10 @@
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -22,22 +22,22 @@
+@@ -21,23 +21,24 @@
+   zlib
  )
  makedepends=(
++  gcc
    gyp
 -  mercurial
    perl
@@ -26,3 +28,13 @@
    mkdir -p certs
    ln -srft certs nss/lib/ckfw/builtins/{certdata.txt,nssckbi.h}
  
+@@ -45,6 +46,9 @@
+ 
+   # Fix build
+   patch -Np1 -i ../0001-Fix-generating-nss.pc-with-system-nspr.patch
++
++  # clang 23's -Wunused-but-set-global fires on old nss code; keep it a warning
++  sed -i "s/    print('-Werror')/    print('-Werror')\n    print('-Wno-error=unused-but-set-global')/" coreconf/werror.py
+ }
+ 
+ build() {

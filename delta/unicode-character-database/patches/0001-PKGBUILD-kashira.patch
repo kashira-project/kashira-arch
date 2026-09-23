@@ -1,0 +1,13 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -13,8 +13,8 @@
+   "unicode-license-$pkgver.txt::https://www.unicode.org/license.txt"
+ )
+ noextract=({UCD,Unihan}-$pkgver.zip)
+-b2sums=('679f90c246ab8eb94ba7a9a281a3cbe49cabcbeb6cf93775f7fe511a66e36cdea82db63d0ea2af34e2b57d804d13c4174cff13d288b4376089d5b97af4860a4a'
+-        '0d1ab2907fd399fdc7f8aae9ecd63df90407ece1ba81ce37467b33689a4ef20ae5d5bcfc6a1a7ec5b0a94f32608540cfa80f0afc3a558ff1b4df4490754081e8'
++b2sums=('bb216e9ec763bd15bd0ba3feefd8a6fe519a09f8e0be515ad3fb2b6d149edb172fd45a212870d7fa1ffc0ac08ab933decc695f06e0c441f2998f41a77a01d4ed'
++        '8330de9048ae890545d2353a1fd07ea6f6bcc2fbec8767420c88c6cf3d8a14ee94ebf63a521c3016382286d0d9bc0d9bf2fc5744b427d83ebb7aaf1b2121ebac'
+         '8e0ac44b557e3966f28c5ce443086f6cbf3ef7b7cc01f45fa9c081d186e0b6700a3155f6aa67cf7b3a13eeb25e7016fabb366e11942e4574f09c5321fff6c521')
+ 
+ package() {

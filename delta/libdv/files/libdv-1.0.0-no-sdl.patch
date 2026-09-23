@@ -1,0 +1,15 @@
+--- a/configure.ac
++++ b/configure.ac
+@@ -173,12 +173,6 @@
+ AC_SUBST(GTK_CFLAGS)
+ AC_SUBST(GTK_LIBS)
+ 
+-if $use_sdl; then
+-	AM_PATH_SDL(1.1.6,
+-	[
+-		AC_DEFINE(HAVE_SDL) 
+- 	])
+-fi
+ 
+ if [ $use_gtk && $use_xv ]; then
+ 	AC_CHECK_LIB(Xv, XvQueryAdaptors,

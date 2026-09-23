@@ -46,8 +46,7 @@ prepare() {
 
 build() {
 	cd "${srcdir}/${pkgname}${_pkgver}"
-	export CC=gcc CPP="gcc -E"
-	make -f unix/Makefile prefix=/usr generic
+	make -f unix/Makefile prefix=/usr generic_gcc
 }
 
 package() {

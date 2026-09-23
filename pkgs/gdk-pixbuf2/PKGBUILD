@@ -4,7 +4,6 @@
 pkgbase=gdk-pixbuf2
 pkgname=(
   gdk-pixbuf2
-  gdk-pixbuf2-docs
 )
 pkgver=2.44.7
 pkgrel=1
@@ -73,17 +72,8 @@ package_gdk-pixbuf2() {
 
   meson install -C build --destdir "$pkgdir"
 
-  mkdir -p doc/usr/share
-  mv {"$pkgdir",doc}/usr/share/doc
 
   install -Dt "$pkgdir/usr/share/libalpm/hooks" -m644 *.hook
-}
-
-package_gdk-pixbuf2-docs() {
-  pkgdesc+=" (documentation)"
-  depends=()
-
-  mv doc/* "$pkgdir"
 }
 
 # vim:set sw=2 sts=-1 et:

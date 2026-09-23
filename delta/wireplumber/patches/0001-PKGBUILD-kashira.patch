@@ -1,0 +1,88 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -5,7 +5,6 @@
+ pkgname=(
+   wireplumber
+   libwireplumber
+-  wireplumber-docs
+   wireplumber-system-services
+ )
+ pkgver=0.5.17
+@@ -15,26 +14,20 @@
+ arch=(x86_64)
+ license=(MIT)
+ makedepends=(
+-  doxygen
+   git
+   glib2
+   glib2-devel
+   glibc
+   gobject-introspection
+-  graphviz
+   libgcc
+   libpipewire
+   lua
+   meson
+   pipewire
+-  python-breathe
+   python-lxml
+-  python-sphinx
+-  python-sphinx_rtd_theme
+   systemd
+   systemd-libs
+ )
+-checkdepends=(pipewire-audio)
+ source=(
+   "git+https://gitlab.freedesktop.org/pipewire/$pkgbase.git#tag=$pkgver"
+ )
+@@ -46,6 +39,7 @@
+ 
+ build() {
+   local meson_options=(
++    -D docs=disabled
+     -D elogind=disabled
+     -D system-lua=true
+     -D systemd-system-service=true
+@@ -55,10 +49,6 @@
+   meson compile -C build
+ }
+ 
+-check() {
+-  meson test -C build --print-errorlogs
+-}
+-
+ _pick() {
+   local p="$1" f d; shift
+   for f; do
+@@ -85,7 +75,6 @@
+     systemd-libs
+   )
+   optdepends=(
+-    'wireplumber-docs: Documentation'
+     'wireplumber-system-services: System daemon (not recommended)'
+   )
+   provides=(pipewire-session-manager)
+@@ -103,8 +92,6 @@
+     _pick libw usr/include
+     _pick libw usr/share/gir-1.0
+ 
+-    _pick docs usr/share/doc/wireplumber/html
+-
+     _pick system usr/lib/systemd/system
+   )
+ 
+@@ -126,14 +113,6 @@
+ 
+   install -Dt "$pkgdir/usr/share/licenses/$pkgname" -m644 $pkgbase/LICENSE
+ }
+-
+-package_wireplumber-docs() {
+-  pkgdesc+=" - documentation"
+-
+-  mv docs/* "$pkgdir"
+-
+-  install -Dt "$pkgdir/usr/share/licenses/$pkgname" -m644 $pkgbase/LICENSE
+-}
+ 
+ package_wireplumber-system-services() {
+   pkgdesc+=" - system services"

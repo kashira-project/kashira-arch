@@ -28,6 +28,8 @@ prepare() {
 }
 
 build() {
+  # kashira: VLA-in-struct GNU extension unsupported by clang
+  export CC=gcc
   cd $pkgname
   ./configure \
     --prefix=/usr \

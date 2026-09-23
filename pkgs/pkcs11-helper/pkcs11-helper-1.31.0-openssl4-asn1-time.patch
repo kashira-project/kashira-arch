@@ -1,0 +1,28 @@
+--- a/lib/_pkcs11h-crypto-openssl.c
++++ b/lib/_pkcs11h-crypto-openssl.c
+@@ -149,17 +149,18 @@
+ 		notAfter != NULL &&
+ 		X509_cmp_current_time (notBefore) <= 0 &&
+ 		X509_cmp_current_time (notAfter) >= 0 &&
+-		notAfter->length >= 12
++		ASN1_STRING_length (notAfter) >= 12
+ 	) {
+ 		struct tm tm1;
++		const char *notAfter_data = (const char *)ASN1_STRING_get0_data (notAfter);
+ 
+ 		memset (&tm1, 0, sizeof (tm1));
+-		tm1.tm_year = (notAfter->data[ 0] - '0') * 10 + (notAfter->data[ 1] - '0') + 100;
+-		tm1.tm_mon  = (notAfter->data[ 2] - '0') * 10 + (notAfter->data[ 3] - '0') - 1;
+-		tm1.tm_mday = (notAfter->data[ 4] - '0') * 10 + (notAfter->data[ 5] - '0');
+-		tm1.tm_hour = (notAfter->data[ 6] - '0') * 10 + (notAfter->data[ 7] - '0');
+-		tm1.tm_min  = (notAfter->data[ 8] - '0') * 10 + (notAfter->data[ 9] - '0');
+-		tm1.tm_sec  = (notAfter->data[10] - '0') * 10 + (notAfter->data[11] - '0');
++		tm1.tm_year = (notAfter_data[ 0] - '0') * 10 + (notAfter_data[ 1] - '0') + 100;
++		tm1.tm_mon  = (notAfter_data[ 2] - '0') * 10 + (notAfter_data[ 3] - '0') - 1;
++		tm1.tm_mday = (notAfter_data[ 4] - '0') * 10 + (notAfter_data[ 5] - '0');
++		tm1.tm_hour = (notAfter_data[ 6] - '0') * 10 + (notAfter_data[ 7] - '0');
++		tm1.tm_min  = (notAfter_data[ 8] - '0') * 10 + (notAfter_data[ 9] - '0');
++		tm1.tm_sec  = (notAfter_data[10] - '0') * 10 + (notAfter_data[11] - '0');
+ 
+ 		*expiration = mktime (&tm1);
+ 		*expiration += (int)(mktime (localtime (expiration)) - mktime (gmtime (expiration)));

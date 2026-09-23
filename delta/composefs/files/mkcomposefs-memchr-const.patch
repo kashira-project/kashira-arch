@@ -1,0 +1,20 @@
+--- a/tools/mkcomposefs.c
++++ b/tools/mkcomposefs.c
+@@ -63,7 +63,7 @@
+ static size_t split_at(const char **start, size_t *length, char split_char,
+ 		       bool *partial)
+ {
+-	char *end = memchr(*start, split_char, *length);
++	const char *end = memchr(*start, split_char, *length);
+ 	if (end == NULL) {
+ 		size_t part_len = *length;
+ 		*start = *start + *length;
+@@ -410,7 +410,7 @@
+ 	 * We didn't document support for embedded NULs, and it only introduces
+ 	 * ambiguity in parsing, so let's just reject this early on.
+ 	 */
+-	char *embedded_nul_offset = memchr(line, 0, line_len);
++	const char *embedded_nul_offset = memchr(line, 0, line_len);
+ 	if (embedded_nul_offset != NULL) {
+ 		size_t off = embedded_nul_offset - line;
+ 		return make_error("Invalid embedded NUL character at position %lld",

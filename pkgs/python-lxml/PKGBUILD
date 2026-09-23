@@ -38,6 +38,7 @@ makedepends=(
   'python-wheel'
   'python-pygments'
   'cython'
+  'python-docutils'
 )
 checkdepends=(
   'python-cssselect'
@@ -56,7 +57,7 @@ prepare() {
   export LC_CTYPE=en_US.UTF-8
 
   # kashira: cython 3.3 is fine
-  sed -i 's/Cython<3\.3/Cython<3.4/' pyproject.toml
+  sed -i 's/Cython>=3.2.9,<3.3/Cython>=3.2.9,<3.4/' pyproject.toml
 
   # extract licenses
   sed -n '/^<!--/,/^-->/p' src/lxml/isoschematron/resources/rng/iso-schematron.rng \

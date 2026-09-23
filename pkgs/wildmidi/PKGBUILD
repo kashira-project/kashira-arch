@@ -24,7 +24,8 @@ b2sums=(db172f73d1132696249ffa892ff844c55e245320f9ef6c3cce50a27ff4ec86e35d39c6f9
 
 build() {
   cmake -S $pkgname -B build -G Ninja \
-    -D CMAKE_INSTALL_PREFIX=/usr
+    -D CMAKE_INSTALL_PREFIX=/usr \
+    -D CMAKE_INSTALL_LIBDIR=lib
   cmake --build build
 }
 

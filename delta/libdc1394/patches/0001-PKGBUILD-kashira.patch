@@ -1,0 +1,11 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -28,6 +28,8 @@
+ }
+ 
+ build() {
++  # kashira: VLA-in-struct GNU extension unsupported by clang
++  export CC=gcc
+   cd $pkgname
+   ./configure \
+     --prefix=/usr \

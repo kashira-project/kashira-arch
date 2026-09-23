@@ -1,0 +1,33 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -18,18 +18,13 @@
+ makedepends=(
+   'aspell'
+   'git'
+-  'hspell'
+   'hunspell'
+-  'libvoikko'
+   'nuspell'
+   'vala'
+ )
+-checkdepends=('unittestpp')
+ optdepends=(
+   'aspell: for aspell based spell checking support'
+-  'hspell: for hspell based spell checking support'
+   'hunspell: for hunspell based spell checking support'
+-  'libvoikko: for libvoikko based spell checking support'
+   'nuspell: for nuspell based spell checking support'
+ )
+ provides=('libenchant-2.so')
+@@ -68,11 +63,6 @@
+   make
+ }
+ 
+-check() {
+-  cd enchant
+-  make check
+-}
+-
+ package() {
+   cd enchant
+   make DESTDIR="$pkgdir" install

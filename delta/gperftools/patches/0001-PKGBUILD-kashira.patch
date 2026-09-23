@@ -1,0 +1,20 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -17,7 +17,6 @@
+   glibc
+   libgcc
+   libstdc++
+-  libunwind
+ )
+ makedepends=(
+   asciidoctor
+@@ -37,8 +36,7 @@
+     --prefix=/usr \
+     --sysconfdir=/etc \
+     --localstatedir=/var \
+-    --enable-frame-pointers \
+-    --enable-libunwind
++    --enable-frame-pointers
+   sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool
+   make
+ }

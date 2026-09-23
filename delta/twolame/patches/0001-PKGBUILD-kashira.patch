@@ -1,0 +1,11 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -26,6 +26,8 @@
+ 
+ build() {
+   cd $pkgname-$pkgver
++  # kashira: autoconf promotes CC to -std=gnu23; K&R definitions in psycho_*.c fail
++  CFLAGS+=" -std=gnu17 -Wno-implicit-function-declaration -Wno-implicit-int -Wno-int-conversion"
+   ./configure --prefix=/usr --disable-static
+   make
+ }

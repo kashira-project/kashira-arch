@@ -17,13 +17,10 @@ depends=(
   libxml2
 )
 makedepends=(
-  apache-ant
   git
-  java-environment=17
   meson
   ninja
 )
-optdepends=('java-runtime: BD-J library')
 provides=(libbluray.so)
 source=(
   git+https://code.videolan.org/videolan/libbluray.git#tag=${pkgver}
@@ -42,7 +39,7 @@ prepare() {
 }
 
 build() {
-  arch-meson libbluray build
+  arch-meson libbluray build -Dbdj_jar=disabled
   meson compile -C build
 }
 

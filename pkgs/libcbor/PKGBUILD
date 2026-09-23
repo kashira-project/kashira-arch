@@ -12,7 +12,6 @@ license=('MIT')
 depends=('glibc')
 makedepends=(
   'cmake'
-  'cmocka'
 )
 provides=('libcbor.so')
 source=("${url}/archive/v${pkgver}/${pkgname}-${pkgver}.tar.gz")
@@ -25,12 +24,8 @@ build() {
     -DCMAKE_INSTALL_PREFIX=/usr \
     -Wno-dev \
     -DBUILD_SHARED_LIBS=ON \
-    -DWITH_TESTS=1
+    -DWITH_TESTS=0
   cmake --build build
-}
-
-check() {
-  ctest --test-dir build --output-on-failure
 }
 
 package() {

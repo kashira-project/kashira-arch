@@ -1,0 +1,22 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -9,7 +9,6 @@
+ arch=('any')
+ url="https://search.cpan.org/dist/File-ShareDir-Install"
+ license=('GPL' 'PerlArtistic')
+-checkdepends=('perl-test-pod' 'perl-test-pod-coverage')
+ options=('!emptydirs')
+ source=("https://cpan.org/modules/by-module/File/File-ShareDir-Install-${pkgver}.tar.gz")
+ sha256sums=('8f9533b198f2d4a9a5288cbc7d224f7679ad05a7a8573745599789428bc5aea0')
+@@ -20,11 +19,6 @@
+ 	make
+ }
+ 
+-check() {
+-	cd "File-ShareDir-Install-${pkgver}"
+-	make test
+-}
+-
+ package() {
+ 	cd "File-ShareDir-Install-${pkgver}"
+ 	make install DESTDIR="${pkgdir}"

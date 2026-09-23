@@ -8,7 +8,7 @@ pkgdesc="An open source JPEG 2000 codec, version ${pkgver}"
 arch=(x86_64)
 license=('BSD-2-Clause' 'MIT')
 url="https://github.com/uclouvain/openjpeg"
-makedepends=('cmake' 'doxygen' 'graphviz')
+makedepends=('cmake')
 depends=('libpng' 'libtiff' 'lcms2' 'glibc')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/uclouvain/openjpeg/archive/v$pkgver.tar.gz")
 sha256sums=('a695fbe19c0165f295a8531b1e4e855cd94d0875d2f88ec4b61080677e27188a')
@@ -24,7 +24,7 @@ build() {
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DBUILD_SHARED_LIBS=ON \
     -DBUILD_STATIC_LIBS=OFF \
-    -DBUILD_DOC=on
+    -DBUILD_DOC=off
 
   VERBOSE=1 cmake --build build
 }

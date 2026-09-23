@@ -1,0 +1,12 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -24,7 +24,8 @@
+ 
+ build() {
+   cmake -S $pkgname -B build -G Ninja \
+-    -D CMAKE_INSTALL_PREFIX=/usr
++    -D CMAKE_INSTALL_PREFIX=/usr \
++    -D CMAKE_INSTALL_LIBDIR=lib
+   cmake --build build
+ }
+ 

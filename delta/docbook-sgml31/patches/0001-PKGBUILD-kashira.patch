@@ -1,0 +1,11 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -12,7 +12,7 @@
+ license=(LicenseRef-$pkgname)
+ depends=('sgml-common')
+ install=$pkgname.install
+-source=("https://www.docbook.org/sgml/${pkgver}/docbk31.zip"
++source=("https://www.oasis-open.org/docbook/sgml/${pkgver}/docbk31.zip"
+         license-from-upstream)
+ sha256sums=('20261d2771b9a052abfa3d8fab1aa62be05791a010281c566f9073bf0e644538'
+             '4fe5a7c521db026ce926c148c051f495b0966e3c34443030116aa34381d6cec8')

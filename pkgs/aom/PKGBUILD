@@ -2,10 +2,7 @@
 # Contributor: Chocobo1 <chocobo1 AT archlinux DOT net>
 
 pkgbase=aom
-pkgname=(
-  aom
-  aom-docs
-)
+pkgname=(aom)
 pkgver=3.15.1
 pkgrel=1
 pkgdesc="Alliance for Open Media video codec"
@@ -19,9 +16,8 @@ depends=(
 )
 makedepends=(
   cmake
-  doxygen
+  nasm
   ninja
-  yasm
 )
 source=(
   https://storage.googleapis.com/aom-releases/libaom-$pkgver.tar.gz{,.asc}
@@ -47,6 +43,7 @@ build() {
 
     -D CMAKE_INSTALL_PREFIX=/usr
     -D BUILD_SHARED_LIBS=1
+    -D ENABLE_DOCS=0
     -D ENABLE_TESTS=0
   )
 
@@ -65,15 +62,3 @@ package_aom() {
 
   install -Dt "$pkgdir/usr/share/licenses/$pkgname" -m644 libaom-$pkgver/{LICENSE,PATENTS}
 }
-
-package_aom-docs() {
-  pkgdesc+=" (documentation)"
-  depends=()
-
-  mkdir -p "$pkgdir/usr/share/doc"
-  cp -r build/docs/html "$pkgdir/usr/share/doc/$pkgbase"
-
-  install -Dt "$pkgdir/usr/share/licenses/$pkgname" -m644 libaom-$pkgver/{LICENSE,PATENTS}
-}
-
-# vim:set sw=2 sts=-1 et:

@@ -1,0 +1,52 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -3,10 +3,7 @@
+ # Contributor: Jan de Groot <jgc@archlinux.org>
+ 
+ pkgbase=orc
+-pkgname=(
+-  orc
+-  orc-docs
+-)
++pkgname=(orc)
+ pkgver=0.4.44
+ pkgrel=1
+ pkgdesc="Optimized Inner Loop Runtime Compiler"
+@@ -19,10 +16,8 @@
+ makedepends=(
+   clang
+   git
+-  hotdoc
+   llvm
+   meson
+-  valgrind
+ )
+ source=("git+https://gitlab.freedesktop.org/gstreamer/orc.git?signed#tag=$pkgver")
+ b2sums=('9a8a076322f2d3933bd731f21b0bf5b7c0aeec4426fdaa92b8e74d625c495aab2a0f976a58cbc7e1fbbae901999c9f27088ea3bd2b5d024f4e079c4874484c74')
+@@ -35,7 +30,7 @@
+ }
+ 
+ build() {
+-  arch-meson orc build
++  arch-meson orc build -Dhotdoc=disabled
+   meson compile -C build
+ }
+ 
+@@ -48,17 +43,4 @@
+ 
+   meson install -C build --destdir "$pkgdir"
+   install -Dt "$pkgdir/usr/share/licenses/$pkgname" -m644 orc/COPYING
+-
+-  mkdir -p doc/usr/share
+-  mv {"$pkgdir",doc}/usr/share/doc
+ }
+-
+-package_orc-docs() {
+-  pkgdesc+=" (documentation)"
+-  depends=()
+-
+-  mv doc/* "$pkgdir"
+-  install -Dt "$pkgdir/usr/share/licenses/$pkgname" -m644 orc/COPYING
+-}
+-
+-# vim:set sw=2 sts=-1 et:

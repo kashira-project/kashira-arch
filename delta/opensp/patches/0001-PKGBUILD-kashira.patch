@@ -1,0 +1,12 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -21,6 +21,9 @@
+ 
+ build() {
+   cd OpenSP-$pkgver
++  # kashira: pre-C++11 access declarations and static-member ABI break under clang
++  export CC=gcc CXX=g++
++  CXXFLAGS+=" -std=gnu++03"
+   ./configure --prefix=/usr \
+     --mandir=/usr/share/man \
+     --disable-nls \

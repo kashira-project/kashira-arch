@@ -1,0 +1,10 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -21,7 +21,6 @@
+ makedepends=(
+   cmake
+   git
+-  mesa
+   ninja
+ )
+ provides=(glut)

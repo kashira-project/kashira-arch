@@ -1,0 +1,20 @@
+pkgbase = nuspell
+	pkgdesc = Fast and safe spellchecking C++ library
+	pkgver = 5.1.9
+	pkgrel = 1
+	url = https://nuspell.github.io/
+	arch = x86_64
+	license = LGPL-3.0-or-later
+	checkdepends = catch2
+	checkdepends = expat
+	makedepends = cmake
+	makedepends = pandoc
+	makedepends = doxygen
+	depends = icu
+	depends = glibc
+	depends = libstdc++
+	depends = libgcc
+	source = nuspell-5.1.9.tar.gz::https://github.com/nuspell/nuspell/archive/v5.1.9.tar.gz
+	sha512sums = 42b00631a15777bcdd65182e9032e99f41064413d9cc5109753b435e60c92dffce495402333aae7f4a3dd67588c9b1a96294d00e212b103a85d60070cb30c7e8
+
+pkgname = nuspell

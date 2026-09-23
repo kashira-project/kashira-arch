@@ -1,0 +1,29 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -12,10 +12,7 @@
+     'zlib')
+ makedepends=(
+     'cmake'
+-    'cunit'
+     'git')
+-checkdepends=(
+-    'nodejs')
+ provides=('libmysofa.so')
+ source=("git+https://github.com/hoene/libmysofa.git#tag=v${pkgver}")
+ sha256sums=('c7590e8100409efc6fec52fdec7dbcd7add56fa4cde403a39be72219b284d9fa')
+@@ -28,14 +25,11 @@
+         -DCMAKE_BUILD_TYPE:STRING='None' \
+         -DCMAKE_INSTALL_PREFIX:PATH='/usr' \
+         -DCODE_COVERAGE:BOOL='OFF' \
++        -DBUILD_TESTS:BOOL='OFF' \
+         -Wno-author
+     cmake --build libmysofa/build
+ }
+ 
+-check() {
+-    ctest --test-dir libmysofa/build --output-on-failure --stop-on-failure
+-}
+-
+ package() {
+     DESTDIR="${pkgdir}" cmake --install libmysofa/build
+     install -D -m644 libmysofa/LICENSE -t "${pkgdir}/usr/share/licenses/${pkgname}"

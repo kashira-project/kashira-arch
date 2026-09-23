@@ -27,9 +27,13 @@ prepare() {
   patch -p1 -i "$srcdir"/cdparanoia-10.2-format-security.patch
   # Use LDFLAGS
   patch -p1 -i "$srcdir"/cdparanoia-10.2-ldflags.patch
+
+  # configure skips compiler detection (incl. OBJEXT) when CC is preset
+  sed -i 's/^if test -z "$CC"; then$/if : ; then/' configure
 }
 
 build() {
+  CFLAGS+=" -std=gnu89 -Wno-implicit-function-declaration -Wno-implicit-int -Wno-int-conversion"
   cd cdparanoia-III-$pkgver
   ./configure --prefix=/usr --mandir=/usr/share/man
   make

@@ -1,5 +1,14 @@
 --- a/PKGBUILD
 +++ b/PKGBUILD
+@@ -2,7 +2,7 @@
+ # Maintainer: Laurent Carlier <lordheavym@gmail.com>
+ 
+ pkgbase=libepoxy
+-pkgname=(libepoxy libepoxy-docs)
++pkgname=(libepoxy)
+ pkgver=1.5.10
+ pkgrel=3
+ pkgdesc="Library handling OpenGL function pointer management"
 @@ -10,8 +10,7 @@
  arch=(x86_64)
  license=(MIT)
@@ -10,7 +19,12 @@
  _commit=c84bc9459357a40e46e2fec0408d04fbdde2c973  # tags/1.5.10^0
  source=("git+https://github.com/anholt/libepoxy#commit=$_commit")
  sha256sums=('SKIP')
-@@ -31,18 +30,11 @@
+@@ -27,33 +26,18 @@
+ }
+ 
+ build() {
+-  arch-meson libepoxy build -D docs=true
++  arch-meson libepoxy build -D docs=false
    meson compile -C build
  }
  
@@ -29,3 +43,14 @@
  
    install -Dt "$pkgdir/usr/share/licenses/$pkgname" -m644 libepoxy/COPYING
  }
+ 
+-package_libepoxy-docs() {
+-  pkgdesc+=" (documentation)"
+-  depends=()
+-
+-  mv doc/* "$pkgdir"
+-
+-  install -Dt "$pkgdir/usr/share/licenses/$pkgname" -m644 libepoxy/COPYING
+-}
+ 
+ # vim:set sw=2 et:

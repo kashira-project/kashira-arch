@@ -1,0 +1,12 @@
+[docbook-sgml]
+#source = "github"
+#github = "docbook/dsssl"
+#use_max_tag = true
+#ignore = "SVNSNAPSHOT"
+
+source = "regex"
+regex = "\\d+.\\d+"
+include_regex = "4.5*"
+exclude_regex = "1999"
+# url = "https://docbook.org/sgml/"
+url = "https://www.oasis-open.org/docbook/sgml/4.5/"

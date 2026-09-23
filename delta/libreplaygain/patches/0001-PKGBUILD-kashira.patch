@@ -1,0 +1,12 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -20,7 +20,8 @@
+   cd build
+   cmake ../${pkgname}_r${pkgver}/ \
+     -DCMAKE_INSTALL_PREFIX=/usr \
+-    -DCMAKE_BUILD_TYPE=Release
++    -DCMAKE_BUILD_TYPE=Release \
++    -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+   make
+ }
+ 

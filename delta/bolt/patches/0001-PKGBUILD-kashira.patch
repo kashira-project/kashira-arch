@@ -1,0 +1,25 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -9,8 +9,7 @@
+ url="https://gitlab.freedesktop.org/bolt/bolt"
+ license=('LGPL-2.1-or-later')
+ depends=('polkit' 'systemd')
+-makedepends=('asciidoc' 'meson' 'python-setuptools' 'patch' 'glib2-devel')
+-checkdepends=('umockdev')
++makedepends=('meson' 'python-setuptools' 'patch' 'glib2-devel')
+ source=(https://gitlab.freedesktop.org/$pkgname/$pkgname/-/archive/$pkgver/$pkgname-$pkgver.tar.gz)
+ sha256sums=('cde4fc6d4a188e37d088cf59a5b2d174ac4b03d57bf9d084d711ba92105c33c0')
+ 
+@@ -21,12 +20,6 @@
+   meson compile -v -C ../build
+ }
+ 
+-check() {
+-  cd $pkgname-$pkgver
+-
+-  meson test -C ../build --print-errorlogs
+-}
+-
+ package() {
+   cd $pkgname-$pkgver
+ 

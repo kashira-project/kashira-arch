@@ -3,7 +3,7 @@
 # Contributor: Dan McGee <dan@archlinux.org>
 
 pkgbase=git
-pkgname=(git git-zsh-completion)
+pkgname=(git)
 pkgver=2.55.0
 pkgrel=1
 pkgdesc='the fast distributed version control system'
@@ -13,7 +13,6 @@ license=('GPL-2.0-only')
 depends=('curl' 'expat' 'perl' 'perl-error' 'perl-mailtools'
          'openssl' 'pcre2' 'grep' 'shadow' 'zlib-ng')
 makedepends=('python' 'xmlto' 'asciidoc' 'git' 'rust')
-checkdepends=('openssh')
 install=git.install
 validpgpkeys=('96E07AF25771955980DAD10020D04E5A713660A7') # Junio C Hamano
 source=("git+https://github.com/git/git?signed#tag=v${pkgver}"
@@ -37,7 +36,6 @@ _make() {
     MAN_BOLD_LITERAL=1
     NO_PERL_CPAN_FALLBACKS=1
     USE_LIBPCRE2=1
-    ZLIB_NG=1
     WITH_RUST=1
   )
 
@@ -54,27 +52,8 @@ build() {
   _make -C contrib/diff-highlight
 }
 
-check() {
-  cd "$pkgbase"
-
-  local jobs
-  jobs=$(expr "$MAKEFLAGS" : '.*\(-j[0-9]*\).*') || true
-  mkdir -p /dev/shm/git-test
-  # explicitly specify SHELL to avoid a test failure in t/t9903-bash-prompt.sh
-  # which is caused by 'git rebase' trying to use builduser's SHELL inside the
-  # build chroot (i.e.: /usr/bin/nologin)
-  SHELL=/bin/sh \
-  _make \
-    NO_SVN_TESTS=y \
-    DEFAULT_TEST_TARGET=prove \
-    GIT_PROVE_OPTS="$jobs -Q" \
-    GIT_TEST_OPTS="--root=/dev/shm/git-test" \
-    test
-}
-
 package_git() {
   optdepends=(
-    'git-zsh-completion: upstream zsh completion'
     'tk: gitk and git gui'
     'openssh: ssh transport and crypto'
     'man: show help with `git command --help`'
@@ -120,10 +99,3 @@ package_git() {
   install -D -m 0644 "$srcdir"/git-sysusers.conf "$pkgdir"/usr/lib/sysusers.d/git.conf
 }
 
-package_git-zsh-completion() {
-  description='the fast distributed version control system - upstream zsh completion'
-  depends=('git' 'zsh')
-
-  install -d "$pkgdir"/usr/share/zsh/site-functions/
-  ln -s ../../git/completion/git-completion.zsh "$pkgdir"/usr/share/zsh/site-functions/_git
-}

@@ -1,0 +1,43 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -19,26 +19,20 @@
+   gnutls
+   zlib
+ )
+-makedepends=(git)
+ provides=(librtmp.so)
+-_tag=138fdb258d9fc26f1843fd1b891180416c9dc575
+-source=(git+https://git.ffmpeg.org/rtmpdump#tag=${_tag}
++# kashira: git.ffmpeg.org no longer serves the pinned ref; use Debian's 2.6 tarball
++source=(rtmpdump-$pkgver.tar.xz::https://deb.debian.org/debian/pool/main/r/rtmpdump/rtmpdump_$pkgver.orig.tar.xz
+         nettle-4.patch)
+-sha256sums=('0cba5d49d41b5e35a34ea8230124ed853eeeac19091d17a4188a47c31a17d352'
++sha256sums=('f88e141ea3e126574dce24dca364f209560e13097fbba9c7f6b2f47a9a167646'
+             'b9cbbcf14d9fb46962d541544f47226909a7bc7191e2be50cfd0c73c73c4b80d')
+ 
+-pkgver() {
+-  cd rtmpdump
+-  git describe --tags | sed 's/^v//'
+-}
+-
+ prepare() {
+-  cd rtmpdump
++  cd rtmpdump-$pkgver
+   patch -p1 -i ../nettle-4.patch
+ }
+ 
+ build() {
+-  cd rtmpdump
++  cd rtmpdump-$pkgver
+   sed -e 's/^CRYPTO=OPENSSL/#CRYPTO=OPENSSL/' -e 's/#CRYPTO=GNUTLS/CRYPTO=GNUTLS/' -i Makefile -i librtmp/Makefile
+   make \
+     OPT="$CFLAGS" \
+@@ -46,7 +40,7 @@
+ }
+ 
+ package() {
+-  cd rtmpdump
++  cd rtmpdump-$pkgver
+   make \
+     prefix=/usr \
+     sbindir=/usr/bin \

@@ -1,0 +1,13 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -32,7 +32,9 @@
+ build() {
+   cd ${pkgname}-$pkgver
+   # https://bugs.archlinux.org/task/55331 / https://gcc.gnu.org/bugzilla/show_bug.cgi?id=69534#c9
+-  CXXFLAGS+=' -fno-lifetime-dse'
++  # kashira: pre-C++11 access declarations and static-member ABI break under clang
++  export CC=gcc CXX=g++
++  CXXFLAGS+=' -fno-lifetime-dse -std=gnu++03'
+   LINKFLAGS="$LDFLAGS" ./configure --prefix=/usr \
+     --mandir=/usr/share/man \
+     --enable-default-catalog=/etc/sgml/catalog \

@@ -8,13 +8,3 @@
  source=("https://downloads.sourceforge.net/infozip/${pkgname}${_pkgver}.tar.gz"
          'https://src.fedoraproject.org/rpms/zip/raw/rawhide/f/zip-3.0-currdir.patch'
          'https://src.fedoraproject.org/rpms/zip/raw/rawhide/f/zip-3.0-exec-shield.patch'
-@@ -45,7 +46,8 @@
- 
- build() {
- 	cd "${srcdir}/${pkgname}${_pkgver}"
--	make -f unix/Makefile prefix=/usr generic_gcc
-+	export CC=gcc CPP="gcc -E"
-+	make -f unix/Makefile prefix=/usr generic
- }
- 
- package() {

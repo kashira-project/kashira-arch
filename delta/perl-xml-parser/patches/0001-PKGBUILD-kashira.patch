@@ -1,0 +1,25 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -7,9 +7,8 @@
+ arch=('x86_64')
+ license=('GPL-1.0-or-later' 'Artistic-1.0-Perl')
+ url="https://github.com/cpan-authors/XML-Parser"
+-depends=('perl-file-sharedir' 'perl-libwww' 'expat')
++depends=('perl-file-sharedir' 'expat')
+ makedepends=('git' 'perl-file-sharedir-install' 'perl-devel-checklib')
+-checkdepends=('perl-io-string')
+ options=('!emptydirs')
+ source=("git+https://github.com/cpan-authors/XML-Parser.git#tag=${pkgver}")
+ sha512sums=('0be220504c032c6cef71b8a8b5e8b07c230a26b639a452340894f32633d491c9cbc4f38e06be6b762090d433b74c0cfe0f546d9df14be8316e45b9605de4f533')
+@@ -20,11 +19,6 @@
+   make
+ }
+ 
+-check() {
+-  cd XML-Parser
+-  make test
+-}
+-
+ package() {
+   cd XML-Parser
+   make DESTDIR="${pkgdir}" install

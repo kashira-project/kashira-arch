@@ -1,0 +1,4 @@
+[sgml-common]
+source = "regex"
+regex = "sgml-common-(\\d+.\\d+.\\d+)"
+url = "https://www.sourceware.org/pub/docbook-tools/new-trials/SOURCES/"

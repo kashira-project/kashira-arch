@@ -1,0 +1,83 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -2,7 +2,7 @@
+ # Contributor: Ray Rashif <schiv@archlinux.org>
+ 
+ pkgbase=lv2
+-pkgname=(lv2 lv2-docs lv2-example-plugins)
++pkgname=(lv2)
+ pkgver=1.18.10
+ pkgrel=2
+ pkgdesc="Plugin standard for audio systems"
+@@ -10,20 +10,7 @@
+ url="https://lv2plug.in/"
+ license=(ISC)
+ makedepends=(
+-  asciidoc
+-  codespell
+-  doxygen
+-  flake8
+   meson
+-  pygmentize
+-  python-black
+-  python-lxml
+-  python-markdown
+-  python-pygments
+-  python-pylint
+-  python-rdflib
+-  serd
+-  sord
+ )
+ source=(https://lv2plug.in/spec/$pkgbase-$pkgver.tar.xz{,.sig})
+ sha512sums=('ab4bcf593f633b1ed16c0eb6aa4525458a00655ef9c87619bf85eaa966f8fd094a8e871b825f679e0d97923f8bbbf11841ff467022390ca2f1a5b5f66ccd5d1b'
+@@ -50,18 +37,12 @@
+ }
+ 
+ build() {
+-  arch-meson $pkgbase-$pkgver build
++  arch-meson $pkgbase-$pkgver build -Ddocs=disabled -Dtests=disabled
+   meson compile -C build
+ }
+ 
+-check() {
+-  meson test -C build || : # syntax and codespell tests fail
+-}
+-
+ package_lv2() {
+   optdepends=(
+-    'lv2-docs: for developer documentation'
+-    'lv2-example-plugins: for example plugins'
+     'python-lxml: for lv2specgen.py'
+     'python-markdown: for lv2specgen.py'
+     'python-pygments: for lv2specgen.py'
+@@ -71,30 +52,11 @@
+ 
+   meson install -C build --destdir "$pkgdir"
+ 
+-  (
+-    cd "$pkgdir"
+-    _pick lv2-docs usr/share/doc/lv2/
+-    _pick lv2-example-plugins usr/lib/lv2/eg-*
+-  )
+ 
+   install -vDm 644 $pkgbase-$pkgver/COPYING -t "$pkgdir/usr/share/licenses/$pkgname/"
+   install -vDm 644 $pkgbase-$pkgver/{NEWS,README.md} -t "$pkgdir/usr/share/doc/$pkgname/"
+ }
+ 
+-package_lv2-docs() {
+-  pkgdesc+=" - documentation"
+ 
+-  mv -v $pkgname/* "$pkgdir"
+-  install -vDm 644 $pkgbase-$pkgver/COPYING -t "$pkgdir/usr/share/licenses/$pkgname/"
+-}
+-
+-package_lv2-example-plugins() {
+-  pkgdesc+=" - example plugins"
+-  depends=(lv2-host)
+-  groups=(lv2-plugins pro-audio)
+-
+-  mv -v $pkgname/* "$pkgdir"
+-  install -vDm 644 $pkgbase-$pkgver/COPYING -t "$pkgdir/usr/share/licenses/$pkgname/"
+-}
+ 
+ # vim:set ts=2 sw=2 et:

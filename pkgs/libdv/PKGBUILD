@@ -13,22 +13,28 @@ depends=(
   glibc
   popt
 )
-makedepends=(sdl)
-source=("https://downloads.sourceforge.net/$pkgname/$pkgname-$pkgver.tar.gz")
-b2sums=(42d17b07501fa508630afd1cdbaee9378f657a4ee4b77666f1a147ddfcf5a9d67d90e0a6da53bfe4f2b5418984579322565c9e8c76516e8193e75bd4751a731c)
+source=("https://downloads.sourceforge.net/$pkgname/$pkgname-$pkgver.tar.gz"
+        'libdv-1.0.0-no-sdl.patch')
+b2sums=(42d17b07501fa508630afd1cdbaee9378f657a4ee4b77666f1a147ddfcf5a9d67d90e0a6da53bfe4f2b5418984579322565c9e8c76516e8193e75bd4751a731c
+        'SKIP')
 
 prepare() {
   cd $pkgname-$pkgver
+  # kashira: SDL is not packaged; drop the AM_PATH_SDL check so autoreconf
+  # works without sdl.m4 (its overquoted AC_DEFINE action breaks autoconf 2.73)
+  patch -Np1 -i "$srcdir/libdv-1.0.0-no-sdl.patch"
   autoreconf -fiv
 }
 
 build() {
   cd $pkgname-$pkgver
+  CFLAGS+=" -std=gnu89 -Wno-implicit-function-declaration -Wno-implicit-int -Wno-int-conversion"
   ./configure \
     --prefix=/usr \
     --sysconfdir=/etc \
     --localstatedir=/var \
-    --disable-gtk
+    --disable-gtk \
+    --disable-sdl
   make
 }
 

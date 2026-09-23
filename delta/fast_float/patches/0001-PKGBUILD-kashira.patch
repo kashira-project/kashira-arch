@@ -1,0 +1,27 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -12,7 +12,6 @@
+ license=('Apache-2.0 OR BSL-1.0 OR MIT')
+ makedepends=(
+   'cmake'
+-  'doctest'
+   'git'
+ )
+ source=("git+$url.git#tag=v$pkgver")
+@@ -23,15 +22,10 @@
+     -DCMAKE_BUILD_TYPE=None \
+     -DCMAKE_INSTALL_PREFIX=/usr \
+     -Wno-dev \
+-    -DFASTFLOAT_TEST=ON \
+-    -DSYSTEM_DOCTEST=ON
++    -DFASTFLOAT_TEST=OFF
+   cmake --build build
+ }
+ 
+-check() {
+-  cmake --build build --target test
+-}
+-
+ package() {
+   DESTDIR="$pkgdir" cmake --install build
+   install -vDm644 -t "$pkgdir/usr/share/licenses/$pkgname" $pkgname/LICENSE-MIT

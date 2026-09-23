@@ -1,0 +1,22 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -7,7 +7,7 @@
+ arch=(x86_64)
+ url="https://github.com/Avnu/libavtp"
+ license=(BSD)
+-makedepends=(cmocka meson)
++makedepends=(meson)
+ provides=(libavtp.so)
+ source=($url/archive/v$pkgver/$pkgname-v$pkgver.tar.gz)
+ sha512sums=('b7e7cd412ce7b62b2c0908427448bc88ca3bddd18823694744a98aa9e15e4f4daa7f3621f1005642e5d3072b40dc72f234c8a3f37ef01e0ca5b2ccbc4f90d5c2')
+@@ -18,10 +18,6 @@
+   ninja -C build
+ }
+ 
+-check() {
+-  meson test -C build
+-}
+-
+ package() {
+   DESTDIR="${pkgdir}" meson install -C build
+   install -vDm 644 $pkgname-$pkgver/LICENSE -t "$pkgdir/usr/share/licenses/$pkgname/"

@@ -1,0 +1,20 @@
+pkgbase = thin-provisioning-tools
+	pkgdesc = Suite of tools for manipulating the metadata of the dm-thin device-mapper target
+	pkgver = 1.3.4
+	pkgrel = 1
+	url = https://github.com/jthornber/thin-provisioning-tools
+	arch = x86_64
+	license = GPL-3.0-only
+	makedepends = git
+	makedepends = cargo
+	makedepends = clang
+	makedepends = device-mapper
+	depends = glibc
+	depends = libgcc
+	depends = libgcc_s.so
+	depends = systemd-libs
+	depends = libudev.so
+	source = git+https://github.com/jthornber/thin-provisioning-tools#tag=v1.3.4
+	sha256sums = e5614cfe9065509afb7eb614ccdc5ef3f6a4c0571e3228cffb3d0f1cc664f7d0
+
+pkgname = thin-provisioning-tools

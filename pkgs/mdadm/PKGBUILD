@@ -27,13 +27,18 @@ b2sums=('d226ef58b331095344b90bc889a8cbdac0c4a8a874c80d566f45924ed1135061de000ee
 
 build() {
 	cd mdadm
+	# kashira: clang 23 turns mdadm's own -Werror into a moving target
+	# (-Wstrict-prototypes, -Wunused-function, ...); demote to warnings
+	sed -i 's/ -Werror / /' Makefile
 	make CXFLAGS="$CFLAGS" BINDIR=/usr/bin UDEVDIR=/usr/lib/udev everything
 }
 
 package() {
 	cd mdadm
 
-	make INSTALL=/usr/bin/install BINDIR=/usr/bin DESTDIR="$pkgdir" UDEVDIR=/usr/lib/udev install
+	# STRIP= : makepkg.conf exports STRIP=llvm-strip which would otherwise
+	# land in "install -D $(STRIP)" as a bogus file; makepkg strips anyway
+	make INSTALL=/usr/bin/install STRIP= BINDIR=/usr/bin DESTDIR="$pkgdir" UDEVDIR=/usr/lib/udev install
 	make SYSTEMD_DIR=/usr/lib/systemd/system BINDIR=/usr/bin DESTDIR="$pkgdir" install-systemd
 	install -D -m644 ../mdadm.conf "$pkgdir"/etc/mdadm.conf
 

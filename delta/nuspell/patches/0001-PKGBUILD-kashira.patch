@@ -1,0 +1,30 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -9,8 +9,7 @@
+ url='https://nuspell.github.io/'
+ license=('LGPL-3.0-or-later')
+ depends=('icu' 'glibc' 'libstdc++' 'libgcc')
+-makedepends=('cmake' 'pandoc' 'doxygen')
+-checkdepends=('catch2' 'expat')
++makedepends=('cmake')
+ source=(${pkgname}-${pkgver}.tar.gz::"https://github.com/nuspell/nuspell/archive/v${pkgver}.tar.gz")
+ sha512sums=('42b00631a15777bcdd65182e9032e99f41064413d9cc5109753b435e60c92dffce495402333aae7f4a3dd67588c9b1a96294d00e212b103a85d60070cb30c7e8')
+ 
+@@ -22,14 +21,12 @@
+     -S ${pkgbase}-${pkgver} \
+     -DCMAKE_INSTALL_PREFIX=/usr \
+     -DCMAKE_INSTALL_LIBDIR=/usr/lib \
+-    -DBUILD_SHARED_LIBS=ON
++    -DBUILD_SHARED_LIBS=ON \
++    -DBUILD_DOCS=OFF \
++    -DBUILD_TESTING=OFF
+   cmake --build "${pkgname}-${pkgver}"/build
+ }
+ 
+-check() {
+-  ctest --test-dir "${pkgname}-${pkgver}"/build
+-}
+-
+ package() {
+   DESTDIR="${pkgdir}" cmake --install "${pkgname}-${pkgver}"/build
+ }

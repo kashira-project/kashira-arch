@@ -1,0 +1,23 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -21,15 +21,19 @@
+   https://sourceforge.net/projects/lame/files/lame/${pkgver}/lame-${pkgver}.tar.gz
+   lame-symbols.patch
+   lame-cbr-abr-quality-settings-clamp.patch
++  lame-utf8-parse-fix.patch
+ )
+ b2sums=('9e05275c28bc6d086011362f211edc2e2cd831429ca4d2daa1bc0ae7084ebd9bec3c3db93e1cab638570a9f624468372b9ff39f3dc9e7d0b105dbba7f248b2df'
+         'c8cc00f560515231dba1bf9393d056ecb11c2268bafae4923e8c2594b92de473b94e6e5cbef1e52b4843ddd36bb4e06ea6b24ac4a18aa682b2ab7c5ef6deb73c'
+-        '217cf6611f13cb91997856c3af9c30b7c23fa3744126d27f71768001b6799a4a100c9c0baec34beb656fee1c8c519c86b1a9c549e2ea6befe197eb930f70caaa')
++        '217cf6611f13cb91997856c3af9c30b7c23fa3744126d27f71768001b6799a4a100c9c0baec34beb656fee1c8c519c86b1a9c549e2ea6befe197eb930f70caaa'
++        'SKIP')
+ 
+ prepare() {
+   cd lame-${pkgver}
+   patch -Np1 -i ../lame-symbols.patch
+   patch -Np1 -i ../lame-cbr-abr-quality-settings-clamp.patch
++  # kashira: fix upstream 4.0 bug — parse.c calls removed ucs2 functions in the UTF-8 branch
++  patch -Np1 -i ../lame-utf8-parse-fix.patch
+   autoreconf -fiv -I /usr/share/gettext/m4
+ 
+ }

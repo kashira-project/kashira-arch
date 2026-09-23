@@ -1,0 +1,49 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -12,7 +12,7 @@
+ url="https://gitlab.freedesktop.org/xdg/xdg-utils"
+ license=('MIT')
+ depends=('sh' 'file')
+-makedepends=('docbook-xsl' 'lynx' 'xmlto' 'git')
++makedepends=('docbook-xsl' 'xmlto' 'git')
+ optdepends=('kde-cli-tools: for KDE Plasma5 support in xdg-open'
+             'exo: for Xfce support in xdg-open'
+             'pcmanfm: for LXDE support in xdg-open'
+@@ -23,8 +23,25 @@
+             'xorg-xprop: for X11 support in xdg-screensaver')
+ source=(#https://portland.freedesktop.org/download/$pkgname-$pkgver.tar.gz
+         "git+https://gitlab.freedesktop.org/xdg/xdg-utils.git#commit=$_commit"
++        "xdg-desktop-menu.txt"  # kashira: pregenerated (lynx unavailable)
++        "xdg-desktop-icon.txt"  # kashira: pregenerated (lynx unavailable)
++        "xdg-mime.txt"  # kashira: pregenerated (lynx unavailable)
++        "xdg-icon-resource.txt"  # kashira: pregenerated (lynx unavailable)
++        "xdg-open.txt"  # kashira: pregenerated (lynx unavailable)
++        "xdg-email.txt"  # kashira: pregenerated (lynx unavailable)
++        "xdg-screensaver.txt"  # kashira: pregenerated (lynx unavailable)
++        "xdg-settings.txt"  # kashira: pregenerated (lynx unavailable)
++)
++sha256sums=('SKIP'
++            '36f45fd780bdc47a12fc3757da9a38e6c3a45e8f9bfc11a48cd5b580cb31301b'
++            '3fc5f208826ad2decfba4fe9be524fa0c54d231274cc23d2417e2bb652142b47'
++            'a2708cd37619cbeffb922a9a39751b6c2fe5d2410b1c1e52aa251482ca9110cb'
++            'c0fc10c769e7b32f284da1562fcf7349abff7a13a4d3dab6a211fd505bd36889'
++            '4f678be7ca6df57290f11dbf537d52f5377c736e325fde56d29a92b106c4df70'
++            '140838e6e4a37b1c3183777011b2bc7e365e3ee6d13f8d46613aee31f9f475be'
++            '105187feb991a1e28a13403dd1ed6db9ce0def5dac8309cca77c6dda0ce8c10f'
++            'ca6c0633b487035868cc67a3633f51445a703501af83e8fa88e762a193cbe72d'
+ )
+-sha256sums=('SKIP')
+ #validpgpkeys=('8B75CA7811367175D05F3B03C43570F80CC295E6') # "Per Olofsson <pelle@pqz.se>"
+ 
+ pkgver() {
+@@ -40,6 +57,10 @@
+ #  NOCONFIGURE=1 ./autogen.sh
+ 
+   cd $pkgname
++  # kashira: install pregenerated help text (lynx unavailable)
++  cp ../xdg-*.txt scripts/
++  # skip lynx-based .txt generation
++  sed -i 's/^%: %.in %.txt$/%: %.in/' scripts/Makefile.in
+ }
+ 
+ build() {
