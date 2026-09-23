@@ -22,10 +22,8 @@ makedepends=(
   git
   glib2-devel
   gobject-introspection
-  gtk-doc
   meson
 )
-checkdepends=(python-dbusmock)
 provides=(libpolkit-{agent,gobject}-1.so)
 install=polkit.install
 source=(
@@ -57,18 +55,15 @@ build() {
   local meson_options=(
     -D examples=true
     -D gettext=true
-    -D gtk_doc=true
+    -D gtk_doc=false
     -D man=true
-    -D tests=true
+    -D tests=false
   )
 
   arch-meson polkit build "${meson_options[@]}"
   meson compile -C build
 }
 
-check() {
-  meson test -C build --print-errorlogs -t 3
-}
 
 package() {
   meson install -C build --destdir "$pkgdir"

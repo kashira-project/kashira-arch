@@ -1,0 +1,45 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -5,7 +5,6 @@
+ pkgbase=cairo
+ pkgname=(
+   cairo
+-  cairo-docs
+ )
+ pkgver=1.18.4
+ pkgrel=1
+@@ -30,9 +29,7 @@
+ )
+ makedepends=(
+   git
+-  gtk-doc
+   meson
+-  valgrind
+ )
+ source=("git+https://gitlab.freedesktop.org/cairo/cairo.git#tag=$pkgver")
+ b2sums=('10dd8012e5a24307aa1c9fc7b2418c4385dceba81e034520e098a5864992cc202c2ff65bd398234d532695a62e5b11da60b071ddf36c547ce064c4cbe4f568b4')
+@@ -44,7 +41,7 @@
+ build() {
+   local meson_options=(
+     -D dwrite=disabled
+-    -D gtk_doc=true
++    -D gtk_doc=false
+     -D spectre=disabled
+     -D symbol-lookup=disabled
+     -D tests=disabled
+@@ -64,15 +61,7 @@
+ 
+   meson install -C build --destdir "$pkgdir"
+ 
+-  mkdir -p doc/usr/share
+-  mv {"$pkgdir",doc}/usr/share/gtk-doc
+ }
+ 
+-package_cairo-docs() {
+-  pkgdesc+=" (documentation)"
+-  depends=()
+-
+-  mv doc/* "$pkgdir"
+-}
+ 
+ # vim:set sw=2 sts=-1 et:

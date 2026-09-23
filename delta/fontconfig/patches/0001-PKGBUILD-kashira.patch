@@ -1,0 +1,25 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -16,12 +16,9 @@
+   glibc
+ )
+ makedepends=(
+-  docbook-sgml
+-  docbook-utils
+   git
+   gperf
+   meson
+-  perl-sgmls
+ )
+ provides=(fontconfig-docs)
+ conflicts=(fontconfig-docs)
+@@ -56,7 +53,8 @@
+   local meson_options=(
+     -D bitmap-conf=noinstall
+     -D default-sub-pixel-rendering=noinstall
+-    -D doc-html=enabled
++    -D doc-html=disabled
++    -D doc-man=disabled
+     -D doc-pdf=disabled
+     -D doc-txt=disabled
+   )

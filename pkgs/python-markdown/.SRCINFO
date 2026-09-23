@@ -1,0 +1,22 @@
+pkgbase = python-markdown
+	pkgdesc = Python implementation of John Gruber's Markdown
+	pkgver = 3.10.3
+	pkgrel = 1
+	url = https://python-markdown.github.io/
+	arch = any
+	license = BSD-3-Clause
+	checkdepends = python-yaml
+	checkdepends = python-pygments
+	makedepends = git
+	makedepends = python-build
+	makedepends = python-installer
+	makedepends = python-setuptools
+	makedepends = python-wheel
+	depends = python
+	optdepends = python-yaml: parse Python in YAML metadata
+	optdepends = python-pygments: Code highlighting
+	source = python-markdown::git+https://github.com/Python-Markdown/markdown#tag=3.10.3
+	sha512sums = 638e0551e21743a735d114dbb00d4397d14a7f222610e09af7d0b206949218b1f3e594c0345f9978e879372663f1fcdc51584fd2ce842a43b792c0a74720c4ef
+	b2sums = f07cb5b5698e803843bba040d3e616a377ab7d2101872c7faf438976e30b533892bc4211f28a0c149d1233fca580685c134bac8a9aa875c0b2aebddda7d2e901
+
+pkgname = python-markdown

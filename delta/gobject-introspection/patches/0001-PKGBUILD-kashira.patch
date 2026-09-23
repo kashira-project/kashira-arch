@@ -1,0 +1,42 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -17,13 +17,12 @@
+   GPL-2.0-or-later
+   LGPL-2.0-or-later
+ )
+-_glibver=2.86.3
++_glibver=2.88.3
+ makedepends=(
+   "glib2=$_glibver"
+   cairo
+   git
+   glibc
+-  gtk-doc
+   libffi
+   libffi
+   meson
+@@ -31,7 +30,6 @@
+   python-mako
+   python-markdown
+   python-setuptools
+-  python-sphinx
+ )
+ source=(
+   "git+https://gitlab.gnome.org/GNOME/gobject-introspection.git#tag=$pkgver"
+@@ -57,7 +55,7 @@
+ build() {
+   local meson_options=(
+     -D glib_src_dir="$srcdir/glib"
+-    -D gtk_doc=true
++    -D gtk_doc=false
+   )
+ 
+   arch-meson $pkgbase build "${meson_options[@]}"
+@@ -103,7 +101,6 @@
+   _pick libg usr/lib/pkgconfig/gobject-introspection*-1.0.pc
+   _pick libg usr/lib/girepository-1.0/GIRepository-2.0.typelib
+   _pick libg usr/share/gir-1.0/GIRepository-2.0.gir
+-  _pick libg usr/share/gtk-doc
+ 
+   _pick runtime usr/lib/girepository-1.0
+ }

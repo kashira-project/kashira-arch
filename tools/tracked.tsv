@@ -271,3 +271,17 @@ sbctl	fork-delta
 go	fork-delta
 pcsclite	fork-vanilla
 polkit	fork-vanilla
+duktape	fork-vanilla
+gobject-introspection	fork-vanilla
+freetype2	fork-vanilla
+harfbuzz	fork-vanilla
+fontconfig	fork-vanilla
+pixman	fork-vanilla
+cairo	fork-vanilla
+python-mako	fork-vanilla
+python-markdown	fork-vanilla
+lzo	fork-vanilla
+libxext	fork-vanilla
+libxrender	fork-vanilla
+graphite	fork-vanilla
+ragel	fork-vanilla
