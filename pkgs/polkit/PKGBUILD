@@ -19,7 +19,9 @@ depends=(
 )
 makedepends=(
   dbus
+  docbook-xsl
   git
+  libxslt
   glib2-devel
   gobject-introspection
   meson

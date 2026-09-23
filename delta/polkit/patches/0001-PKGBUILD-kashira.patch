@@ -1,7 +1,12 @@
 --- a/PKGBUILD
 +++ b/PKGBUILD
-@@ -22,10 +22,8 @@
+@@ -19,13 +19,13 @@
+ )
+ makedepends=(
+   dbus
++  docbook-xsl
    git
++  libxslt
    glib2-devel
    gobject-introspection
 -  gtk-doc
@@ -11,7 +16,7 @@
  provides=(libpolkit-{agent,gobject}-1.so)
  install=polkit.install
  source=(
-@@ -57,18 +55,15 @@
+@@ -57,18 +57,15 @@
    local meson_options=(
      -D examples=true
      -D gettext=true
