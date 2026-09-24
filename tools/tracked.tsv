@@ -814,3 +814,7 @@ hunspell	fork-vanilla
 nuspell	fork-vanilla
 docbook-sgml	fork-vanilla
 glu	fork-vanilla
+semver	fork-vanilla
+jq	fork-vanilla
+node-gyp	fork-vanilla
+nodejs-nopt	fork-vanilla

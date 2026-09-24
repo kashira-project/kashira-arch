@@ -1,0 +1,22 @@
+pkgbase = node-gyp
+	pkgdesc = Node.js native addon build tool
+	pkgver = 13.0.2
+	pkgrel = 1
+	url = https://github.com/nodejs/node-gyp
+	arch = any
+	license = MIT
+	checkdepends = python
+	makedepends = git
+	makedepends = jq
+	makedepends = npm
+	depends = nodejs
+	depends = nodejs-nopt
+	depends = semver
+	optdepends = gcc: to build C++ modules
+	optdepends = make: to build C++ modules
+	optdepends = python: to build C++ modules
+	options = !emptydirs
+	source = git+https://github.com/nodejs/node-gyp.git#tag=v13.0.2
+	b2sums = dc69224d915dd1a4a64252d4a113110c8faa373b0497b2b514a0b1a435294c6dd27874e4db7d9ea634c102a23e7c83fd4c6e45576cad13b7eb55ae86f8122767
+
+pkgname = node-gyp

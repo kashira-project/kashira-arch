@@ -9,10 +9,7 @@ arch=(any)
 url=https://www.npmjs.com
 license=(Artistic-2.0)
 depends=(
-  node-gyp
   'nodejs>=20.17.0'
-  nodejs-nopt
-  semver
 )
 makedepends=(
   git

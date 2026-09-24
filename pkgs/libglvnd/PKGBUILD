@@ -23,8 +23,8 @@ build() {
 }
 
 package() {
-  # kashira bootstrap: mesa dep restored after mesa is built
-  depends=('libxext')
+  # libglvnd needs mesa for indirect rendering
+  depends=('libxext' 'mesa' 'opengl-driver')
 
   meson install -C build --destdir "$pkgdir"
 
