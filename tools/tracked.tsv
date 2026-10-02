@@ -825,3 +825,6 @@ python-smartypants	fork-vanilla
 python-parameterized	fork-vanilla
 rsync	fork-vanilla
 python-commonmark	fork-vanilla
+libppd	fork-vanilla
+libcupsfilters	fork-vanilla
+libid3tag	fork-vanilla
