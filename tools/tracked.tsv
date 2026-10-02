@@ -117,9 +117,9 @@ npth	fork-vanilla
 nss	fork-vanilla
 oniguruma	fork-vanilla
 openldap	fork-vanilla
-p11-kit	fork-vanilla
+p11-kit	fork-delta
 pambase	fork-vanilla
-pam	fork-vanilla
+pam	fork-delta
 patch	fork-vanilla
 pciutils	fork-vanilla
 pcre2	fork-vanilla
@@ -762,7 +762,7 @@ speex	fork-vanilla
 texlive-bin	fork-vanilla
 totem-pl-parser	fork-vanilla
 twolame	fork-vanilla
-typescript	fork-vanilla
+typescript	fork-delta
 unicode-character-database	fork-vanilla
 unicode-cldr	fork-vanilla
 usbredir	fork-vanilla
@@ -785,7 +785,7 @@ libgit2	fork-vanilla
 go-md2man	fork-vanilla
 llhttp	fork-vanilla
 npm	fork-vanilla
-ts-node	fork-vanilla
+ts-node	fork-delta
 simdjson	fork-vanilla
 c-ares	fork-vanilla
 thin-provisioning-tools	fork-vanilla
