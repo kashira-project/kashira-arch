@@ -28,7 +28,6 @@ depends=(
   libqrtr-glib
   mobile-broadband-provider-info
   polkit
-  ppp
   systemd-libs
 )
 makedepends=(

@@ -1,0 +1,19 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -13,11 +13,11 @@
+ optdepends=('boost-libs: python bindings'
+             'python: python bindings')
+ makedepends=(boost
+-             boost-libs
+-             cmake
+-             git
+-             python
+-             python-numpy)
++ boost-libs
++ cmake
++ git
++ python
++ )
+ source=(git+https://github.com/AcademySoftwareFoundation/Imath#tag=v$pkgver)
+ sha256sums=('995eeb88f9ccc5d52c6ff91536ceafb7ca63b2284c0dac9830386df45d4490ec')
+ 

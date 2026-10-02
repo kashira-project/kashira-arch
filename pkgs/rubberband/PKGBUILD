@@ -86,7 +86,6 @@ package_rubberband-ladspa() {
   depends=(
     fftw libfftw3.so
     glibc
-    ladspa-host
     libgcc
     libsamplerate libsamplerate.so
   )
@@ -105,7 +104,6 @@ package_rubberband-lv2() {
     glibc
     libgcc
     libsamplerate libsamplerate.so
-    lv2-host
   )
 
   mv -v $pkgname/* "$pkgdir"
@@ -122,7 +120,6 @@ package_rubberband-vamp() {
     glibc
     libgcc
     libsamplerate libsamplerate.so
-    vamp-host
     vamp-plugin-sdk
   )
 

@@ -28,18 +28,17 @@ depends=(
   v4l-utils
 )
 makedepends=(
-  autoconf-archive
-  avahi
-  curl
-  glib2
-  libgphoto2
-  libjpeg-turbo
-  libtiff
-  libusb
-  libxml2
-  poppler-glib
-  python
-  systemd
+ autoconf-archive
+ avahi
+ curl
+ glib2
+ libgphoto2
+ libjpeg-turbo
+ libtiff
+ libusb
+ libxml2
+ python
+ systemd
 )
 optdepends=(
   'sane-airscan: for scanners working in driverless mode'

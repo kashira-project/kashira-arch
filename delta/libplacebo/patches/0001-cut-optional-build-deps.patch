@@ -1,0 +1,15 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -11,9 +11,9 @@
+ depends=('vulkan-icd-loader' 'glslang' 'lcms2' 'shaderc'
+          'glibc' 'libgcc' 'libstdc++' 'libunwind' 'libdovi' 'xxhash')
+ makedepends=(
+-  'meson' 'ninja' 'vulkan-headers' 'glad' 'nuklear'
+-  'python' 'python-setuptools' 'python-mako' 'python-markupsafe' 'python-jinja'
+-  'libglvnd'
++ 'meson' 'ninja' 'vulkan-headers''nuklear'
++ 'python' 'python-setuptools' 'python-mako' 'python-markupsafe' 'python-jinja'
++ 'libglvnd'
+ )
+ provides=('libplacebo.so')
+ source=(https://code.videolan.org/videolan/libplacebo/-/archive/v${pkgver}/libplacebo-v${pkgver}.tar.gz

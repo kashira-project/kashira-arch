@@ -120,7 +120,6 @@ package() {
   cd ImageMagick
   make DESTDIR="$pkgdir" install
 
-  find "$pkgdir/usr/lib/perl5" -name '*.so' -exec chrpath -d {} +
   rm "$pkgdir"/etc/ImageMagick-*/type-{apple,urw-base35,windows}.xml
   rm "$pkgdir"/usr/lib/*.la
 

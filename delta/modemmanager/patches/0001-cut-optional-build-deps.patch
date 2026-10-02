@@ -1,0 +1,10 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -28,7 +28,6 @@
+   libqrtr-glib
+   mobile-broadband-provider-info
+   polkit
+-  ppp
+   systemd-libs
+ )
+ makedepends=(

@@ -1,0 +1,11 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -11,7 +11,7 @@
+ depends=('vulkan-icd-loader' 'glslang' 'lcms2' 'shaderc'
+          'glibc' 'libgcc' 'libstdc++' 'libunwind' 'libdovi' 'xxhash')
+ makedepends=(
+- 'meson' 'ninja' 'vulkan-headers''nuklear'
++ 'meson' 'ninja' 'vulkan-headers'
+  'python' 'python-setuptools' 'python-mako' 'python-markupsafe' 'python-jinja'
+  'libglvnd'
+ )

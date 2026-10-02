@@ -1,0 +1,13 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -14,8 +14,8 @@
+          libstdc++
+          openjph)
+ makedepends=(cmake
+-             git
+-             pybind11)
++ git
++ )
+ optdepends=('python: for python bindings')
+ source=(git+https://github.com/openexr/openexr#tag=v$pkgver)
+ sha256sums=('570f7bd820610264f640dc60501bdcca683a037188e513cfefccc2d861a8c3df')

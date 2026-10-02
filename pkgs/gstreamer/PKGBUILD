@@ -168,7 +168,6 @@ makedepends=(
   zlib
   zvbi
 )
-makedepends_x86_64=(svt-hevc)
 checkdepends=(xorg-server-xvfb)
 source=(
   "git+https://gitlab.freedesktop.org/gstreamer/gstreamer.git?signed#tag=$pkgver"

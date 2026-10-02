@@ -15,35 +15,28 @@ arch=(x86_64)
 url="https://www.samba.org"
 license=('GPL-3.0-or-later')
 makedepends=(
-  acl
-  dateutils
-  dbus
-  docbook-xsl
-  glusterfs
-  gnutls
-  jansson
-  krb5
-  libbsd
-  libcap
-  libcups
-  libldap
-  libnsl
-  libtirpc
-  liburing
-  pam
-  perl-json
-  perl-parse-yapp
-  pkg-config
-  popt
-  python
-  python-dnspython
-  python-markdown
-  readline
-  rpcsvc-proto
-  systemd
-  talloc
-  tdb
-  tevent
+ acl
+ dbus
+ docbook-xsl
+ gnutls
+ jansson
+ krb5
+ libbsd
+ libcap
+ libldap
+ libnsl
+ libtirpc
+ liburing
+ pam
+ pkg-config
+ popt
+ python
+ python-markdown
+ readline
+ systemd
+ talloc
+ tdb
+ tevent
 )
 optdepends=(
   'python-dnspython: samba_dnsupdate and samba_upgradedns in AD setup'

@@ -1,0 +1,10 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -168,7 +168,6 @@
+   zlib
+   zvbi
+ )
+-makedepends_x86_64=(svt-hevc)
+ checkdepends=(xorg-server-xvfb)
+ source=(
+   "git+https://gitlab.freedesktop.org/gstreamer/gstreamer.git?signed#tag=$pkgver"
