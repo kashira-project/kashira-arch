@@ -8,7 +8,6 @@ url="https://gnome.pages.gitlab.gnome.org/gi-docgen/"
 arch=(any)
 license=("Apache-2.0 OR GPL-3.0-or-later")
 depends=(
-  graphviz
   python
   python-jinja
   python-magic

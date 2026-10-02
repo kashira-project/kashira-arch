@@ -1,0 +1,9 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -8,7 +8,7 @@ pkgname=(
+   p11-kit-docs
+ )
+ pkgver=0.26.5
+-pkgrel=1
++pkgrel=3
+ pkgdesc="Loads and enumerates PKCS#11 modules"

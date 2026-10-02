@@ -21,15 +21,9 @@ depends=(
   systemd-libs
 )
 makedepends=(
-  docbook-xml
-  docbook-xsl
-  docbook5-xml
   flex
-  fop
   git
-  libxslt
   meson
-  w3m
 )
 provides=(
   libpam.so
@@ -66,6 +60,7 @@ prepare() {
 
 build() {
   arch-meson "${pkgname}" \
+    -Ddocs=disabled \
     -Dlogind=enabled \
     -Deconf=disabled \
     -Dselinux=disabled \
@@ -84,9 +79,6 @@ check() {
 package() {
   meson install -C build --destdir "${pkgdir}"
   install -Dm 644 $pkgname.tmpfiles "${pkgdir}"/usr/lib/tmpfiles.d/${pkgname}.conf
-
-  # remove unreproducible pdf files
-  rm "${pkgdir}"/usr/share/doc/Linux-PAM/*.pdf
 
   # set unix_chkpwd uid
   chmod +s "${pkgdir}"/usr/bin/unix_chkpwd

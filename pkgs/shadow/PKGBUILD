@@ -3,12 +3,12 @@
 
 pkgname=shadow
 pkgver=4.20.2
-pkgrel=2  # kashira: pam.d removal
+pkgrel=3  # kashira: pam.d removal; coreutils for post_install
 pkgdesc='Password and account management tool suite with shadow file support'
 arch=('x86_64')
 url='https://github.com/shadow-maint/shadow'
 license=('BSD-3-Clause')
-depends=('acl' 'attr' 'glibc' 'libxcrypt' 'audit' 'pam')
+depends=('acl' 'attr' 'glibc' 'libxcrypt' 'audit' 'pam' 'coreutils')
 backup=('etc/login.defs')
 install=shadow.install
 source=("$url/releases/download/$pkgver/$pkgname-$pkgver.tar.xz")

@@ -1,0 +1,11 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -21,6 +21,8 @@
+ 
+ prepare() {
+   cd $_name-$pkgver
++  # kashira: flit-core 4 works fine
++  sed -i 's/flit_core<4/flit_core<5/' pyproject.toml
+ }
+ 
+ build() {

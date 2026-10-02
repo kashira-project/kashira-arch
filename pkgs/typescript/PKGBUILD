@@ -16,10 +16,12 @@ makedepends=(
   npm
   rsync
 )
-source=("git+https://github.com/microsoft/$_name.git#tag=v$pkgver")
-b2sums=('88d24a857f85e695e32b5d4b1bdff74cdbe6f3e46c12c00cebdf927412d9446e2592b34b9d05bd089c89ab9a0d4fd76ec77845be1b69b78fadc32dedffd06e74')
+source=("$_name-$pkgver.tar.gz::https://github.com/microsoft/$_name/archive/refs/tags/v$pkgver.tar.gz")
+sha256sums=('c26953b79c1197e02f5666a0b612d5b9707339557aa9744097e7d5719de1a117')
 
 prepare() {
+  bsdtar -xf "$srcdir/$_name-$pkgver.tar.gz" -C "$srcdir"
+  mv "$srcdir/$_name-$pkgver" "$srcdir/$_name"
   cd $_name
   npm ci
 }

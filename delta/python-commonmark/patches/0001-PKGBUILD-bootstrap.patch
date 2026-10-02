@@ -1,0 +1,21 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -11,8 +11,6 @@
+ depends=('python-docutils')
+ makedepends=('python-'{build,installer,wheel}
+-             'python-setuptools'
+-             'python-sphinx'
+-             'python-sphinx_rtd_theme')
++             'python-setuptools')
+ checkdepends=('python-hypothesis')
+ options=('!makeflags')
+ source=(${pkgname}-${pkgver}.tar.gz::https://github.com/readthedocs/commonmark.py/archive/${pkgver}.tar.gz)
+@@ -22,5 +20,4 @@
+ build() {
+   cd commonmark.py-${pkgver}
+   python -m build -wn
+-  make -C docs man text SPHINXBUILD=sphinx-build
+ }
+@@ -39,2 +36,0 @@
+-  install -Dm 644 docs/_build/text/* -t "${pkgdir}/usr/share/doc/${pkgname}"
+-  install -Dm 644 docs/_build/man/commonmark-py.1 "${pkgdir}/usr/share/man/man1/${pkgname}.1"

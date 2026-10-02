@@ -6,9 +6,10 @@ pkgbase=glib2
 pkgname=(
   glib2
   glib2-devel
+  glib2-docs
 )
 pkgver=2.88.3
-pkgrel=4
+pkgrel=5
 pkgdesc="Low level core library"
 url="https://gitlab.gnome.org/GNOME/glib"
 license=(LGPL-2.1-or-later)
@@ -26,6 +27,7 @@ makedepends=(
   dbus
   gcc
   gettext
+  gi-docgen
   git
   gobject-introspection
   libelf
@@ -77,7 +79,7 @@ prepare() {
 build() {
   local meson_options=(
     --default-library both
-    -D documentation=false
+    -D documentation=true
     -D dtrace=disabled
     -D glib_debug=disabled
     -D introspection=enabled
@@ -134,6 +136,9 @@ package_glib2() {
 
   cd "$pkgdir"
 
+  # Split docs
+  _pick docs usr/share/doc
+
   # Split devel
   _pick devel usr/bin/gdbus-codegen
   _pick devel usr/bin/glib-{mkenums,genmarshal}
@@ -165,3 +170,12 @@ package_glib2-devel() {
 }
 
 # vim:set sw=2 sts=-1 et:
+
+package_glib2-docs() {
+  pkgdesc+=" - documentation"
+  depends=()
+  license+=(LicenseRef-Public-Domain)
+
+  mv docs/* "$pkgdir"
+  install -Dt "$pkgdir/usr/share/licenses/$pkgname" -m644 glib/docs/reference/COPYING
+}

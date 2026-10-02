@@ -25,8 +25,10 @@ package() {
   # https://bugs.archlinux.org/task/63396
   chown -R root:root "$pkgdir"
 
-  # Dedup typescript
-  rm -r "$pkgdir"/usr/lib/node_modules/ts-node/node_modules/{typescript,.bin/{tsc,tsserver}}
+  # Dedup typescript. rm -rf: which of these paths exist depends on how npm
+  # resolved the tree, and a recursive rm aborts the whole transaction on the
+  # first missing one. typescript stays a runtime depend and ships separately.
+  rm -rf "$pkgdir"/usr/lib/node_modules/ts-node/node_modules/{typescript,.bin/{tsc,tsserver}}
 }
 
 # vim:set ts=2 sw=2 et:

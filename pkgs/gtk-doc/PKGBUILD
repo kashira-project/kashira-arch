@@ -21,10 +21,10 @@ depends=(
   sh
 )
 makedepends=(
-  dblatex
   git
   meson
-  yelp-tools
+  itstool
+  python-parameterized
 )
 checkdepends=(
   bc

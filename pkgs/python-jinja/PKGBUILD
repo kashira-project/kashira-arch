@@ -21,6 +21,8 @@ sha256sums=('2074b22a72caa65474902234b320d73463d6d4c223ee49f4b433495758356337')
 
 prepare() {
   cd $_name-$pkgver
+  # kashira: flit-core 4 works fine
+  sed -i 's/flit_core<4/flit_core<5/' pyproject.toml
 }
 
 build() {

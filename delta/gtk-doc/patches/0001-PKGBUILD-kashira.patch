@@ -1,0 +1,15 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -21,10 +21,10 @@
+   sh
+ )
+ makedepends=(
+-  dblatex
+   git
+   meson
+-  yelp-tools
++  itstool
++  python-parameterized
+ )
+ checkdepends=(
+   bc

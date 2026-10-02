@@ -818,3 +818,10 @@ semver	fork-vanilla
 jq	fork-vanilla
 node-gyp	fork-vanilla
 nodejs-nopt	fork-vanilla
+graphviz	fork-vanilla
+python-magic	fork-vanilla
+python-typogrify	fork-vanilla
+python-smartypants	fork-vanilla
+python-parameterized	fork-vanilla
+rsync	fork-vanilla
+python-commonmark	fork-vanilla
