@@ -90,7 +90,6 @@ makedepends=(
   libogg
   libopenmpt
   libpng
-  libpulse
   libraw1394
   librsvg
   libshout
@@ -143,15 +142,6 @@ makedepends=(
   python-setuptools
   python-typing_extensions
   qrencode
-  qt5-base
-  qt5-declarative
-  qt5-tools
-  qt5-wayland
-  qt5-x11extras
-  qt6-base
-  qt6-declarative
-  qt6-shadertools
-  qt6-tools
   rtmpdump
   rust
   sbc
@@ -165,7 +155,6 @@ makedepends=(
   taglib
   twolame
   v4l-utils
-  valgrind
   vulkan-headers
   vulkan-icd-loader
   wavpack
@@ -173,13 +162,11 @@ makedepends=(
   wayland-protocols
   webrtc-audio-processing-1
   wildmidi
-  wpebackend-fdo
   x264
   x265
   zbar
   zlib
   zvbi
-  zxing-cpp
 )
 makedepends_x86_64=(svt-hevc)
 checkdepends=(xorg-server-xvfb)
@@ -618,7 +605,6 @@ package_gst-plugins-good() {
     libiec61883
     libjpeg-turbo
     libpng
-    libpulse
     libraw1394
     libshout
     libsoup3
@@ -794,7 +780,6 @@ package_gst-plugins-bad() {
     x265
     zbar
     zvbi
-    zxing-cpp
   )
   optdepends=(
     'gst-plugin-gtk: gtk plugin'

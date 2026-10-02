@@ -46,7 +46,6 @@ makedepends=(
     'glib2-devel'
     'meson'
     'python-six'
-    'python-pyparsing'
     'usbutils'
     'vala'
     'wayland-protocols'

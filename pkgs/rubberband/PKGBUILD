@@ -15,13 +15,10 @@ makedepends=(
   boost
   boost-libs
   fftw
-  java-environment
-  ladspa
   libsamplerate
   libsndfile
   lv2
   meson
-  vamp-plugin-sdk
 )
 source=($pkgbase-$pkgver.tar.gz::$_url/archive/v$pkgver.tar.gz)
 sha512sums=('f581e900a71f78fde3361d2bed2fe165952c2ca087168c5f4e4994586bd832267eea58e0662a74b6a7430bc361fe80b5307b2ee6bf631a3561a8cba86e1cd3f2')

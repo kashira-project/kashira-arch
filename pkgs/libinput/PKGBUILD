@@ -23,7 +23,6 @@ depends=(
 )
 makedepends=(
   cairo
-  check
   git
   glib2
   gtk4

@@ -14,9 +14,6 @@ makedepends=(
   doxygen
   lv2
   meson
-  python-sphinx
-  python-sphinx-lv2-theme
-  python-sphinxygen
   serd
   sord
 )

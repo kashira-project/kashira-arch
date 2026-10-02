@@ -34,7 +34,6 @@ makedepends=(
   gobject-introspection
   libxml2
   meson
-  python-sphinx
 )
 checkdepends=(
   at-spi2-core

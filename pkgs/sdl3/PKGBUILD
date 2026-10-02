@@ -19,11 +19,9 @@ depends=(
 makedepends=(
   'cmake'
   'ninja'
-  'jack'
   'wayland-protocols'
   'alsa-lib'
   'mesa'
-  'libpulse'
   'libxrandr'
   'libxinerama'
   'wayland'

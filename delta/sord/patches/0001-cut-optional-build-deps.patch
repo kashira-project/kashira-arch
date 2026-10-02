@@ -1,0 +1,10 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -15,7 +15,6 @@
+   glibc
+   meson
+   pcre2
+-  python-sphinx
+   serd
+   zix
+ )

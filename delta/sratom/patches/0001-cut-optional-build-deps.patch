@@ -1,0 +1,12 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -14,9 +14,6 @@
+   doxygen
+   lv2
+   meson
+-  python-sphinx
+-  python-sphinx-lv2-theme
+-  python-sphinxygen
+   serd
+   sord
+ )

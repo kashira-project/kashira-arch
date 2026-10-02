@@ -20,7 +20,6 @@ makedepends=(
   glibc
   gobject-introspection
   libgcc
-  libpipewire
   lua
   meson
   pipewire

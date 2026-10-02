@@ -1,0 +1,10 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -46,7 +46,6 @@
+     'glib2-devel'
+     'meson'
+     'python-six'
+-    'python-pyparsing'
+     'usbutils'
+     'vala'
+     'wayland-protocols'

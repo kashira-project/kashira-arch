@@ -1,0 +1,12 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -35,9 +35,7 @@
+   glib2-devel
+   gobject-introspection
+   meson
+-  python-dbus
+   python-gobject
+-  python-tappy
+   systemd
+   vala
+ )

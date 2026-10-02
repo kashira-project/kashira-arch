@@ -1,0 +1,10 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -34,7 +34,6 @@
+   gobject-introspection
+   libxml2
+   meson
+-  python-sphinx
+ )
+ checkdepends=(
+   at-spi2-core

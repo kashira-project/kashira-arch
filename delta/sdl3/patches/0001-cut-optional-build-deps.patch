@@ -1,0 +1,14 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -19,11 +19,9 @@
+ makedepends=(
+   'cmake'
+   'ninja'
+-  'jack'
+   'wayland-protocols'
+   'alsa-lib'
+   'mesa'
+-  'libpulse'
+   'libxrandr'
+   'libxinerama'
+   'wayland'

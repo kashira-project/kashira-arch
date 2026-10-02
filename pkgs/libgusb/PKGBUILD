@@ -22,7 +22,6 @@ makedepends=(
   git
   gobject-introspection
   meson
-  umockdev
   vala
 )
 source=(git+https://github.com/hughsie/libgusb.git#tag=${pkgver})

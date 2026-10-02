@@ -1,0 +1,13 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -29,10 +29,8 @@
+   graphviz
+   gtk3
+   libevent
+-  python-dbus
+   python-gobject
+   systemd
+-  xmltoman
+ )
+ optdepends=(
+   'gtk3: avahi-discover, avahi-discover-standalone, bshell, bssh, bvnc'

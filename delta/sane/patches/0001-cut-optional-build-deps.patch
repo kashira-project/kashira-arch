@@ -1,0 +1,10 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -40,7 +40,6 @@
+   poppler-glib
+   python
+   systemd
+-  texlive-latexextra
+ )
+ optdepends=(
+   'sane-airscan: for scanners working in driverless mode'

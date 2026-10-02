@@ -59,9 +59,7 @@ makedepends=(chrpath
              libjxl
              libraw
              librsvg
-             libultrahdr
              libwebp
-             libwmf
              libzip
              ocl-icd
              opencl-headers

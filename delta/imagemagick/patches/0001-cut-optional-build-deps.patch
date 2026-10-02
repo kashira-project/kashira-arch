@@ -1,0 +1,12 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -59,9 +59,7 @@
+              libjxl
+              libraw
+              librsvg
+-             libultrahdr
+              libwebp
+-             libwmf
+              libzip
+              ocl-icd
+              opencl-headers

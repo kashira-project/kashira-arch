@@ -1,0 +1,17 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -24,14 +24,11 @@
+   ffmpeg
+   fluidsynth
+   git
+-  jack
+   libmysofa
+-  libpulse
+   libsndfile
+   ninja
+   pipewire
+   portaudio
+-  qt6-base
+   sdl3
+ )
+ source=("git+https://github.com/kcat/openal-soft#tag=$pkgver")

@@ -30,7 +30,6 @@ makedepends=(
   glib2-devel
   gobject-introspection
   meson
-  python-quart
   samba
   vala
 )

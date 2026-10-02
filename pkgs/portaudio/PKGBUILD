@@ -20,7 +20,6 @@ depends=(
 makedepends=(
   alsa-lib
   cmake
-  jack
 )
 provides=(
   libportaudio.so

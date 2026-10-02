@@ -1,0 +1,28 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -23,7 +23,6 @@
+   bash
+   bluez
+   bluez-libs
+-  check
+   dbus
+   doxygen
+   fftw
+@@ -51,17 +50,13 @@
+   openssl
+   orc
+   python
+-  python-dbus
+-  python-pyqt5
+   rtkit
+   sbc
+   speexdsp
+   systemd
+   systemd-libs
+   tdb
+-  valgrind
+   webrtc-audio-processing-1
+-  xmltoman
+ )
+ _commit=b096704c0d42c5e784deb781a07b23cfb5286a82  # master
+ source=(

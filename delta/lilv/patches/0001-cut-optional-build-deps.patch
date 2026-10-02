@@ -1,0 +1,12 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -23,9 +23,6 @@
+   lv2
+   meson
+   python
+-  python-sphinx
+-  python-sphinx-lv2-theme
+-  python-sphinxygen
+   serd
+   sord
+   sratom

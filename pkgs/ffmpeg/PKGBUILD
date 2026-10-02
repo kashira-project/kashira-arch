@@ -85,13 +85,9 @@ depends=(
   zlib
 )
 makedepends=(
-  amf-headers
-  avisynthplus
   clang
   ffnvcodec-headers
-  frei0r-plugins
   git
-  ladspa
   mesa
   nasm
   opencl-headers

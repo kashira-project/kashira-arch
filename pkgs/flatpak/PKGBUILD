@@ -52,7 +52,6 @@ makedepends=(
   gtk-doc
   meson
   python-packaging
-  python-pyparsing
   wayland-protocols
   xmlto
 )

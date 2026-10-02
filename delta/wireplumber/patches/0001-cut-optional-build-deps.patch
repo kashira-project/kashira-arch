@@ -1,0 +1,10 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -20,7 +20,6 @@
+   glibc
+   gobject-introspection
+   libgcc
+-  libpipewire
+   lua
+   meson
+   pipewire

@@ -1,0 +1,16 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -85,13 +85,9 @@
+   zlib
+ )
+ makedepends=(
+-  amf-headers
+-  avisynthplus
+   clang
+   ffnvcodec-headers
+-  frei0r-plugins
+   git
+-  ladspa
+   mesa
+   nasm
+   opencl-headers

@@ -1,0 +1,15 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -17,12 +17,10 @@
+ makedepends=(
+   git
+   glib2-devel
+-  glibc-locales
+   gobject-introspection
+   gtk-doc
+   meson
+   systemd
+-  umockdev
+   vala
+ )
+ source=("git+$url.git#tag=$pkgver")

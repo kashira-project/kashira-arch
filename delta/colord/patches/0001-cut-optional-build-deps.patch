@@ -1,0 +1,10 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -29,7 +29,6 @@
+   systemd-libs
+ )
+ makedepends=(
+-  argyllcms
+   bash-completion
+   docbook-xsl
+   git

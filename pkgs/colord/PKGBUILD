@@ -29,7 +29,6 @@ depends=(
   systemd-libs
 )
 makedepends=(
-  argyllcms
   bash-completion
   docbook-xsl
   git

@@ -1,0 +1,10 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -52,7 +52,6 @@
+   gtk-doc
+   meson
+   python-packaging
+-  python-pyparsing
+   wayland-protocols
+   xmlto
+ )

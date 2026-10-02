@@ -51,17 +51,14 @@ makedepends=(
   graphviz
   gst-plugins-base
   jack2
-  libcamera
   libcanberra
   libebur128
   libfdk-aac
-  libffado
   libfreeaptx
   libgcc
   liblc3
   libldac
   libmysofa
-  libpulse
   libsndfile
   libstdc++
   libusb
@@ -70,17 +67,14 @@ makedepends=(
   lilv
   meson
   ncurses
-  onnxruntime
   opus
   python-docutils
   readline
-  roc-toolkit
   rtkit
   sbc
   sdl2
   spandsp
   systemd
-  valgrind
   webrtc-audio-processing-1
 )
 checkdepends=(

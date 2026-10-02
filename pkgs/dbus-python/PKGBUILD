@@ -22,11 +22,6 @@ makedepends=(
   git
   meson
   python-gobject
-  python-pyproject-metadata
-  python-sphinx
-  python-sphinx_rtd_theme
-  python-sphinxcontrib-jquery
-  python-tomli
 )
 optdepends=('python-gobject: D-Bus services via PyGI')
 source=("git+https://gitlab.freedesktop.org/dbus/$pkgbase.git?signed#tag=$pkgbase-$pkgver")

@@ -27,24 +27,15 @@ depends=(
 makedepends=(
   docbook-xsl
   flatpak
-  gamemode
   geoclue
   git
   glib2-devel
   gst-plugins-good
   libportal
   meson
-  python-dbus
-  python-dbusmock
   python-docutils
   python-gobject
-  python-pytest
-  python-sphinx
-  python-sphinx-copybutton
-  python-sphinx-furo
-  python-sphinxext-opengraph
   rtkit
-  umockdev
   xmlto
 )
 checkdepends=(

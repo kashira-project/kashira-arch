@@ -32,11 +32,6 @@ makedepends=(
   gtk4
   libstdc++
   meson
-  qt5-base
-  qt5-tools
-  qt5-x11extras
-  qt6-base
-  qt6-tools
   vala
 )
 checkdepends=(
