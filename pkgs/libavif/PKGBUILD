@@ -24,7 +24,7 @@ depends=(aom
 makedepends=(cmake
              git
              nasm
-             pandoc-cli)
+             )
 source=(git+https://github.com/AOMediaCodec/libavif#tag=v$pkgver
         git+https://github.com/kmurray/libargparse#commit=$_libargparse)
 sha256sums=('2c84afde7ea25afbf3ed9981d65a87723920137e1033f5e4fb48c76c4566ede1'

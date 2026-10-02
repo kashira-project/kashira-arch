@@ -1,0 +1,47 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -6,7 +6,6 @@
+   gnome-desktop-common
+   gnome-desktop
+   gnome-desktop-4
+-  gnome-desktop-docs
+ )
+ pkgver=44.5
+ pkgrel=1
+@@ -41,7 +40,6 @@
+   gtk4
+   meson
+   systemd
+-  yelp-tools
+ )
+ checkdepends=(xorg-server-xvfb)
+ source=("git+https://gitlab.gnome.org/GNOME/gnome-desktop.git#tag=${pkgver/[a-z]/.&}")
+@@ -54,7 +52,7 @@
+ build() {
+   local meson_options=(
+     -D debug_tools=false
+-    -D gtk_doc=true
++    -D gtk_doc=false
+   )
+ 
+   arch-meson $pkgbase build "${meson_options[@]}"
+@@ -96,7 +94,6 @@
+   _pick gtk4 usr/lib/girepository-1.0/Gnome*-4.0.typelib
+   _pick gtk4 usr/share/gir-1.0/Gnome*-4.0.gir
+ 
+-  _pick docs usr/share/gtk-doc
+ }
+ 
+ package_gnome-desktop() {
+@@ -121,11 +118,4 @@
+   mv gtk4/* "$pkgdir"
+ }
+ 
+-package_gnome-desktop-docs() {
+-  pkgdesc+=" (documentation)"
+-  depends=()
+-
+-  mv docs/* "$pkgdir"
+-}
+-
+ # vim:set sw=2 sts=-1 et:

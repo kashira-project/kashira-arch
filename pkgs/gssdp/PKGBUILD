@@ -25,7 +25,6 @@ makedepends=(
   gobject-introspection
   gtk4
   meson
-  pandoc
   vala
 )
 source=("git+https://gitlab.gnome.org/GNOME/gssdp.git?signed#tag=gssdp-$pkgver")

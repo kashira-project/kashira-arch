@@ -1,0 +1,45 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -5,7 +5,6 @@
+   pulseaudio
+   libpulse
+   pulseaudio-zeroconf
+-  pulseaudio-lirc
+   pulseaudio-jack
+   pulseaudio-bluetooth
+   pulseaudio-equalizer
+@@ -48,7 +47,6 @@
+   libx11
+   libxcb
+   libxtst
+-  lirc
+   meson
+   openssl
+   orc
+@@ -151,8 +149,7 @@
+     'pulseaudio-bluetooth: Bluetooth support'
+     'pulseaudio-equalizer: Graphical equalizer'
+     'pulseaudio-jack: Jack support'
+-    'pulseaudio-lirc: IR (lirc) support'
+-    'pulseaudio-rtp: RTP and RAOP support'
++        'pulseaudio-rtp: RTP and RAOP support'
+     'pulseaudio-zeroconf: Zeroconf support'
+   )
+   provides=(pulse-native-provider)
+@@ -262,16 +259,6 @@
+   mv zeroconf/* "$pkgdir"
+ }
+ 
+-package_pulseaudio-lirc() {
+-  pkgdesc="IR (lirc) support for PulseAudio"
+-  depends=(
+-    "pulseaudio=$pkgver-$pkgrel"
+-    glibc
+-    lirc
+-  )
+-
+-  mv lirc/* "$pkgdir"
+-}
+ 
+ package_pulseaudio-jack() {
+   pkgdesc="Jack support for PulseAudio"

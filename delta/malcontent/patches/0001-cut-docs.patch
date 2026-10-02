@@ -1,0 +1,47 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -4,7 +4,6 @@
+ pkgname=(
+   malcontent
+   libmalcontent
+-  malcontent-docs
+ )
+ pkgver=0.14.0
+ pkgrel=4
+@@ -42,7 +41,6 @@
+   libglib-testing
+   meson
+   python-packaging
+-  yelp-tools
+ )
+ checkdepends=(
+   python-dbusmock
+@@ -78,7 +76,7 @@
+   # Inject tinycdb
+   export MESON_PACKAGE_CACHE_DIR="$srcdir"
+ 
+-  arch-meson $pkgname build
++  arch-meson $pkgname build -Dgtk_doc=false
+   meson compile -C build
+ }
+ 
+@@ -110,7 +108,6 @@
+   _pick libs usr/lib/libmalcontent-0.so*
+   _pick libs usr/lib/pkgconfig/malcontent-0.pc
+   _pick libs usr/share/gir-1.0/Malcontent-0.gir
+-  _pick doc usr/share/doc
+ }
+ 
+ package_libmalcontent() {
+@@ -126,11 +123,4 @@
+   mv libs/* "$pkgdir"
+ }
+ 
+-package_malcontent-docs() {
+-  pkgdesc+=" (documentation)"
+-  depends=()
+-
+-  mv doc/* "$pkgdir"
+-}
+-
+ # vim:set sw=2 sts=-1 et:

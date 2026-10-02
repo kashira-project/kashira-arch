@@ -1,0 +1,350 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -9,20 +9,12 @@
+   gst-plugins-base
+   gst-plugins-good
+   gst-plugins-bad
+-  gst-plugins-ugly
+   gst-libav
+   gst-plugin-gtk
+   gst-plugin-hip
+   gst-plugin-msdk
+-  gst-plugin-onnx
+-  gst-plugin-opencv
+-  gst-plugin-qml6
+-  gst-plugin-qmlgl
+   gst-plugin-qsv
+-  gst-plugin-svthevcenc
+   gst-plugin-va
+-  gst-plugin-wpe
+-  gst-plugin-wpe2
+   gst-devtools-libs
+   gst-devtools
+   gst-rtsp-server
+@@ -37,7 +29,6 @@
+ arch=(x86_64)
+ license=(LGPL-2.1-or-later)
+ makedepends=(
+-  a52dec
+   aalib
+   alsa-lib
+   aom
+@@ -65,9 +56,7 @@
+   hicolor-icon-theme
+   imath
+   iso-codes
+-  jack2
+   json-glib
+-  ladspa
+   lame
+   lcms2
+   libass
+@@ -89,19 +78,15 @@
+   libfreeaptx
+   libgcc
+   libglvnd
+-  libgme
+   libgudev
+   libiec61883
+   libjpeg-turbo
+   liblc3
+   libldac
+-  liblrdf
+   libltc
+   libmicrodns
+   libmodplug
+   libmpcdec
+-  libmpeg2
+-  libnice
+   libogg
+   libopenmpt
+   libpng
+@@ -121,7 +106,6 @@
+   libvpl
+   libvpx
+   libwebp
+-  libwpe
+   libx11
+   libxcb
+   libxdamage
+@@ -138,20 +122,16 @@
+   lv2
+   mesa
+   meson
+-  mjpegtools
+   mpg123
+   nasm
+   neon
+   nettle
+-  onnxruntime
+   openal
+   opencore-amr
+-  opencv
+   openexr
+   openh264
+   openjpeg2
+   openssl
+-  opentimelineio
+   opus
+   orc
+   pango
+@@ -181,23 +161,19 @@
+   spandsp
+   speex
+   srt
+-  svt-av1
+   systemd-libs
+   taglib
+   twolame
+   v4l-utils
+   valgrind
+-  vmaf
+   vulkan-headers
+   vulkan-icd-loader
+-  vulkan-validation-layers
+   wavpack
+   wayland
+   wayland-protocols
+   webrtc-audio-processing-1
+   wildmidi
+   wpebackend-fdo
+-  wpewebkit
+   x264
+   x265
+   zbar
+@@ -242,6 +218,30 @@
+ 
+ build() {
+   local meson_options=(
++    -D gst-plugins-bad:mjpeg2mux=disabled
++    -D gst-plugins-bad:libgme=disabled
++    -D gst-plugins-bad:ladspa=disabled
++    -D gst-plugins-bad:opentimelineio=disabled
++    -D gst-plugins-ugly:a52dec=disabled
++    -D gst-plugins-ugly:libav=disabled
++    -D gst-plugins-ugly:libmpeg2=disabled
++    -D gst-plugins-bad:jack=disabled
++    -D gst-plugins-bad:jack=disabled
++    -D gst-plugins-bad:jackdetect=disabled
++    -D gst-plugins-bad:vapoursynth=disabled
++    -D gst-plugins-bad:zeromq=disabled
++    -D gst-plugins-bad:opencv=disabled
++    -D gst-plugins-bad:wep=disabled
++    -D gst-plugins-bad:wpe2=disabled
++    -D gst-plugins-bad:onnxruntime=disabled
++    -D gst-plugins-bad:a52=disabled
++    -D gst-plugins-bad:libgme=disabled
++    -D gst-plugins-bad:svtav1=disabled
++    -D gst-plugins-bad:svtjpegxs=disabled
++    -D gst-plugins-bad:mfx=disabled
++    -D gst-plugins-bad:libnice=disabled
++    -D gst-plugins-bad:ladspa=disabled
++    -D gst-plugins-ugly:libgme=disabled
+     -D benchmarks=disabled
+     -D examples=disabled
+     -D glib_debug=disabled
+@@ -761,7 +761,6 @@
+     libgme
+     liblc3
+     libldac
+-    liblrdf
+     libltc
+     libmicrodns
+     libmodplug
+@@ -774,7 +773,6 @@
+     libwebp
+     libxml2
+     lilv
+-    mjpegtools
+     neon
+     nettle
+     openal
+@@ -880,36 +878,6 @@
+   ); _install
+ }
+ 
+-package_gst-plugins-ugly() {
+-  pkgdesc+=" - ugly plugins"
+-  depends=(
+-    "gst-plugins-base-libs=$pkgver-$pkgrel"
+-    "gstreamer=$pkgver-$pkgrel"
+-    a52dec
+-    glib2
+-    glibc
+-    libcdio
+-    libdvdread
+-    libmpeg2
+-    x264
+-  )
+-
+-  cd root; local files=(
+-    usr/lib/gstreamer-1.0/libgsta52dec.so
+-    usr/lib/gstreamer-1.0/libgstasf.so
+-    usr/lib/gstreamer-1.0/libgstcdio.so
+-    usr/lib/gstreamer-1.0/libgstdvdlpcmdec.so
+-    usr/lib/gstreamer-1.0/libgstdvdread.so
+-    usr/lib/gstreamer-1.0/libgstdvdsub.so
+-    usr/lib/gstreamer-1.0/libgstmpeg2dec.so
+-    usr/lib/gstreamer-1.0/libgstrealmedia.so
+-    usr/lib/gstreamer-1.0/libgstx264.so
+-
+-    usr/share/gstreamer-1.0/presets/GstX264Enc.prs
+-
+-    usr/share/locale/*/LC_MESSAGES/gst-plugins-ugly-1.0.mo
+-  ); _install
+-}
+ 
+ package_gst-libav() {
+   pkgdesc+=" - libav plugin"
+@@ -994,81 +962,9 @@
+   ); _install
+ }
+ 
+-package_gst-plugin-onnx() {
+-  pkgdesc+=" - onnx plugin"
+-  depends=(
+-    "gst-plugins-bad-libs=$pkgver-$pkgrel"
+-    "gst-plugins-base-libs=$pkgver-$pkgrel"
+-    "gstreamer=$pkgver-$pkgrel"
+-    glib2
+-    glibc
+-    onnxruntime
+-  )
+-
+-  cd root; local files=(
+-    usr/lib/gstreamer-1.0/libgstonnx.so
+-  ); _install
+-}
+-
+-package_gst-plugin-opencv() {
+-  pkgdesc+=" - opencv plugin and library"
+-  depends=(
+-    "gst-plugins-base-libs=$pkgver-$pkgrel"
+-    "gstreamer=$pkgver-$pkgrel"
+-    glib2
+-    glibc
+-    libgcc
+-    libstdc++
+-    opencv
+-  )
+-
+-  cd root; local files=(
+-    usr/include/gstreamer-1.0/gst/opencv
+-    usr/lib/libgstopencv-1.0.so*
+ 
+-    usr/lib/gstreamer-1.0/libgstopencv.so
+-  ); _install
+-}
+ 
+-package_gst-plugin-qml6() {
+-  pkgdesc+=" - qml6 plugin"
+-  depends=(
+-    "gst-plugins-base-libs=$pkgver-$pkgrel"
+-    "gstreamer=$pkgver-$pkgrel"
+-    glib2
+-    glibc
+-    libgcc
+-    libglvnd
+-    libstdc++
+-    qt6-base
+-    qt6-declarative
+-  )
+ 
+-  cd root; local files=(
+-    usr/lib/gstreamer-1.0/libgstqml6.so
+-  ); _install
+-}
+-
+-package_gst-plugin-qmlgl() {
+-  pkgdesc+=" - qmlgl plugin"
+-  depends=(
+-    "gst-plugins-base-libs=$pkgver-$pkgrel"
+-    "gstreamer=$pkgver-$pkgrel"
+-    glib2
+-    glibc
+-    libgcc
+-    libglvnd
+-    libstdc++
+-    qt5-base
+-    qt5-declarative
+-    qt5-wayland
+-    qt5-x11extras
+-  )
+-
+-  cd root; local files=(
+-    usr/lib/gstreamer-1.0/libgstqmlgl.so
+-  ); _install
+-}
+ 
+ package_gst-plugin-qsv() {
+   pkgdesc+=" - qsv plugin"
+@@ -1091,22 +987,6 @@
+   ); _install
+ }
+ 
+-package_gst-plugin-svthevcenc() {
+-  pkgdesc+=" - svthevcenc plugin"
+-  arch=(x86_64)
+-  depends=(
+-    "gst-plugins-bad-libs=$pkgver-$pkgrel"
+-    "gst-plugins-base-libs=$pkgver-$pkgrel"
+-    "gstreamer=$pkgver-$pkgrel"
+-    glib2
+-    glibc
+-    svt-hevc
+-  )
+-
+-  cd root; local files=(
+-    usr/lib/gstreamer-1.0/libgstsvthevcenc.so
+-  ); _install
+-}
+ 
+ package_gst-plugin-va() {
+   pkgdesc+=" - va plugin"
+@@ -1126,46 +1006,7 @@
+   ); _install
+ }
+ 
+-package_gst-plugin-wpe() {
+-  pkgdesc+=" - wpe plugin"
+-  depends=(
+-    "gst-plugins-base-libs=$pkgver-$pkgrel"
+-    "gstreamer=$pkgver-$pkgrel"
+-    glib2
+-    glibc
+-    libgcc
+-    libstdc++
+-    libwpe
+-    libxkbcommon
+-    wayland
+-    wpebackend-fdo
+-    wpewebkit
+-  )
+ 
+-  cd root; local files=(
+-    usr/lib/gstreamer-1.0/libgstwpe.so
+-    usr/lib/gst-plugins-bad/wpe-extension/libgstwpeextension.so
+-  ); _install
+-}
+-
+-package_gst-plugin-wpe2() {
+-  pkgdesc+=" - wpe2 plugin"
+-  depends=(
+-    "gst-plugins-base-libs=$pkgver-$pkgrel"
+-    "gstreamer=$pkgver-$pkgrel"
+-    glib2
+-    glibc
+-    libgcc
+-    libglvnd
+-    libstdc++
+-    libxkbcommon
+-    wpewebkit
+-  )
+-
+-  cd root; local files=(
+-    usr/lib/gstreamer-1.0/libgstwpe2.so
+-  ); _install
+-}
+ 
+ package_gst-devtools-libs() {
+   pkgdesc+=" - development and debugging libraries"
