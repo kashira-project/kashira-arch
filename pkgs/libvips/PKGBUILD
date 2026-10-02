@@ -13,8 +13,7 @@ depends=('cairo' 'cfitsio' 'expat' 'fftw' 'fontconfig' 'glib2' 'glibc' 'highway'
          'libjpeg-turbo' 'libmatio' 'libpng' 'libraw' 'librsvg' 'libstdc++'
          'libtiff' 'libwebp' 'openexr' 'openjpeg2' 'pango' 'zlib')
 makedepends=('doxygen' 'gi-docgen' 'glib2-devel' 'gobject-introspection'
- 'graphviz' 'imagemagick' 'libheif' 'libjxl' 'meson' 'openslide'
-'vala')
+ 'graphviz' 'imagemagick' 'libheif' 'libjxl' 'meson' 'vala')
 checkdepends=('python-pytest' 'python-pyvips')
 source=("https://github.com/libvips/libvips/releases/download/v$pkgver/vips-$pkgver.tar.xz")
 sha512sums=('0a0127aa941eb8d3ce72d80c43287e402059532ba4f241962fd22ccdb2d525997f5bba6bb4bc89eb28710403cbcff2b6d24df904aaa61639ea5b14742fee91e4')

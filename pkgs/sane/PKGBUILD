@@ -119,7 +119,7 @@ package() {
     libtiff libtiff.so
     libusb libusb-1.0.so
     libxml2 libxml2.so
-    poppler-glib libpoppler-glib.so
+    
     systemd-libs libsystemd.so
   )
 

@@ -48,8 +48,7 @@ optdepends=('ghostscript: PS/PDF support'
 options+=(!emptydirs libtool)
 backup=(etc/ImageMagick-7/{colors,delegates,log,mime,policy,quantization-table,thresholds,type,type-{dejavu,ghostscript}}.xml)
 provides=(libmagick)
-makedepends=(chrpath
-             djvulibre
+makedepends=(djvulibre
              ghostscript
              git
              glu

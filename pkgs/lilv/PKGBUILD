@@ -120,7 +120,6 @@ package_python-lilv() {
   depends=(
     lilv
     python
-    python-numpy
   )
 
   mv -v $pkgname/* "$pkgdir"

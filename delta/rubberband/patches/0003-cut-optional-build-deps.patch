@@ -1,0 +1,10 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -120,7 +120,6 @@
+     glibc
+     libgcc
+     libsamplerate libsamplerate.so
+-    vamp-plugin-sdk
+   )
+ 
+   mv -v $pkgname/* "$pkgdir"

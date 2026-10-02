@@ -1,0 +1,10 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -120,7 +120,6 @@
+   depends=(
+     lilv
+     python
+-    python-numpy
+   )
+ 
+   mv -v $pkgname/* "$pkgdir"
