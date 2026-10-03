@@ -11,7 +11,7 @@ arch=('x86_64')
 url="https://github.com/mchehab/zbar"
 license=('LGPL-2.1-or-later')
 depends=('dbus' 'imagemagick' 'libxv' 'v4l-utils')
-makedepends=('gtk3' 'qt5-x11extras' 'python' 'xmlto' 'docbook-xsl' 'gobject-introspection' 'glib2-devel')
+makedepends=('gtk3' 'python' 'xmlto' 'docbook-xsl' 'gobject-introspection' 'glib2-devel')
 optdepends=('gtk3: for zbar-gtk'
             'qt5-x11extras: for zbar-qt'
             'python: for zbar python bindings')

@@ -1,0 +1,44 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -3,7 +3,7 @@
+ # Contributor: Jan de Groot <jgc@archlinux.org>
+ 
+ pkgbase=poppler
+-pkgname=('poppler' 'poppler-glib' 'poppler-qt5' 'poppler-qt6')
++pkgname=('poppler' 'poppler-glib'  )
+ pkgver=26.08.0
+ pkgrel=1
+ arch=(x86_64)
+@@ -80,32 +80,4 @@
+   install -m644 "${srcdir}"/${pkgbase}/{COPYING,COPYING3,README-XPDF,README.contributors} "${pkgdir}"/usr/share/licenses/${pkgname}/
+ }
+ 
+-package_poppler-qt5() {
+-  pkgdesc="Poppler Qt5 bindings"
+-  depends=("poppler=${pkgver}" 'qt5-base' 'lcms2' 'freetype2' 'libgcc' 'libstdc++' 'glibc')
+-  provides=('libpoppler-qt5.so')
+ 
+-  cd build
+-  make -C qt5 DESTDIR="${pkgdir}" install
+-  install -m755 -d "${pkgdir}/usr/lib/pkgconfig"
+-  install -m644 poppler-qt5.pc "${pkgdir}/usr/lib/pkgconfig/"
+-
+-  # license
+-  mkdir -p "${pkgdir}"/usr/share/licenses/${pkgname}
+-  install -m644 "${srcdir}"/${pkgbase}/{COPYING,COPYING3,README-XPDF,README.contributors} "${pkgdir}"/usr/share/licenses/${pkgname}/
+-}
+-
+-package_poppler-qt6() {
+-  pkgdesc="Poppler Qt6 bindings"
+-  depends=("poppler=${pkgver}" 'qt6-base' 'lcms2' 'freetype2' 'libgcc' 'libstdc++' 'glibc')
+-  provides=('libpoppler-qt6.so')
+-
+-  cd build
+-  make -C qt6 DESTDIR="${pkgdir}" install
+-  install -m755 -d "${pkgdir}/usr/lib/pkgconfig"
+-  install -m644 poppler-qt6.pc "${pkgdir}/usr/lib/pkgconfig/"
+-
+-  # license
+-  mkdir -p "${pkgdir}"/usr/share/licenses/${pkgname}
+-  install -m644 "${srcdir}"/${pkgbase}/{COPYING,COPYING3,README-XPDF,README.contributors} "${pkgdir}"/usr/share/licenses/${pkgname}/
+-}

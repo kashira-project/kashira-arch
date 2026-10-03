@@ -69,8 +69,7 @@ package_appstream-qt() {
            glibc
            libgcc
            libstdc++
-           qt6-base)
-
+)
   meson install --destdir "$pkgdir" -C build
 
 # provided by appstream
