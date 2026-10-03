@@ -1,0 +1,15 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -40,9 +40,10 @@
+     -Dfft=fftw
+     -Dresampler=libsamplerate
+     -Dvamp=false
+-    -Dcli=false
++    -Dcmdline=false
+     -Dladspa=false
+-    -Djava=false
++    -Dlv2=false
++    -Djni=false
+     -Dextra_include_dirs="/usr/lib/jvm/java-$java_major-openjdk/include,/usr/lib/jvm/java-$java_major-openjdk/include/linux"
+   )
+   export JAVA_HOME="/usr/lib/jvm/java-$java_major-openjdk"

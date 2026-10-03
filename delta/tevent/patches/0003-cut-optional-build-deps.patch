@@ -1,0 +1,14 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -25,10 +25,8 @@
+   cd ${pkgname}-${pkgver}
+   ./configure \
+     --prefix=/usr \
+-    --bundled-libraries=NONE \
+     --disable-rpath-install \
+-    --builtin-libraries=replace \
+-    --disable-system-tests
++    --builtin-libraries=replace
+   make
+ }
+ 

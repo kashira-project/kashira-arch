@@ -1,0 +1,11 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -35,7 +35,7 @@
+ }
+ 
+ build() {
+-  arch-meson $pkgname-$pkgver build -Ddoc=false
++  arch-meson $pkgname-$pkgver build -Ddocs=false
+   meson compile -C build
+ }
+ 
