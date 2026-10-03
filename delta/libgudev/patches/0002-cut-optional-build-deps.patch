@@ -1,0 +1,13 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -32,7 +32,9 @@
+ 
+ build() {
+   local meson_options=(
+-    -D gtk_doc=true
++    -D gtk_doc=false
++    -D tests=false
++    -D introspection=false
+   )
+ 
+   arch-meson libgudev build "${meson_options[@]}"

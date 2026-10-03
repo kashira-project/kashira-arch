@@ -1,0 +1,13 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -39,6 +39,10 @@
+   local meson_options=(
+     -Dfft=fftw
+     -Dresampler=libsamplerate
++    -Dvamp=false
++    -Dcli=false
++    -Dladspa=false
++    -Djava=false
+     -Dextra_include_dirs="/usr/lib/jvm/java-$java_major-openjdk/include,/usr/lib/jvm/java-$java_major-openjdk/include/linux"
+   )
+   export JAVA_HOME="/usr/lib/jvm/java-$java_major-openjdk"

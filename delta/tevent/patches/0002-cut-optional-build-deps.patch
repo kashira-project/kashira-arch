@@ -1,0 +1,12 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -27,7 +27,8 @@
+     --prefix=/usr \
+     --bundled-libraries=NONE \
+     --disable-rpath-install \
+-    --builtin-libraries=replace
++    --builtin-libraries=replace \
++    --disable-system-tests
+   make
+ }
+ 
