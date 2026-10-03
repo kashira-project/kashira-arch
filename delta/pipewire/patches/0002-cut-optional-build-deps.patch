@@ -1,0 +1,144 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -13,14 +13,9 @@
+   pipewire-alsa
+   pipewire-audio
+   pipewire-docs
+-  pipewire-ffado
+   pipewire-jack
+   pipewire-jack-client
+-  pipewire-libcamera
+-  pipewire-netjack2
+-  pipewire-onnx
+   pipewire-pulse
+-  pipewire-roc
+   pipewire-system-services
+   pipewire-v4l2
+   pipewire-x11-bell
+@@ -175,7 +170,6 @@
+ 
+     _pick gst usr/lib/gstreamer-1.0
+ 
+-    _pick onnx usr/lib/$_spaname/filter-graph/libspa-filter-graph-plugin-onnx.so
+ 
+     _pick audio usr/bin/pipewire-aes67
+     _pick audio usr/bin/pw-{cat,loopback,mididump,midi2play,midi2record,sysex}
+@@ -195,7 +189,6 @@
+ 
+     _pick docs usr/share/doc
+ 
+-    _pick ffado usr/lib/$_pwname/libpipewire-module-ffado*.so
+     _pick ffado usr/share/man/man7/libpipewire-module-ffado-driver.7
+ 
+     _pick jack-client usr/lib/$_pwname/libpipewire-module-jack{-tunnel,dbus-detect}.so
+@@ -210,9 +203,7 @@
+     _pick jack usr/share/man/man5/pipewire-jack.conf.5
+     _pick jack usr/share/pipewire/jack.conf
+ 
+-    _pick libcamera usr/lib/$_spaname/libcamera
+ 
+-    _pick netjack2 usr/lib/$_pwname/libpipewire-module-netjack2*.so
+     _pick netjack2 usr/share/man/man7/libpipewire-module-netjack2*.7
+ 
+     _pick pulse usr/bin/pipewire-pulse
+@@ -226,7 +217,6 @@
+     _pick pulse usr/share/man/man7/pipewire-pulse*.7
+     _pick pulse usr/share/pipewire/pipewire-pulse.conf*
+ 
+-    _pick roc usr/lib/$_pwname/libpipewire-module-roc*.so
+     _pick roc usr/share/man/man7/libpipewire-module-roc-{sink,source}.7
+ 
+     _pick v4l2 usr/bin/pw-v4l2 usr/lib/$_pwname/v4l2
+@@ -375,20 +365,6 @@
+   install -Dm644 pipewire/COPYING -t "$pkgdir/usr/share/licenses/$pkgname"
+ }
+ 
+-package_pipewire-ffado() {
+-  pkgdesc+=" - FireWire support"
+-  depends=(
+-    "libpipewire=$epoch:$pkgver-$pkgrel" lib$_pwname.so
+-    "pipewire-audio=$epoch:$pkgver-$pkgrel"
+-    "pipewire=$epoch:$pkgver-$pkgrel"
+-    glibc
+-    libffado libffado.so
+-  )
+-
+-  mv ffado/* "$pkgdir"
+-
+-  install -Dm644 pipewire/COPYING -t "$pkgdir/usr/share/licenses/$pkgname"
+-}
+ 
+ package_pipewire-jack() {
+   pkgdesc+=" - JACK replacement"
+@@ -449,49 +425,8 @@
+   install -Dm644 pipewire/COPYING -t "$pkgdir/usr/share/licenses/$pkgname"
+ }
+ 
+-package_pipewire-libcamera() {
+-  pkgdesc+=" - Libcamera support"
+-  depends=(
+-    "pipewire=$epoch:$pkgver-$pkgrel"
+-    glibc
+-    libcamera libcamera-base.so libcamera.so
+-    libgcc
+-    libstdc++
+-  )
+-
+-  mv libcamera/* "$pkgdir"
+ 
+-  install -Dm644 pipewire/COPYING -t "$pkgdir/usr/share/licenses/$pkgname"
+-}
+ 
+-package_pipewire-netjack2() {
+-  pkgdesc+=" - netJACK2 support"
+-  depends=(
+-    "libpipewire=$epoch:$pkgver-$pkgrel" lib$_pwname.so
+-    "pipewire-audio=$epoch:$pkgver-$pkgrel"
+-    "pipewire=$epoch:$pkgver-$pkgrel"
+-    glibc
+-    opus libopus.so
+-  )
+-
+-  mv netjack2/* "$pkgdir"
+-
+-  install -Dm644 pipewire/COPYING -t "$pkgdir/usr/share/licenses/$pkgname"
+-}
+-
+-package_pipewire-onnx() {
+-  pkgdesc+=" - ONNX filter support"
+-  depends=(
+-    "pipewire-audio=$epoch:$pkgver-$pkgrel"
+-    "pipewire=$epoch:$pkgver-$pkgrel"
+-    glibc
+-    onnxruntime
+-  )
+-
+-  mv onnx/* "$pkgdir"
+-
+-  install -Dm644 pipewire/COPYING -t "$pkgdir/usr/share/licenses/$pkgname"
+-}
+ 
+ package_pipewire-pulse() {
+   pkgdesc+=" - PulseAudio replacement"
+@@ -523,21 +458,6 @@
+   install -Dm644 pipewire/COPYING -t "$pkgdir/usr/share/licenses/$pkgname"
+ }
+ 
+-package_pipewire-roc() {
+-  pkgdesc+=" - ROC streaming support"
+-  depends=(
+-    "libpipewire=$epoch:$pkgver-$pkgrel" lib$_pwname.so
+-    "pipewire-audio=$epoch:$pkgver-$pkgrel"
+-    "pipewire=$epoch:$pkgver-$pkgrel"
+-    glibc
+-    libgcc
+-    roc-toolkit libroc.so
+-  )
+-
+-  mv roc/* "$pkgdir"
+-
+-  install -Dm644 pipewire/COPYING -t "$pkgdir/usr/share/licenses/$pkgname"
+-}
+ 
+ package_pipewire-system-services() {
+   pkgdesc+=" - System services"
