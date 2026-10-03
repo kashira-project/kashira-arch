@@ -1,14 +1,9 @@
 # Maintainer: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
-
 pkgbase=libportal
 pkgname=(
   libportal
-
   libportal-gtk3
   libportal-gtk4
-  libportal-qt5
-  libportal-qt6
-
   libportal-docs
 )
 pkgver=0.11.0
@@ -41,24 +36,19 @@ checkdepends=(
 )
 source=("git+https://github.com/flatpak/libportal#tag=$pkgver")
 b2sums=('91396a9583cb46e36bb182d7815082b650a50249b302e65b9fe1d453ba587b4d491cda408b076be626289d89889484d58d46c0bfcc3eaf3305476ce2f0666d47')
-
 prepare() {
   cd libportal
-
   # Fix build against Qt 6.9
   git cherry-pick -n 796053d2eebe4532aad6bd3fd80cdf3b197806ec
 }
-
 build() {
   arch-meson libportal build
   meson compile -C build
 }
-
 check() {
   xvfb-run -s '-nolisten local' \
     meson test -C build --print-errorlogs
 }
-
 _pick() {
   local p="$1" f d; shift
   for f; do
@@ -68,7 +58,6 @@ _pick() {
     rmdir -p --ignore-fail-on-non-empty "$(dirname "$f")"
   done
 }
-
 package_libportal() {
   depends+=(libg{lib,object,io}-2.0.so)
   optdepends=(
@@ -80,25 +69,19 @@ package_libportal() {
     'xdg-desktop-portal: Portal service'
   )
   provides=(libportal.so)
-
   meson install -C build --destdir "$pkgdir"
-
   cd "$pkgdir"
-
   _pick docs usr/share/doc
-
   local x
   for x in gtk3 gtk4 qt5 qt6; do
     _pick $x usr/include/libportal-$x
     _pick $x usr/lib{,/pkgconfig}/libportal-$x.*
-
     if [[ $x == gtk* ]]; then
       _pick $x {usr/lib/girepository-1.0,usr/share/gir-1.0}/Xdp${x^}-1.0.*
       _pick $x usr/share/vala/vapi/libportal-$x.*
     fi
   done
 }
-
 package_libportal-gtk3() {
   pkgdesc+=" - GTK 3 backend"
   depends+=(
@@ -106,10 +89,8 @@ package_libportal-gtk3() {
     gtk3 libg{d,t}k-3.so
   )
   provides=(libportal-gtk3.so)
-
   mv gtk3/* "$pkgdir"
 }
-
 package_libportal-gtk4() {
   pkgdesc+=" - GTK 4 backend"
   depends+=(
@@ -117,17 +98,12 @@ package_libportal-gtk4() {
     gtk4 libgtk-4.so
   )
   provides=(libportal-gtk4.so)
-
   mv gtk4/* "$pkgdir"
 }
-
-
 
 package_libportal-docs() {
   pkgdesc+=" - API documentation"
   depends=()
-
   mv docs/* "$pkgdir"
 }
-
 # vim:set sw=2 sts=-1 et:
