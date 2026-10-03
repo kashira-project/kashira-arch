@@ -1,0 +1,11 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -5,7 +5,7 @@
+ # Contributor: Thomas Bahn <thomas-bahn at gmx dot net>
+ 
+ pkgbase=jack2
+-pkgname=(jack2 jack2-dbus jack2-docs)
++pkgname=(jack2 jack2-docs)
+ pkgdesc="The JACK low-latency audio server"
+ pkgver=1.9.22
+ _commit=80149e552b56d6d57d754dc04d119b8170d27313  # refs/tags/v1.9.22
