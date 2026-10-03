@@ -98,19 +98,6 @@ package_jack2() {
   )
 }
 
-package_jack2-dbus() {
-  pkgdesc+=" (dbus integration)"
-  depends=(
-    dbus libdbus-1.so
-    expat libexpat.so
-    glibc
-    jack2 libjackserver.so
-    libstdc++
-    python-dbus
-  )
-
-  mv -v jack2-dbus/* "$pkgdir"
-}
 
 package_jack2-docs() {
   pkgdesc+=" (documentation)"

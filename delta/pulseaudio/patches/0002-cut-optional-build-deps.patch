@@ -1,0 +1,39 @@
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -7,7 +7,6 @@
+   pulseaudio-zeroconf
+   pulseaudio-jack
+   pulseaudio-bluetooth
+-  pulseaudio-equalizer
+   pulseaudio-rtp
+ )
+ pkgver=17.0+r98+gb096704c0
+@@ -210,7 +209,6 @@
+   _pick bluetooth $moddir/module-bluetooth-{discover,policy}.so
+   _pick bluetooth $moddir/module-bluez5-{discover,device}.so
+ 
+-  _pick equalizer $moddir/module-equalizer-sink.so
+   _pick equalizer usr/bin/qpaeq
+ 
+   _pick rtp $moddir/lib{rtp,raop}.so
+@@ -286,20 +284,6 @@
+   mv bluetooth/* "$pkgdir"
+ }
+ 
+-package_pulseaudio-equalizer() {
+-  pkgdesc="Graphical equalizer for PulseAudio"
+-  depends=(
+-    "pulseaudio=$pkgver-$pkgrel"
+-    dbus
+-    fftw
+-    glibc
+-    python
+-    python-dbus
+-    python-pyqt5
+-  )
+-
+-  mv equalizer/* "$pkgdir"
+-}
+ 
+ package_pulseaudio-rtp() {
+   pkgdesc="RTP and RAOP support for PulseAudio"

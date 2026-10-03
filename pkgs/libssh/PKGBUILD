@@ -17,7 +17,7 @@ depends=(glibc
          openssl
          zlib)
 makedepends=(cmake
-             cmocka
+
              doxygen
              openssh
              python)
